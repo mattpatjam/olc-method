@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Session 1 Recap — The Offer Workshop | The Sanctuary by Nirvana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand:       #13b07d;
+    --brand-mid:   rgba(19, 176, 125, 0.12);
+    --brand-light: rgba(19, 176, 125, 0.05);
+    --accent:      #c4884a;
+    --text:        #0d0d0d;
+    --text-muted:  #4a4a4a;
+    --text-light:  #9a9a9a;
+    --border:      #e2e2e2;
+    --border-mid:  #d0d0d0;
+    --surface:     #f9f9f7;
+    --white:       #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: #d8d8d4; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--white);
+    margin: 0 auto 8mm;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.10);
+    overflow: hidden;
+  }
+
+  .page-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 8mm 16mm 0;
+    overflow: hidden;
+  }
+
+  @page { size: 210mm 297mm; margin: 0; }
+  @media print {
+    html { background: white; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+      height: 297mm;
+      overflow: hidden;
+      max-height: 297mm;
+    }
+  }
+
+  .serif { font-family: 'DM Serif Display', Georgia, serif; }
+
+  .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 2mm;
+  }
+
+  .rule { height: 1px; background: var(--border); width: 100%; margin: 3.5mm 0; }
+
+  /* PAGE HEADER */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 3mm;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 5mm;
+    flex-shrink: 0;
+  }
+  .page-header-title { font-size: 11px; font-weight: 500; color: var(--text-muted); }
+  .page-header-tag { font-size: 11px; font-weight: 600; color: var(--brand); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* PAGE FOOTER */
+  .page-footer {
+    padding: 3mm 16mm;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .page-footer-text { font-size: 10px; color: var(--text-light); }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: var(--brand-mid);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 2.5mm 3mm;
+    text-align: left;
+    border-bottom: 1.5px solid var(--brand);
+  }
+  td {
+    padding: 2.5mm 3mm;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--text);
+  }
+  tr:last-child td { border-bottom: none; }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--brand-light);
+    border-left: 3px solid var(--brand);
+    padding: 3mm 4mm;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout p { font-size: 12px; color: var(--text); line-height: 1.5; }
+  .callout strong { font-weight: 600; }
+
+  /* ACCENT CALLOUT */
+  .callout-accent {
+    background: rgba(196,136,74,0.07);
+    border-left: 3px solid var(--accent);
+    padding: 3mm 4mm;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout-accent p { font-size: 12px; color: var(--text); line-height: 1.5; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; }
+
+  /* STAT BOX */
+  .stat-box {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 3.5mm 4mm;
+    background: var(--surface);
+  }
+  .stat-label { font-size: 10px; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5mm; }
+  .stat-value { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; color: var(--brand); line-height: 1; margin-bottom: 1mm; }
+  .stat-desc { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+
+  /* SCORE ROW */
+  .score-row {
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    padding: 2.5mm 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .score-row:last-child { border-bottom: none; }
+  .score-lever { font-size: 12px; font-weight: 500; color: var(--text); flex: 1; }
+  .score-sub { font-size: 11px; color: var(--text-muted); font-weight: 400; }
+  .score-dots { display: flex; gap: 1.5mm; }
+  .dot { width: 5mm; height: 5mm; border-radius: 50%; }
+  .dot-filled { background: var(--brand); }
+  .dot-empty { background: var(--border); }
+  .dot-weak { background: var(--accent); }
+  .score-num { font-size: 12px; font-weight: 600; color: var(--text-muted); width: 8mm; text-align: right; }
+
+  /* STATUS BADGE */
+  .badge {
+    display: inline-block;
+    padding: 0.5mm 2.5mm;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .badge-done { background: rgba(19,176,125,0.13); color: #0a7a54; }
+  .badge-needed { background: rgba(196,136,74,0.13); color: #a06020; }
+  .badge-toby { background: rgba(100,100,200,0.10); color: #4040a0; }
+
+  /* PROFILE CARD */
+  .profile-card {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 3.5mm 4mm;
+    background: var(--surface);
+  }
+  .profile-type {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    margin-bottom: 1.5mm;
+  }
+  .profile-name {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 2mm;
+    line-height: 1.2;
+  }
+  .profile-outcome {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    padding-top: 2mm;
+    margin-top: 1mm;
+  }
+  .profile-tag {
+    display: inline-block;
+    margin-top: 2mm;
+    padding: 0.5mm 2.5mm;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+  .tag-common { background: rgba(19,176,125,0.10); color: #0a7a54; }
+  .tag-valuable { background: rgba(196,136,74,0.13); color: #a06020; }
+
+  /* ACTION ITEM */
+  .action-row {
+    display: grid;
+    grid-template-columns: 1fr 24mm 22mm;
+    gap: 3mm;
+    align-items: start;
+    padding: 2.5mm 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .action-row:last-child { border-bottom: none; }
+  .action-text { font-size: 12px; line-height: 1.45; color: var(--text); }
+  .action-owner { font-size: 11px; color: var(--text-muted); text-align: center; }
+  .action-priority { text-align: center; }
+
+  /* COVER PAGE SPECIFIC */
+  .cover-band {
+    width: 100%;
+    background: var(--brand);
+    padding: 10mm 16mm 9mm;
+    flex-shrink: 0;
+  }
+  .cover-session {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 3mm;
+  }
+  .cover-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 28px;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 2mm;
+  }
+  .cover-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 6mm;
+    margin-top: 5mm;
+    padding-top: 4mm;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+  .cover-meta-item { }
+  .cover-meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 0.5mm; }
+  .cover-meta-value { font-size: 12px; color: white; font-weight: 500; }
+
+  /* TOTAL ROW */
+  .total-row td {
+    background: var(--brand-mid);
+    font-weight: 600;
+    border-top: 1.5px solid var(--brand);
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- PAGE 1 — COVER -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="cover-band">
+    <div class="cover-session">Session 1 of 5 — Offer Workshop</div>
+    <div class="cover-title">The Offer They<br>Can't Refuse</div>
+    <div class="cover-subtitle">Session recap, outputs, and next steps</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Date</div>
+        <div class="cover-meta-value">June 19, 2026</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Attendees</div>
+        <div class="cover-meta-value">Susi Herlina, Maria Natasha</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Facilitator</div>
+        <div class="cover-meta-value">Matthieu Jammers — OLC Method</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-inner" style="padding-top: 7mm;">
+
+    <p style="font-size: 13px; line-height: 1.6; color: var(--text-muted); margin-bottom: 6mm;">
+      Session 1 was about building the foundation for every sales conversation going forward.
+      Before we can teach discovery questions, closing scripts, or follow-up sequences, we need
+      to agree on exactly what we are selling — not the apartment, but the complete value a buyer
+      receives when they say yes to The Sanctuary.
+    </p>
+
+    <div class="section-label">What this session produced</div>
+    <table>
+      <tbody>
+        <tr>
+          <td style="width:8mm; font-weight:600; color:var(--brand); font-size:13px; vertical-align:middle;">1</td>
+          <td><strong>Three buyer profiles</strong> — who they are, what actually moves them, and which profile to prioritize</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600; color:var(--brand); font-size:13px; vertical-align:middle;">2</td>
+          <td><strong>Value Equation scores</strong> — where The Sanctuary is strong, where buyers are losing confidence, and what to fix first</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600; color:var(--brand); font-size:13px; vertical-align:middle;">3</td>
+          <td><strong>Master objection list</strong> — every real objection you face, mapped to the stage where it appears</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600; color:var(--brand); font-size:13px; vertical-align:middle;">4</td>
+          <td><strong>Complete Offer Stack</strong> — every element of the offer named and valued, totalling over $800K in perceived value</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600; color:var(--brand); font-size:13px; vertical-align:middle;">5</td>
+          <td><strong>Risk reversal and urgency language</strong> — how to address the buyer's biggest fear and the real reason to act now</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="rule"></div>
+
+    <div class="callout">
+      <p>The apartment is the vehicle. The dream outcome is the destination. From this session forward, you are not selling a 40sqm suite in Canggu. You are selling financial security, community, and a life where your money works while you are not in Bali.</p>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <span class="page-footer-text">The Sanctuary by Nirvana Health Club — Sales Training 2026</span>
+    <span class="page-footer-text">OLC Method — olcmethod.com</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PAGE 2 — BUYER PROFILES + VALUE EQUATION -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-header-title">Session 1 Recap — The Offer Workshop</span>
+      <span class="page-header-tag">Buyers + Value</span>
+    </div>
+
+    <div class="section-label">The three buyer profiles</div>
+    <div class="grid-3" style="margin-bottom: 5mm;">
+
+      <div class="profile-card">
+        <div class="profile-type">Profile A</div>
+        <div class="profile-name">The Pure Investor</div>
+        <div class="profile-outcome">"I want my capital working. Give me the number, prove it is real, and show me how hands-off this is."</div>
+        <div><span class="profile-tag tag-common">Most common today</span></div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-type">Profile B</div>
+        <div class="profile-name">The Lifestyle Investor</div>
+        <div class="profile-outcome">"I want a Bali base I can actually use, that pays for itself while I am not here. The wellness lifestyle is part of the decision."</div>
+        <div><span class="profile-tag tag-valuable">Most valuable to target</span></div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-type">Profile C</div>
+        <div class="profile-name">The Nirvana True Believer</div>
+        <div class="profile-outcome">"I already come here every year. I spend all day at Nirvana and sleep somewhere that doesn't match. I want to own a piece of this."</div>
+      </div>
+
+    </div>
+
+    <div class="callout-accent" style="margin-bottom: 5mm;">
+      <p><strong>Key insight from the session:</strong> Profile A is who you pitch most often. Profile B is who you should prioritize going forward — they convert on emotion and lifestyle, not just numbers, which means shorter sales cycles and less due diligence friction. Profile C is the most underused: they are already inside the building. They just need to be asked.</p>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="section-label" style="margin-bottom: 3mm;">Value equation — how buyers score The Sanctuary today</div>
+    <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 3.5mm; line-height: 1.5;">
+      Every purchase decision comes down to four levers. Susi and Natasha scored each one independently and landed on identical scores — a strong signal.
+      The weakest lever is where deals are stalling.
+    </p>
+
+    <div style="border: 1px solid var(--border); border-radius: 2px; padding: 2mm 4mm; background: var(--surface);">
+
+      <div class="score-row">
+        <div class="score-lever">Dream Outcome <span class="score-sub">— Are we communicating what the buyer actually gets?</span></div>
+        <div class="score-dots">
+          <div class="dot dot-filled"></div><div class="dot dot-filled"></div><div class="dot dot-filled"></div><div class="dot dot-empty"></div><div class="dot dot-empty"></div>
+        </div>
+        <div class="score-num" style="color:var(--text);">3 / 5</div>
+      </div>
+
+      <div class="score-row">
+        <div class="score-lever">Perceived Likelihood <span class="score-sub">— Does the buyer believe it will actually deliver?</span></div>
+        <div class="score-dots">
+          <div class="dot dot-filled"></div><div class="dot dot-filled"></div><div class="dot dot-filled"></div><div class="dot dot-empty"></div><div class="dot dot-empty"></div>
+        </div>
+        <div class="score-num" style="color:var(--text);">3 / 5</div>
+      </div>
+
+      <div class="score-row">
+        <div class="score-lever">Time Delay <span class="score-sub">— How long before they see the return?</span></div>
+        <div class="score-dots">
+          <div class="dot dot-filled"></div><div class="dot dot-filled"></div><div class="dot dot-filled"></div><div class="dot dot-filled"></div><div class="dot dot-empty"></div>
+        </div>
+        <div class="score-num" style="color:var(--text);">4 / 5</div>
+      </div>
+
+      <div class="score-row">
+        <div class="score-lever" style="font-weight:600; color:var(--accent);">Effort &amp; Sacrifice <span class="score-sub" style="color:var(--text-muted); font-weight:400;">— How much risk and complexity does the buyer feel?</span></div>
+        <div class="score-dots">
+          <div class="dot dot-weak"></div><div class="dot dot-weak"></div><div class="dot dot-empty"></div><div class="dot dot-empty"></div><div class="dot dot-empty"></div>
+        </div>
+        <div class="score-num" style="color:var(--accent); font-weight:700;">2 / 5</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top: 3mm;">
+      <p style="font-size: 11.5px; color: var(--text-muted); line-height: 1.5;"><strong style="color:var(--accent);">The gap to fix:</strong> Effort &amp; Sacrifice scored lowest. The two main friction points are the lease extension question and the PBG/SLF permit. Buyers do not feel unsafe about Nirvana — they feel uncertain about the legal and structural details, and that uncertainty stalls or kills deals at the due diligence stage. The Offer Stack and action items in this recap address both.</p>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <span class="page-footer-text">Session 1 — June 19, 2026</span>
+    <span class="page-footer-text">Page 2 of 5</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PAGE 3 — OFFER STACK -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-header-title">Session 1 Recap — The Offer Workshop</span>
+      <span class="page-header-tag">The Offer Stack</span>
+    </div>
+
+    <div class="section-label">What the buyer actually gets</div>
+    <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 3.5mm; line-height: 1.5;">
+      Most pitches lead with the suite. The Sanctuary's real value is everything in this table. When you present the full stack, you are not justifying a price — you are showing a buyer that the price is self-evident. The suite is the vehicle. Everything else is the offer.
+    </p>
+
+    <table style="margin-bottom: 4mm;">
+      <thead>
+        <tr>
+          <th style="width: 38%;">What the buyer gets</th>
+          <th>What it does for them</th>
+          <th style="width: 22%; text-align:right;">Standalone value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>The suite</strong><br><span style="font-size:11px; color:var(--text-muted);">40–44sqm, fully furnished, wellness-designed, soundproofed</span></td>
+          <td style="font-size:11.5px;">Private, premium space inside the club — built and managed for them</td>
+          <td style="text-align:right; font-weight:600;">$179K – $259K</td>
+        </tr>
+        <tr>
+          <td><strong>ROI guarantee</strong><br><span style="font-size:11px; color:var(--text-muted);">10% contractual minimum, first 2 years, in the management agreement</span></td>
+          <td style="font-size:11.5px;">Removes financial risk entirely for the first 2 years — floor is guaranteed in writing</td>
+          <td style="text-align:right; font-weight:600;">$19K – $26K / yr</td>
+        </tr>
+        <tr>
+          <td><strong>Lifetime Nirvana Life Club membership</strong><br><span style="font-size:11px; color:var(--text-muted);">Full access for life, for two people, from day of signing</span></td>
+          <td style="font-size:11.5px;">They belong here permanently, not as a visitor but as an owner and member. Valid for two people.</td>
+          <td style="text-align:right; font-weight:600; color:var(--brand);">~$134K</td>
+        </tr>
+        <tr>
+          <td><strong>28 personal use nights per year</strong><br><span style="font-size:11px; color:var(--text-muted);">Suite reserved for the owner, prioritized, every year</span></td>
+          <td style="font-size:11.5px;">A guaranteed Bali base — no booking uncertainty, no compromise on quality</td>
+          <td style="text-align:right; font-weight:600; color:var(--brand);">~$151K</td>
+        </tr>
+        <tr>
+          <td><strong>Fully managed</strong><br><span style="font-size:11px; color:var(--text-muted);">Zero operations for the owner — Nirvana handles everything</span></td>
+          <td style="font-size:11.5px;">No property management burden from abroad — truly passive</td>
+          <td style="text-align:right; font-weight:600;">Included</td>
+        </tr>
+        <tr>
+          <td><strong>Pre-booked retreat occupancy</strong><br><span style="font-size:11px; color:var(--text-muted);">Retreat operators pre-book annually, guaranteeing base occupancy</span></td>
+          <td style="font-size:11.5px;">Occupancy floor from day one — not dependent on hotel marketing alone</td>
+          <td style="text-align:right; font-weight:600;">Included</td>
+        </tr>
+        <tr>
+          <td><strong>Legal support package</strong><br><span style="font-size:11px; color:var(--text-muted);">PBG documentation, leasehold structure, extension clause — ready for advisor review</span></td>
+          <td style="font-size:11.5px;">Removes the legal friction point — everything is documented and reviewable</td>
+          <td style="text-align:right; font-weight:600;">~$24K</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="2" style="font-size:13px;"><strong>Total stack value</strong></td>
+          <td style="text-align:right; font-size:14px; color:var(--brand);">$800K+</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <p>The frame that changes the conversation: <strong>"You are not comparing this to other apartments. You are comparing it to anything else you could do with $189K. What else gives you a contractual 10% floor, lifetime club membership, 28 nights in a world-class wellness facility, and zero management? The numbers speak for themselves."</strong></p>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="grid-2">
+      <div>
+        <div class="section-label">Urgency — what is real</div>
+        <p style="font-size: 12px; line-height: 1.5; color: var(--text-muted);">Price increases 5% in July. Buying now at the current price means the same contractual yield on a lower entry point — a higher effective return on capital. This is genuine, not manufactured. Use it plainly: <em>"Once the price goes up, you get the same guarantee on more money invested."</em></p>
+      </div>
+      <div>
+        <div class="section-label">Risk reversal</div>
+        <p style="font-size: 12px; line-height: 1.5; color: var(--text-muted);">The refined guarantee: <em>"You receive your return monthly based on hotel performance. If we fall short of 10% by year-end, property management covers the shortfall. That is written into your contract."</em> Monthly, specific, contractual — not a promise.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <span class="page-footer-text">Session 1 — June 19, 2026</span>
+    <span class="page-footer-text">Page 3 of 5</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PAGE 4 — OBJECTION MAP -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-header-title">Session 1 Recap — The Offer Workshop</span>
+      <span class="page-header-tag">Objection Map</span>
+    </div>
+
+    <div class="section-label">Every objection — mapped to the stage where it appears</div>
+    <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 2.5mm; line-height: 1.4;">
+      The goal is to answer every objection before the buyer raises it. Not with pressure — with proof.
+      When the buyer feels heard before they speak, they trust you faster.
+    </p>
+
+    <table style="margin-bottom: 3mm;">
+      <thead>
+        <tr>
+          <th style="width: 42%;">Objection</th>
+          <th style="width: 17%;">Stage</th>
+          <th>Answer direction</th>
+          <th style="width: 15%; text-align:center;">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 2mm 3mm;"><strong>"Too expensive for 40sqm"</strong></td>
+          <td style="padding: 2mm 3mm; font-size:11px; color:var(--text-muted);">First conversation</td>
+          <td style="padding: 2mm 3mm; font-size:11px;">Reframe: not selling sqm. Show the full stack. The comparison is not other apartments — it is other uses of $189K.</td>
+          <td style="padding: 2mm 3mm; text-align:center;"><span class="badge badge-done">Ready</span></td>
+        </tr>
+        <tr>
+          <td style="padding: 2mm 3mm;"><strong>"How do I know the 10% is real?"</strong></td>
+          <td style="padding: 2mm 3mm; font-size:11px; color:var(--text-muted);">First conversation</td>
+          <td style="padding: 2mm 3mm; font-size:11px;">Contractual, written into the management agreement. 18 of 32 buyers committed before the foundation was done. Traffic data sheet needed to reinforce.</td>
+          <td style="padding: 2mm 3mm; text-align:center;"><span class="badge badge-needed">In progress</span></td>
+        </tr>
+        <tr>
+          <td style="padding: 2mm 3mm;"><strong>"What about the lease extension?"</strong></td>
+          <td style="padding: 2mm 3mm; font-size:11px; color:var(--text-muted);">Due diligence</td>
+          <td style="padding: 2mm 3mm; font-size:11px;">Nirvana's own business runs on the same lease — extending is in our interest first. Negotiation handled by Nirvana. Clean prepared answer needed.</td>
+          <td style="padding: 2mm 3mm; text-align:center;"><span class="badge badge-toby">Needs Toby</span></td>
+        </tr>
+        <tr>
+          <td style="padding: 2mm 3mm;"><strong>"What about the PBG/SLF permit?"</strong></td>
+          <td style="padding: 2mm 3mm; font-size:11px; color:var(--text-muted);">Due diligence</td>
+          <td style="padding: 2mm 3mm; font-size:11px;">Application registered, standard process for Bali. 90% of rentals operating here don't have full permits yet — this is normal. One-paragraph factual response removes this.</td>
+          <td style="padding: 2mm 3mm; text-align:center;"><span class="badge badge-toby">Needs Toby</span></td>
+        </tr>
+        <tr>
+          <td style="padding: 2mm 3mm;"><strong>"What if I need to exit early?"</strong></td>
+          <td style="padding: 2mm 3mm; font-size:11px; color:var(--text-muted);">Negotiation</td>
+          <td style="padding: 2mm 3mm; font-size:11px;">They can sell the suite. Matthieu handles the resale as broker — the owner does not manage the process. Only cost is the standard broker fee. No complexity, no lock-in.</td>
+          <td style="padding: 2mm 3mm; text-align:center;"><span class="badge badge-done">Ready</span></td>
+        </tr>
+        <tr>
+          <td style="padding: 2mm 3mm;"><strong>"The nightly rate seems too high"</strong></td>
+          <td style="padding: 2mm 3mm; font-size:11px; color:var(--text-muted);">Due diligence</td>
+          <td style="padding: 2mm 3mm; font-size:11px;">Confirmed rates: $152–255 / night. Comparable wellness hotel rates in Canggu to be documented as a benchmark.</td>
+          <td style="padding: 2mm 3mm; text-align:center;"><span class="badge badge-needed">In progress</span></td>
+        </tr>
+        <tr>
+          <td style="padding: 2mm 3mm;"><strong>"Tower 1 doesn't have the sauna / ice bath"</strong></td>
+          <td style="padding: 2mm 3mm; font-size:11px; color:var(--text-muted);">First conversation</td>
+          <td style="padding: 2mm 3mm; font-size:11px;">Stop comparing. Tower 1 is a separate offer. Pure Investor: same yield, lower price, higher ROI. Lifestyle: ground floor, direct terrace, inside the life of the club.</td>
+          <td style="padding: 2mm 3mm; text-align:center;"><span class="badge badge-done">Ready</span></td>
+        </tr>
+        <tr>
+          <td style="padding: 2mm 3mm;"><strong>"I can only stay 28 days — what if it's booked?"</strong></td>
+          <td style="padding: 2mm 3mm; font-size:11px; color:var(--text-muted);">Post-meeting</td>
+          <td style="padding: 2mm 3mm; font-size:11px;">Owner use is prioritized in the booking system. The 20% unoccupied assumption in projections already accounts for owner use periods.</td>
+          <td style="padding: 2mm 3mm; text-align:center;"><span class="badge badge-done">Ready</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout-accent">
+      <p><strong>The objection-handling principle (Chris Voss):</strong> Label first, validate, then pivot to proof. <em>"It sounds like you are not sure the numbers are real."</em> (label) <em>"That makes sense — a lot of Bali projects make claims they can't back up."</em> (validate) <em>"Here is the difference: our 10% is contractual, not projected. Written into the management agreement."</em> (proof)</p>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <span class="page-footer-text">Session 1 — June 19, 2026</span>
+    <span class="page-footer-text">Page 4 of 6</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PAGE 5 — ACTION ITEMS + SESSION 2 -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-header-title">Session 1 Recap — The Offer Workshop</span>
+      <span class="page-header-tag">Next Steps</span>
+    </div>
+
+    <div class="section-label">Before Session 2 — what needs to happen</div>
+    <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 3.5mm; line-height: 1.5;">
+      The Offer Stack is built. What is missing is the documentation that removes friction at the due diligence stage. These items do not require the sales team — they require Nirvana internally.
+    </p>
+
+    <div style="border: 1px solid var(--border); border-radius: 2px; overflow: hidden; margin-bottom: 5mm;">
+      <div style="background: var(--brand-mid); padding: 2.5mm 3mm; display: grid; grid-template-columns: 1fr 24mm 22mm; gap: 3mm; border-bottom: 1.5px solid var(--brand);">
+        <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em;">Action</span>
+        <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; text-align:center;">Owner</span>
+        <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; text-align:center;">Priority</span>
+      </div>
+      <div style="padding: 0 3mm;">
+        <div class="action-row">
+          <div class="action-text"><strong>Traffic data sheet</strong> — one document showing real footfall at Nirvana (700+ people/day). A chart or factual summary. This is the strongest proof point for the ROI objection and does not exist as a shareable asset yet.</div>
+          <div class="action-owner">Marketing / Toby</div>
+          <div class="action-priority"><span class="badge badge-needed">High</span></div>
+        </div>
+        <div class="action-row">
+          <div class="action-text"><strong>Extension answer</strong> — two to three sentences the whole team can deliver confidently on a call. What is the current status, what is the process, and what does it mean for the buyer.</div>
+          <div class="action-owner">Toby + Legal</div>
+          <div class="action-priority"><span class="badge badge-needed">High</span></div>
+        </div>
+        <div class="action-row">
+          <div class="action-text"><strong>PBG/SLF status statement</strong> — a short factual response covering where you are in the permit process and why it does not put buyers at risk. For use on calls and in the legal support package.</div>
+          <div class="action-owner">Toby + Legal</div>
+          <div class="action-priority"><span class="badge badge-needed">High</span></div>
+        </div>
+        <div class="action-row">
+          <div class="action-text"><strong>Technical specification sheet</strong> — full apartment specs and amenities for buyer due diligence. See page 6. Confirm and complete all missing fields with Toby before Session 2.</div>
+          <div class="action-owner">Toby / Team</div>
+          <div class="action-priority"><span class="badge badge-needed">High</span></div>
+        </div>
+        <div class="action-row">
+          <div class="action-text"><strong>Susi and Natasha</strong> — bring one or two real cold leads to Session 2. Conversations that went quiet. We will use actual cases to build the follow-up scripts.</div>
+          <div class="action-owner">Susi / Natasha</div>
+          <div class="action-priority"><span class="badge badge-done">Session 2</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="section-label">Session 2 — Discovery and Follow-Up</div>
+
+    <div class="grid-2" style="margin-bottom: 4mm; margin-top: 3mm;">
+      <div>
+        <p style="font-size:12px; line-height:1.55; color:var(--text-muted);">In Session 1 we built what you are selling. In Session 2 we build how you find out what the buyer actually wants before you pitch anything. The goal is to stop presenting everything to everyone and start asking the three questions that identify which buyer you are talking to in the first five minutes — and what matters to them specifically.</p>
+      </div>
+      <div>
+        <div style="border: 1px solid var(--border); border-radius: 2px; padding: 3.5mm 4mm; background: var(--surface);">
+          <div class="section-label" style="margin-bottom: 2mm;">Session 2 will produce</div>
+          <ul style="list-style: none; font-size: 12px; line-height: 1.6; color: var(--text-muted);">
+            <li style="padding: 1.5mm 0; border-bottom: 1px solid var(--border);">Three discovery questions — one per buyer profile</li>
+            <li style="padding: 1.5mm 0; border-bottom: 1px solid var(--border);">A follow-up sequence for leads that go quiet after the first meeting</li>
+            <li style="padding: 1.5mm 0;">A requalification script for leads that have gone cold</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>The shift from Session 1 to Session 2: you now know your offer inside out. The next skill is listening — finding out fast which dream outcome the buyer has, so you are speaking to what they actually care about rather than presenting the full pitch every time.</p>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <span class="page-footer-text">Session 1 — June 19, 2026 — OLC Method</span>
+    <span class="page-footer-text">Page 5 of 6</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PAGE 6 — TECHNICAL SPECIFICATIONS -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-header-title">Session 1 Recap — The Offer Workshop</span>
+      <span class="page-header-tag">Technical Specs</span>
+    </div>
+
+    <div class="section-label">Apartment technical specifications</div>
+    <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 4mm; line-height: 1.4;">
+      This sheet covers every spec and amenity a buyer or their legal advisor may ask about.
+      Fields marked in amber need to be confirmed with Toby before this sheet is used in client conversations.
+    </p>
+
+    <div class="grid-2" style="gap: 3.5mm;">
+
+      <div style="border:1px solid var(--border); border-radius:2px; overflow:hidden;">
+        <div style="background:var(--brand-mid); padding:2.5mm 3mm; border-bottom:1.5px solid var(--brand);"><span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.09em; color:var(--text);">Unit sizes</span></div>
+        <table>
+          <tbody>
+            <tr><td style="font-size:11.5px; width:52%; color:var(--text-muted); padding:2mm 3mm;">Tower 2 suites</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">44 sqm</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Tower 1 — Club Floor</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">40 sqm</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Terrace / balcony</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">Included — Tower 1: direct ground access</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Total units / remaining</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">32 total / 14 remaining</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Ceiling height</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="border:1px solid var(--border); border-radius:2px; overflow:hidden;">
+        <div style="background:var(--brand-mid); padding:2.5mm 3mm; border-bottom:1.5px solid var(--brand);"><span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.09em; color:var(--text);">Climate control</span></div>
+        <table>
+          <tbody>
+            <tr><td style="font-size:11.5px; width:52%; color:var(--text-muted); padding:2mm 3mm;">AC system / brand</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">AC capacity (BTU / HP)</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Ventilation system</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Soundproofing</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">Sleep-science spec, acoustic panels</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Window glazing</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="border:1px solid var(--border); border-radius:2px; overflow:hidden;">
+        <div style="background:var(--brand-mid); padding:2.5mm 3mm; border-bottom:1.5px solid var(--brand);"><span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.09em; color:var(--text);">Finishes and materials</span></div>
+        <table>
+          <tbody>
+            <tr><td style="font-size:11.5px; width:52%; color:var(--text-muted); padding:2mm 3mm;">Flooring</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Wall finish</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Bathroom surfaces</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Joinery / cabinetry</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Bathtub</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">Selected Tower 1 units only</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="border:1px solid var(--border); border-radius:2px; overflow:hidden;">
+        <div style="background:var(--brand-mid); padding:2.5mm 3mm; border-bottom:1.5px solid var(--brand);"><span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.09em; color:var(--text);">In-unit amenities</span></div>
+        <table>
+          <tbody>
+            <tr><td style="font-size:11.5px; width:52%; color:var(--text-muted); padding:2mm 3mm;">Furniture package</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">Fully furnished, wellness-designed</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Kitchen / kitchenette</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Private sauna / ice bath</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">Tower 2 only</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Smart home / automation</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Safe / storage</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="border:1px solid var(--border); border-radius:2px; overflow:hidden;">
+        <div style="background:var(--brand-mid); padding:2.5mm 3mm; border-bottom:1.5px solid var(--brand);"><span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.09em; color:var(--text);">Shared amenities</span></div>
+        <table>
+          <tbody>
+            <tr><td style="font-size:11.5px; width:52%; color:var(--text-muted); padding:2mm 3mm;">Gym access</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">Full Nirvana Life Club — lifetime, 2 people</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Pool</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Restaurant / café</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">On-site — Tower 1 direct ground floor access</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Retreat / wellness classes</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">Full access — yoga, classes, wellness programs</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Parking</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="border:1px solid var(--border); border-radius:2px; overflow:hidden;">
+        <div style="background:var(--brand-mid); padding:2.5mm 3mm; border-bottom:1.5px solid var(--brand);"><span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.09em; color:var(--text);">Construction and legal</span></div>
+        <table>
+          <tbody>
+            <tr><td style="font-size:11.5px; width:52%; color:var(--text-muted); padding:2mm 3mm;">Contractor</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">PT Global Development (SAOTA / Budipradono)</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Handover target</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">Q1 2027 — 5 weeks ahead of schedule</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Permit status</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">PBG registered, SLF pending completion</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Lease term</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm;">27 years from handover + extension clause</td></tr>
+            <tr><td style="font-size:11.5px; color:var(--text-muted); padding:2mm 3mm;">Structure / build type</td><td style="font-size:11.5px; font-weight:500; padding:2mm 3mm; color:var(--accent);">To confirm</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <span class="page-footer-text">Session 1 — June 19, 2026 — OLC Method</span>
+    <span class="page-footer-text">Page 6 of 6</span>
+  </div>
+</div>
+
+</body>
+</html>

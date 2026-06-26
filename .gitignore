@@ -1,0 +1,9 @@
+.env
+.env.local
+.env.*.local
+.DS_Store
+*.DS_Store
+credentials.json
+token.json
+.tmp/
+temp/

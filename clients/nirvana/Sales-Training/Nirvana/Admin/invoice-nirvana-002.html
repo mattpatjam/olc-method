@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice INV-2026-002 — Nirvana Health Club</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      color: #1a1a1a;
+      background: #fff;
+      padding: 52px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid #1a1a1a;
+    }
+    .company-name {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-bottom: 8px;
+    }
+    .company-address {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.7;
+    }
+    .invoice-label {
+      text-align: right;
+    }
+    .invoice-label h1 {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #1a1a1a;
+    }
+    .invoice-label .invoice-number {
+      font-size: 13px;
+      color: #666;
+      margin-top: 5px;
+    }
+    .meta-row {
+      display: flex;
+      gap: 48px;
+      margin-bottom: 28px;
+    }
+    .meta-item label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #999;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .meta-item span {
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .bill-to {
+      background: #f7f7f5;
+      border-left: 3px solid #1a1a1a;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+    }
+    .bill-to label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #999;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .bill-to .client-name {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .bill-to .client-contact {
+      font-size: 12px;
+      color: #666;
+      margin-top: 3px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 6px;
+    }
+    thead th {
+      background: #c8dce8;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 700;
+    }
+    thead th:last-child { text-align: right; }
+    tbody tr:nth-child(odd) { background: #eef4f8; }
+    tbody tr:nth-child(even) { background: #e4edf3; }
+    tbody td {
+      padding: 14px 14px;
+      font-size: 13px;
+      vertical-align: top;
+    }
+    tbody td:last-child {
+      text-align: right;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .item-desc {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .item-sub {
+      font-size: 12px;
+      color: #666;
+    }
+    .total-row {
+      background: #1a1a1a;
+    }
+    .total-row td {
+      padding: 14px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .total-row td:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+    .fx-note {
+      font-size: 11px;
+      color: #999;
+      font-style: italic;
+      margin-top: 8px;
+      margin-bottom: 32px;
+    }
+    .payment-section {
+      margin-bottom: 32px;
+    }
+    .payment-section h3 {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #999;
+      margin-bottom: 12px;
+    }
+    .payment-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 0;
+      border-bottom: 1px solid #ebebeb;
+    }
+    .payment-row .desc {
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .payment-row .amount {
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .paid-badge {
+      display: inline-block;
+      background: #d4edda;
+      color: #276236;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 3px 7px;
+      border-radius: 3px;
+    }
+    .due-now-badge {
+      display: inline-block;
+      background: #e8a820;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 3px 7px;
+      border-radius: 3px;
+    }
+    .bank-section {
+      background: #f7f7f5;
+      padding: 18px;
+    }
+    .bank-section h3 {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #999;
+      margin-bottom: 12px;
+    }
+    .bank-row {
+      display: flex;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+    .bank-label {
+      color: #888;
+      width: 150px;
+      flex-shrink: 0;
+    }
+    .bank-value { font-weight: 600; }
+    .footer {
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 1px solid #ebebeb;
+      font-size: 11px;
+      color: #bbb;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div>
+      <div class="company-name">PT Swiss Hospitality Consulting</div>
+      <div class="company-address">
+        Jalan Sunset Road No. 28<br>
+        Seminyak, Kuta<br>
+        Kabupaten Badung, Bali 80361<br>
+        Indonesia
+      </div>
+    </div>
+    <div class="invoice-label">
+      <h1>INVOICE</h1>
+      <div class="invoice-number">INV-2026-002</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-item">
+      <label>Date</label>
+      <span>20.06.2026</span>
+    </div>
+    <div class="meta-item">
+      <label>Location</label>
+      <span>Bali, Indonesia</span>
+    </div>
+    <div class="meta-item">
+      <label>Concerns</label>
+      <span>Sales Training</span>
+    </div>
+  </div>
+
+  <div class="bill-to">
+    <label>Bill To</label>
+    <div class="client-name">Nirvana Health Club</div>
+    <div class="client-contact">Attn: Toby</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Amount (IDR)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="item-desc">Sales Training Program — 5 Sessions</div>
+          <div class="item-sub">Payment 2 of 2 — due at start of training (50% of USD 2,650.00)</div>
+        </td>
+        <td>IDR 23 441 900,00</td>
+      </tr>
+    </tbody>
+    <tr class="total-row">
+      <td>Total Due</td>
+      <td>IDR 23 441 900,00</td>
+    </tr>
+  </table>
+
+  <div class="fx-note">Exchange rate: 1 USD = IDR 17.692 on 15th of June, 2026</div>
+
+  <div class="payment-section">
+    <h3>Payment Schedule</h3>
+    <div class="payment-row">
+      <div class="desc">
+        Payment 1 — Due at booking
+        <span class="paid-badge">Paid</span>
+      </div>
+      <div class="amount">IDR 23 441 900,00</div>
+    </div>
+    <div class="payment-row">
+      <div class="desc">
+        Payment 2 — Due at start of training
+        <span class="due-now-badge">Due Now</span>
+      </div>
+      <div class="amount">IDR 23 441 900,00</div>
+    </div>
+  </div>
+
+  <div class="bank-section">
+    <h3>Payment Details</h3>
+    <div class="bank-row">
+      <span class="bank-label">Bank</span>
+      <span class="bank-value">Bank Mandiri</span>
+    </div>
+    <div class="bank-row">
+      <span class="bank-label">Account Number</span>
+      <span class="bank-value">175-00-0313369-0</span>
+    </div>
+    <div class="bank-row">
+      <span class="bank-label">Account Holder</span>
+      <span class="bank-value">PT Swiss Hospitality Consulting</span>
+    </div>
+    <div class="bank-row">
+      <span class="bank-label">Currency</span>
+      <span class="bank-value">IDR</span>
+    </div>
+    <div class="bank-row">
+      <span class="bank-label">Branch</span>
+      <span class="bank-value">Bali</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    Thank you for your business.
+  </div>
+
+</body>
+</html>

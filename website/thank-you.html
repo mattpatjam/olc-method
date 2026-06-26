@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're confirmed — OLC Method</title>
+    <meta http-equiv="refresh" content="3;url=https://calendar.app.google/oYsM65Bb7M6rc8MM6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white:     #FFFFFF;
+            --sage:      #4F6352;
+            --sage-pale: #EDF1EE;
+            --dark:      #0D100C;
+            --text:      #0F1510;
+            --text-dim:  #5C6B5F;
+            --border:    rgba(79,99,82,0.13);
+            --font-d: 'Cormorant', Georgia, serif;
+            --font-b: 'DM Sans', system-ui, sans-serif;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; }
+        body {
+            background: var(--white);
+            color: var(--text);
+            font-family: var(--font-b);
+            font-weight: 300;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            -webkit-font-smoothing: antialiased;
+        }
+        .wrap {
+            max-width: 520px;
+            text-align: center;
+        }
+        .logo {
+            height: 48px;
+            width: auto;
+            margin: 0 auto 3rem;
+            display: block;
+        }
+        .check {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: var(--sage-pale);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.75rem;
+        }
+        .check svg { width: 22px; height: 22px; color: var(--sage); }
+        h1 {
+            font-family: var(--font-d);
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        h1 em { font-style: italic; color: var(--sage); }
+        p {
+            font-size: 15px;
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .progress {
+            height: 2px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 1.25rem;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--sage);
+            border-radius: 2px;
+            animation: fill 3s linear forwards;
+        }
+        @keyframes fill { from { width: 0; } to { width: 100%; } }
+        .hint {
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+        .hint a {
+            color: var(--sage);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <img src="OLC_beige_vertical.jpg" alt="OLC Method" class="logo">
+        <div class="check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4,12 9,17 20,6"/>
+            </svg>
+        </div>
+        <h1>You're <em>confirmed.</em></h1>
+        <p>Thank you for submitting your information. Taking you to the calendar to book your call.</p>
+        <div class="progress"><div class="progress-bar"></div></div>
+        <p class="hint">Not redirecting? <a href="https://calendar.app.google/oYsM65Bb7M6rc8MM6">Click here.</a></p>
+    </div>
+    <script>
+        setTimeout(() => { window.location.href = 'https://calendar.app.google/oYsM65Bb7M6rc8MM6'; }, 3000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partnership Proposal — Nirvana Life | OLC Method</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────── */
+    :root {
+      --white:        #F9F8F4;
+      --off-white:    #EFEDE7;
+      --card:         #FFFFFF;
+      --accent:       #4F6352;
+      --accent-lt:    #6B8470;
+      --accent-pale:  #EDF1EE;
+      --dark:         #0D100C;
+      --text:         #0F1510;
+      --text-dim:     #3D4D40;
+      --text-muted:   #9BA89E;
+      --border:       rgba(79,99,82,0.13);
+      --shadow:       0 2px 16px rgba(15,21,16,0.06);
+      --shadow-md:    0 4px 24px rgba(15,21,16,0.09);
+      --font-d:       'Cormorant', Georgia, serif;
+      --font-b:       'DM Sans', system-ui, sans-serif;
+    }
+
+    /* ─── RESET ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #d0cfc9;
+      font-family: var(--font-b);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+
+    /* ─── A4 PAGE ────────────────────────────── */
+    @page { size: A4; margin: 0; }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 2.5cm 2.8cm;
+      margin: 20px auto;
+      background: var(--white);
+      box-sizing: border-box;
+      position: relative;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+      page-break-after: always;
+      overflow: hidden;
+    }
+    .last-page { page-break-after: auto; }
+
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; }
+    }
+
+    /* ─── TYPOGRAPHY ─────────────────────────── */
+    .label {
+      font-family: var(--font-b);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .label--light { color: rgba(255,255,255,0.55); }
+    h1, h2 { font-family: var(--font-d); font-weight: 400; line-height: 1.05; color: var(--dark); }
+    h1 { font-size: 50px; }
+    h2 { font-size: 38px; margin-bottom: 0.75rem; }
+    h3 { font-family: var(--font-b); font-weight: 500; font-size: 15px; line-height: 1.3; color: var(--dark); margin-bottom: 0.5rem; }
+    p  { color: var(--text-dim); font-size: 14px; line-height: 1.85; }
+    em { font-style: italic; color: var(--accent); }
+
+    /* ─── BADGE ──────────────────────────────── */
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(79,99,82,0.1);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.3rem 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .badge span { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+    .badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+    /* ─── PAGE FOOTER ────────────────────────── */
+    .pf {
+      position: absolute; bottom: 1.2cm; left: 2.8cm; right: 2.8cm;
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--border); padding-top: 0.5rem;
+    }
+    .pf img { height: 40px; width: auto; }
+    .pf .pf-num { font-size: 11px; color: var(--text-muted); }
+    .pf .pf-meta { font-size: 10px; color: var(--text-muted); }
+
+    /* ─── STAT CARDS ─────────────────────────── */
+    .stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin: 1.4rem 0; }
+    .stat-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.4rem 1.1rem; text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .stat-card .num { font-family: var(--font-d); font-size: 56px; font-weight: 300; color: var(--dark); line-height: 1; display: block; margin-bottom: 0.3rem; }
+    .stat-card.hi .num { color: var(--accent); }
+    .stat-card .lbl { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+
+    /* ─── PROOF LIST ─────────────────────────── */
+    .proof-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.25rem; }
+    .proof-item { display: flex; align-items: center; gap: 0.45rem; font-size: 12.5px; color: var(--text-dim); }
+    .proof-item::before {
+      content: '';
+      width: 15px; height: 15px; border-radius: 50%; flex-shrink: 0;
+      background: var(--accent-pale);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%234F6352'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+      background-size: 9px; background-repeat: no-repeat; background-position: center;
+    }
+
+    /* ─── TWO CARDS ──────────────────────────── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.6rem 1.4rem;
+      box-shadow: var(--shadow); position: relative; overflow: hidden;
+    }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent); }
+    .card-tag { display: inline-block; background: var(--accent-pale); color: var(--accent); font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 3px; padding: 0.2rem 0.5rem; margin-bottom: 0.9rem; }
+    .card p { font-size: 13px; margin-bottom: 1rem; }
+    .card ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .card ul li {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      font-family: var(--font-b); font-weight: 400;
+      font-size: 12.5px; color: var(--text-dim); line-height: 1.5;
+    }
+    .card ul li::before { content: '—'; color: var(--accent); font-weight: 500; flex-shrink: 0; font-family: var(--font-b); }
+
+    /* ─── PRICE TABLE ────────────────────────── */
+    .price-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 1.2rem 0; }
+    .price-table th { text-align: left; font-size: 9px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); padding: 0 0 0.6rem; border-bottom: 1px solid var(--border); }
+    .price-table th:last-child { text-align: right; }
+    .price-table td { padding: 0.8rem 0; border-bottom: 1px solid var(--border); color: var(--text-dim); font-size: 13px; vertical-align: top; }
+    .price-table td:first-child { color: var(--dark); font-weight: 500; font-size: 13.5px; width: 32%; }
+    .price-table td:last-child { text-align: right; font-family: var(--font-d); font-size: 18px; color: var(--dark); width: 30%; }
+
+    /* ─── TERMS BOX ──────────────────────────── */
+    .terms-box { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-top: 1.4rem; box-shadow: var(--shadow-md); }
+    .terms-box-head { background: var(--accent-pale); padding: 0.9rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .terms-box-head strong { font-family: var(--font-b); font-size: 14px; font-weight: 500; color: var(--dark); display: block; }
+    .terms-box-head p { font-size: 12px; color: var(--text-muted); margin-top: 0.15rem; }
+    .terms-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; padding: 0.85rem 1.5rem; border-bottom: 1px solid var(--border); align-items: center; }
+    .terms-row:last-child { border-bottom: none; }
+    .tr-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .tr-right { text-align: right; }
+    .tr-value { font-family: var(--font-d); font-size: 22px; color: var(--dark); line-height: 1.1; }
+    .tr-note { font-size: 11px; color: var(--text-muted); line-height: 1.5; margin-top: 0.15rem; }
+
+    /* ─── EXCHANGE BOX ───────────────────────── */
+    .ex-box { background: var(--accent-pale); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.5rem; margin-top: 1rem; }
+    .ex-label { font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.65rem; }
+    .ex-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .ex-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 13.5px; color: var(--text-dim); line-height: 1.5; }
+    .ex-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 7px; }
+
+    /* ─── CTA PAGE ───────────────────────────── */
+    .page.cta { background: var(--accent); }
+    .page.cta em { color: rgba(249,248,244,0.65); }
+    .page.cta h2 { color: #F9F8F4; font-size: 44px; margin-bottom: 2rem; }
+    .steps { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .step { display: flex; align-items: flex-start; gap: 1rem; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: rgba(249,248,244,0.15); border: 1px solid rgba(249,248,244,0.25); display: flex; align-items: center; justify-content: center; font-family: var(--font-d); font-size: 15px; color: #F9F8F4; flex-shrink: 0; margin-top: 2px; }
+    .step-text { color: rgba(249,248,244,0.8); font-size: 14px; line-height: 1.6; }
+    .step-text strong { color: #F9F8F4; font-weight: 500; }
+    .cta-note { font-size: 12px; color: rgba(249,248,244,0.45); border-top: 1px solid rgba(249,248,244,0.15); padding-top: 1.25rem; line-height: 1.6; }
+    .pf-cta {
+      position: absolute; bottom: 1.2cm; left: 2.8cm; right: 2.8cm;
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid rgba(249,248,244,0.15); padding-top: 0.5rem;
+    }
+    .pf-cta span { font-size: 10px; color: rgba(249,248,244,0.4); }
+    .pf-cta .pf-num { font-size: 11px; color: rgba(249,248,244,0.4); }
+  </style>
+</head>
+<body>
+
+<!-- ─── PAGE 1 — COVER ──────────────────────── -->
+<div class="page" style="background: #F9F8F4; padding: 0;">
+  <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:297mm; text-align:center; padding:2.5cm 2.8cm; box-sizing:border-box;">
+    <div style="display:flex; align-items:center; justify-content:center; gap:2.5rem; margin-bottom:2rem;">
+      <img src="../../assets/OLC_beige_vertical.jpg" alt="OLC Method" style="height:102px; width:auto;">
+      <img src="../../website/clients/Nirvana.png" alt="Nirvana Life" style="height:80px; width:80px; border-radius:50%; object-fit:cover;">
+    </div>
+    <div class="badge"><span class="badge-dot"></span><span>A partnership proposal</span></div>
+    <h1>Closing the last <em>14 units</em><br>at Nirvana Life.</h1>
+    <p style="font-family:var(--font-d); font-style:italic; font-size:20px; color:var(--accent-lt); margin-top:0.75rem; line-height:1.3;">A strong project with unexploited value.</p>
+    <p style="font-size:13px; color:var(--text-muted); margin-top:1.25rem;">Prepared for Toby and Eric &nbsp;·&nbsp; June 2026</p>
+  </div>
+</div>
+
+<!-- ─── PAGE 2 — THE SITUATION ─────────────── -->
+<div class="page">
+  <span class="label">Where things stand</span>
+  <h2>A strong project.<br><em>The last stretch</em> is the hardest.</h2>
+  <p style="margin-bottom: 0;">The product works. Marketing is already running. Any serious buyer can find the proof. The last 14 units won't close with more ads. They'll close with a sharper offer and someone who actually follows through on every lead.</p>
+
+  <div class="stats-row">
+    <div class="stat-card"><span class="num">32</span><span class="lbl">Units total</span></div>
+    <div class="stat-card"><span class="num">18</span><span class="lbl">Sold</span></div>
+    <div class="stat-card hi"><span class="num">14</span><span class="lbl">Remaining</span></div>
+  </div>
+
+  <div class="proof-list">
+    <div class="proof-item">10% guaranteed ROI in year 1</div>
+    <div class="proof-item">15% provisional ROI from year 2</div>
+    <div class="proof-item">~700 daily entries to the facilities</div>
+    <div class="proof-item">Exclusive membership for unit owners</div>
+    <div class="proof-item">Kempinski-grade contractor</div>
+    <div class="proof-item">Construction ahead of schedule</div>
+    <div class="proof-item">56% already sold</div>
+    <div class="proof-item">Warm member base untapped</div>
+  </div>
+
+  <div class="pf">
+    <img src="../../assets/OLC_beige_horizontal.jpg" alt="OLC Method">
+    <span class="pf-num">2 / 6</span>
+    <span class="pf-meta">Confidential · June 2026</span>
+  </div>
+</div>
+
+<!-- ─── PAGE 3 — WHAT I BRING ───────────────── -->
+<div class="page">
+  <span class="label">Two things your marketing company doesn't do</span>
+  <h2>The member campaign.<br><em>And the close.</em></h2>
+
+  <div class="two-col">
+    <div class="card">
+      <span class="card-tag">The Member Campaign</span>
+      <h3>Your best leads already know you.</h3>
+      <p>Nirvana members trust the brand. Most are already in Bali. They are exactly the profile of a lifestyle buyer. No other agency has this list.</p>
+      <ul>
+        <li>Warm outreach sequence to the full member database</li>
+        <li>Priority access framing before anything goes public</li>
+        <li>Priority waitlist on the last available units</li>
+        <li>No ad spend required for this channel</li>
+        <li>3–5× higher conversion than cold audiences</li>
+        <li>Every response tracked and followed up</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="card-tag">The Sales Engine</span>
+      <h3>Every lead gets a closer, not a follow-up.</h3>
+      <p>Full sales cycle on every lead, from your marketing team and the member campaign. Discovery, qualification, presentation, close.</p>
+      <ul>
+        <li>Discovery call on every qualified lead. No pitch before that.</li>
+        <li>Offer reframed using the Nirvana Grand Slam Offer</li>
+        <li>Every lead logged in CRM. No one falls through.</li>
+        <li>5 years, 50+ villas personally closed in Bali</li>
+        <li>Performance fee only. Paid on close.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pf">
+    <img src="../../assets/OLC_beige_horizontal.jpg" alt="OLC Method">
+    <span class="pf-num">3 / 6</span>
+    <span class="pf-meta">Confidential · June 2026</span>
+  </div>
+</div>
+
+<!-- ─── PAGE 4 — STANDARD PRICING ───────────── -->
+<div class="page">
+  <span class="label">Standard OLC engagement</span>
+  <h2>What this<br><em>normally costs.</em></h2>
+  <p>The full commercial engagement: brand and project audit, sales and marketing strategy, PDF property cards and other sales materials, outreach campaign management, and closing. Paid upfront and on results.</p>
+
+  <table class="price-table">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>What it covers</th>
+        <th>Rate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Onboarding fee</td>
+        <td style="color:var(--text-muted);">Brand and project audit, sales and marketing strategy, ICP, PDF property cards and sales materials, CRM setup, reporting dashboard</td>
+        <td>$15,000–$20,000</td>
+      </tr>
+      <tr>
+        <td>Performance fee</td>
+        <td style="color:var(--text-muted);">Commission per unit closed. OLC manages offer, leads, and closing.</td>
+        <td>5%</td>
+      </tr>
+      <tr>
+        <td>Monthly running fee</td>
+        <td style="color:var(--text-muted);">CRM, tools, and active campaign management. Billed monthly while the engagement is live.</td>
+        <td>$500–$1,000 / mo</td>
+      </tr>
+      <tr>
+        <td>Marketing budget</td>
+        <td style="color:var(--text-muted);">Developer-funded ad spend. Allocated per remaining unit across Meta and Google campaigns.</td>
+        <td>$2,000–$3,000 / unit</td>
+      </tr>
+      <tr>
+        <td>Minimum project</td>
+        <td style="color:var(--text-muted);">10+ units at $200K+ per unit (~$2M total inventory)</td>
+        <td>~$2M</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:13px; color:var(--text-muted); margin-top:0.5rem;">Pricing is discussed privately after fit is confirmed. No public rate card.</p>
+
+  <div class="pf">
+    <img src="../../assets/OLC_beige_horizontal.jpg" alt="OLC Method">
+    <span class="pf-num">4 / 6</span>
+    <span class="pf-meta">Confidential · June 2026</span>
+  </div>
+</div>
+
+<!-- ─── PAGE 5 — PARTNERSHIP TERMS ──────────── -->
+<div class="page">
+  <span class="label">The partnership terms</span>
+  <h2>What I'm proposing<br><em>for the sanctuary near Vana Bali.</em></h2>
+  <p>Nirvana is the first OLC case study. No onboarding fee. Commission rate depends on where the lead comes from.</p>
+
+  <div class="terms-box">
+    <div class="terms-box-head">
+      <strong>The Sanctuary Nirvana, Commission Agreement</strong>
+      <p>No onboarding fee. Performance only. Training continues in parallel.</p>
+    </div>
+    <div class="terms-row">
+      <div class="tr-label">Onboarding fee</div>
+      <div class="tr-right"><div class="tr-value"><em>Waived</em></div><div class="tr-note">In exchange for testimonial + right of first refusal on Lombok</div></div>
+    </div>
+    <div class="terms-row">
+      <div class="tr-label">Monthly running fee</div>
+      <div class="tr-right"><div class="tr-value"><em>Waived</em></div><div class="tr-note">For the duration of the Nirvana engagement</div></div>
+    </div>
+    <div class="terms-row">
+      <div class="tr-label">Commission — Nirvana leads</div>
+      <div class="tr-right"><div class="tr-value">4%</div><div class="tr-note">Leads from Nirvana's marketing or member database</div></div>
+    </div>
+    <div class="terms-row">
+      <div class="tr-label">Commission — OLC leads</div>
+      <div class="tr-right"><div class="tr-value">5%</div><div class="tr-note">Leads sourced independently by Matthieu</div></div>
+    </div>
+    <div class="terms-row" style="grid-template-columns:1fr;">
+      <div>
+        <div class="tr-label" style="margin-bottom:0.3rem;">Lead source definition</div>
+        <p style="font-size:12px; color:var(--text-muted); line-height:1.55;">Nirvana lead = any contact from Nirvana's marketing, website, member database, or CRM before engagement start. OLC lead = any contact Matthieu sources independently.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex-box">
+    <span class="ex-label">In exchange</span>
+    <ul class="ex-list">
+      <li>Written testimonial from Toby once the first unit closes</li>
+      <li>Video testimonial once 3 or more units close</li>
+      <li>Exclusive sales partnership on Nirvana's Lombok development and future projects, terms to be defined together</li>
+    </ul>
+  </div>
+
+  <div class="pf">
+    <img src="../../assets/OLC_beige_horizontal.jpg" alt="OLC Method">
+    <span class="pf-num">5 / 6</span>
+    <span class="pf-meta">Confidential · June 2026</span>
+  </div>
+</div>
+
+<!-- ─── PAGE 6 — LOMBOK + NEXT STEP ─────────── -->
+<div class="page cta last-page">
+  <span class="label label--light">The bigger picture</span>
+  <h2>This is the <em>proof of concept</em><br>for Lombok.</h2>
+
+  <p style="color:rgba(249,248,244,0.75); font-size:14px; line-height:1.85; max-width:480px; margin-bottom:2rem;">Close these 14 units and the same model goes to Lombok from day one. By then we have a live case study, a working process, and a relationship that's already proved itself. That's a much stronger starting position than going in cold.</p>
+
+  <span class="label label--light" style="margin-top:0.5rem;">Two steps to get started</span>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text"><strong>Sign a one-page commission agreement.</strong> Defines lead source, commission rate, and the exclusive sales partnership on Nirvana's Lombok development. Draft ready within 24 hours.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text"><strong>Share access to the member database.</strong> An export is fine. Outreach sequence reviewed and approved by Toby and Eric before anything goes out.</div>
+    </div>
+  </div>
+
+  <p class="cta-note">Training stays on track: Sessions 2 through 5, same schedule. This runs alongside it. Nothing changes for the team.</p>
+
+  <div class="pf-cta">
+    <span style="font-family:var(--font-d); font-size:13px; letter-spacing:0.04em;">OLC Method</span>
+    <span class="pf-num">6 / 6</span>
+    <span>Confidential · June 2026</span>
+  </div>
+</div>
+
+</body>
+</html>

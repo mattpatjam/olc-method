@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Discovery Framework — Session 2 | The Sanctuary by Nirvana Health Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand:       #13b07d;
+    --brand-mid:   rgba(19, 176, 125, 0.12);
+    --brand-light: rgba(19, 176, 125, 0.07);
+    --accent:      #c4884a;
+    --accent-light: rgba(196, 136, 74, 0.10);
+    --text:        #0d0d0d;
+    --text-muted:  #4a4a4a;
+    --text-light:  #9a9a9a;
+    --border:      #e2e2e2;
+    --border-mid:  #d0d0d0;
+    --surface:     #f9f9f7;
+    --white:       #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: #d8d8d4; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--white);
+    margin: 0 auto 8mm;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.10);
+    overflow: hidden;
+  }
+
+  .page-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 8mm 16mm 0;
+    overflow: hidden;
+  }
+
+  @page { size: 210mm 297mm; margin: 0; }
+  @media print {
+    html { background: white; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+      height: 297mm;
+      overflow: hidden;
+      max-height: 297mm;
+    }
+  }
+
+  .serif { font-family: 'DM Serif Display', Georgia, serif; }
+
+  .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 1.5mm;
+  }
+
+  .rule { height: 1px; background: var(--border); width: 100%; margin: 3mm 0; }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 3mm;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4.5mm;
+    flex-shrink: 0;
+  }
+  .page-header-title { font-size: 11px; font-weight: 500; color: var(--text-muted); }
+  .page-header-tag { font-size: 11px; font-weight: 600; color: var(--brand); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .page-footer {
+    padding: 3mm 16mm;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .page-footer-text { font-size: 10px; color: var(--text-light); }
+
+  .step-header { display: flex; align-items: flex-start; gap: 3mm; margin-bottom: 3mm; flex-shrink: 0; }
+  .step-number {
+    width: 6.5mm; height: 6.5mm; border-radius: 50%;
+    background: var(--brand); color: white;
+    font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1mm;
+  }
+  .step-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 17px; line-height: 1.15; }
+  .step-time { font-size: 11px; color: var(--text-light); margin-top: 1mm; }
+
+  .write-box {
+    border: 1px dashed var(--border-mid);
+    border-radius: 2px;
+    background: var(--surface);
+    padding: 2.5mm 3mm;
+    width: 100%;
+  }
+  textarea.write-box {
+    resize: none;
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 12px;
+    color: var(--text);
+    outline: none;
+    display: block;
+    overflow-y: auto;
+    line-height: 1.5;
+  }
+  textarea.write-box:focus {
+    border-color: var(--brand);
+    background: var(--white);
+  }
+
+  .callout {
+    background: var(--brand-light);
+    border-left: 3px solid var(--brand);
+    padding: 2.5mm 4mm;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout p { font-size: 12px; color: var(--text); line-height: 1.45; }
+  .callout-accent {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 2.5mm 4mm;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout-accent p { font-size: 12px; color: var(--text); line-height: 1.45; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: var(--brand-mid);
+    color: var(--text); font-weight: 600;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 2.5mm 3mm; text-align: left;
+    border-bottom: 1.5px solid var(--brand);
+  }
+  td {
+    padding: 2mm 3mm;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    font-size: 12px; line-height: 1.4; color: var(--text);
+  }
+  tr:last-child td { border-bottom: none; }
+
+  .rule-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 3.5mm;
+    padding: 3mm 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .rule-block:last-child { border-bottom: none; }
+  .rule-num {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 22px;
+    color: var(--brand);
+    line-height: 1;
+    min-width: 7mm;
+    flex-shrink: 0;
+    margin-top: 0.5mm;
+  }
+  .rule-text { font-size: 13px; line-height: 1.5; color: var(--text); font-weight: 400; }
+  .rule-note { font-size: 11px; color: var(--text-muted); margin-top: 1mm; font-style: italic; }
+
+  .q-card {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 3mm;
+  }
+  .q-card-header {
+    background: var(--brand-mid);
+    padding: 2mm 3.5mm;
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    border-bottom: 1px solid rgba(19,176,125,0.2);
+  }
+  .q-card-num {
+    width: 5mm; height: 5mm; border-radius: 50%;
+    background: var(--brand); color: white;
+    font-size: 10px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .q-card-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); }
+  .q-card-body { padding: 2.5mm 3.5mm; }
+  .q-card-body .quote {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.4;
+    font-style: italic;
+    margin-bottom: 1.5mm;
+  }
+  .q-card-body .tells { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+
+  .tmpl-card {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 2.5mm;
+  }
+  .tmpl-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2mm 3.5mm;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .tmpl-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); }
+  .tmpl-tag { font-size: 10px; font-weight: 500; color: var(--text-light); }
+  .tmpl-body { padding: 2.5mm 3.5mm; }
+  .tmpl-draft { font-size: 12px; color: var(--text-muted); line-height: 1.5; font-style: italic; margin-bottom: 2mm; padding-bottom: 2mm; border-bottom: 1px dashed var(--border-mid); }
+  .tmpl-your-version { font-size: 11px; font-weight: 500; color: var(--brand); margin-bottom: 1.5mm; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .formula {
+    background: var(--surface);
+    border: 1px solid var(--border-mid);
+    border-radius: 3px;
+    padding: 3mm 4mm;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 3mm;
+  }
+  .formula span { color: var(--brand); font-style: italic; }
+
+  .channel-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5mm;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1mm 2.5mm;
+    border-radius: 2px;
+    margin-bottom: 1.5mm;
+  }
+  .channel-badge.message { background: var(--brand-light); color: var(--brand); border: 1px solid rgba(19,176,125,0.3); }
+  .channel-badge.phone { background: var(--accent-light); color: var(--accent); border: 1px solid rgba(196,136,74,0.3); }
+
+  .hw-block {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 3mm 4mm;
+    margin-bottom: 2.5mm;
+  }
+  .hw-name { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1.5mm; }
+  .hw-task { font-size: 12.5px; color: var(--text); line-height: 1.5; margin-bottom: 1mm; padding-left: 3.5mm; border-left: 2px solid var(--accent); }
+
+  @media print {
+    textarea.write-box { overflow: hidden; border-style: dashed; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page">
+
+  <div style="height:2mm; background: var(--brand); flex-shrink:0;"></div>
+
+  <div style="flex:1; display:flex; flex-direction:column; padding:14mm 16mm 0;">
+
+    <!-- label row -->
+    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+      <div class="label" style="color:var(--brand); letter-spacing:0.15em;">The Sanctuary by Nirvana Health Club</div>
+      <div class="label">Sales Training · Session 2 of 5</div>
+    </div>
+
+    <!-- upper half: logos + quote centered -->
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5mm;">
+      <div style="display:flex; align-items:center; justify-content:center; gap:10mm;">
+        <img src="../../../../../../olc-method/assets/OLC_beige_horizontal.jpg" style="height:22mm; object-fit:contain;" alt="OLC Method">
+        <img src="../../../../../../olc-method/website/clients/Nirvana.png" style="height:22mm; object-fit:contain;" alt="Nirvana Health Club">
+      </div>
+      <p style="font-family:'DM Serif Display',Georgia,serif; font-size:12.5px; font-style:italic; color:var(--text-muted); line-height:1.6; text-align:center; max-width:140mm; margin:0;">
+        "The objective is always to help prospects see that this new opportunity will give them the greatest desire to increase their status and help them achieve their goals."
+      </p>
+    </div>
+
+    <!-- lower half: title at top of lower half = center of page -->
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-top:4mm;">
+      <div style="font-size:11px; font-weight:500; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3mm;">Session 2</div>
+      <div class="serif" style="font-size:38px; line-height:1.1; color:var(--text); margin-bottom:4mm;">Discovery Framework<br>&amp; First Contact</div>
+      <div style="width:12mm; height:1.5px; background:var(--brand); margin-bottom:5mm;"></div>
+      <div style="font-size:14px; color:var(--text-muted); line-height:1.6; max-width:120mm;">
+        Session 1 built the offer. This session builds the conversation that gets someone to care about it.
+        Before tactics, there are five rules. Before pitching, there are three questions.
+        Before closing, there is a reply.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- cover footer: date / time / facilitator -->
+  <div style="padding:3mm 16mm; border-top:1px solid var(--border); flex-shrink:0; display:grid; grid-template-columns:1fr 1fr 1fr; gap:4mm;">
+    <div>
+      <div class="label" style="margin-bottom:1mm;">Date</div>
+      <div style="font-size:13px; font-weight:500;">Wednesday, June 25, 2026</div>
+    </div>
+    <div>
+      <div class="label" style="margin-bottom:1mm;">Time</div>
+      <div style="font-size:13px; font-weight:500;">3:00 to 5:00 PM</div>
+    </div>
+    <div>
+      <div class="label" style="margin-bottom:1mm;">Facilitator</div>
+      <div style="font-size:13px; font-weight:500;">Matthieu Jammers</div>
+    </div>
+  </div>
+
+  <div style="height:1mm; background: linear-gradient(to right, var(--brand), var(--accent)); flex-shrink:0;"></div>
+
+</div>
+
+
+<!-- PAGE 2: THE FIVE RULES -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 2: Discovery Framework &amp; First Contact</div>
+      <div class="page-header-tag">The Five Rules</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="width:7mm;height:7mm;font-size:13px;">·</div>
+      <div>
+        <div class="step-title">Before Tactics, There Are Rules</div>
+        <div class="step-time">The foundation every sales technique is built on</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:3mm;">
+      <p style="font-size:12.5px; color:var(--text-muted); line-height:1.6;">These are not frameworks. They are facts about how people decide. Everything in this session (the discovery questions, the templates, the role plays) is an application of one or more of these rules.</p>
+    </div>
+
+    <div style="flex:1;">
+
+      <div class="rule-block">
+        <div class="rule-num">5</div>
+        <div>
+          <div class="rule-text">People buy with emotion and justify it with logic.</div>
+          <div class="rule-note">Features close the mind. Feelings close the deal. Lead with the outcome, then back it with proof.</div>
+        </div>
+      </div>
+
+      <div class="rule-block">
+        <div class="rule-num">4</div>
+        <div>
+          <div class="rule-text">People will spend more to avoid pain than to gain pleasure.</div>
+          <div class="rule-note">The cost of waiting (missing units, a price increase, losing the best option) is more powerful than the promise of a return.</div>
+        </div>
+      </div>
+
+      <div class="rule-block">
+        <div class="rule-num">3</div>
+        <div>
+          <div class="rule-text">Sales is not about telling the customer what they need. It is about asking the right questions that make them want.</div>
+          <div class="rule-note">You don't convince anyone. You ask the right question and let them get there themselves.</div>
+        </div>
+      </div>
+
+      <div class="rule-block">
+        <div class="rule-num">2</div>
+        <div>
+          <div class="rule-text">The prospect must feel the consequences of inaction. Every sale, ask: what will happen if nothing changes today?</div>
+          <div class="rule-note">That answer is your close. Not the features, not the price. The cost of not deciding.</div>
+        </div>
+      </div>
+
+      <div class="rule-block" style="border-bottom:none;">
+        <div class="rule-num" style="color:var(--accent);">1</div>
+        <div>
+          <div class="rule-text" style="font-weight:500;">Stop caring so much about whether they buy. Be willing to walk away. The harder you try, the more doubt you imply.</div>
+          <div class="rule-note">Detachment is not indifference. It is confidence. The buyer feels it before you say a word.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout" style="margin-top:3mm;">
+      <p>Rule 3 is why we ask discovery questions. Rule 2 is why the reactivation templates work. Rule 1 is what makes the difference between a reply and silence.</p>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club · Sales Training 2026</div>
+    <div class="page-footer-text">2 / 6</div>
+  </div>
+</div>
+
+
+<!-- PAGE 3: ONE-SENTENCE OFFER -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 2: Discovery Framework &amp; First Contact</div>
+      <div class="page-header-tag">Carry-Over from Session 1</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">0</div>
+      <div>
+        <div class="step-title">Finish the One-Sentence Offer</div>
+        <div class="step-time">15 minutes · Group exercise</div>
+      </div>
+    </div>
+
+    <p style="font-size:12.5px; color:var(--text-muted); line-height:1.6; margin-bottom:4mm;">
+      We got to this at the end of Session 1. Good to come back to it with fresh eyes and lock it in together. This sentence becomes the opening of every first call. It should sound like something a person would actually say, not a brochure.
+    </p>
+
+    <div class="section-label">The Formula</div>
+    <div class="formula">
+      "When you <span>[action]</span>, you get <span>[dream outcome]</span> without <span>[biggest fear]</span>, even if <span>[biggest objection]</span>."
+    </div>
+
+    <div class="section-label">Starting Draft</div>
+    <div class="callout" style="margin-bottom:4mm;">
+      <p style="font-style:italic; font-size:13px; line-height:1.6;">"Own a suite inside Nirvana, earn 10% guaranteed while you're away, and always have your community waiting when you arrive, fully managed, no complexity from abroad, even if you've never invested in Bali before."</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:2mm;">Your Refinements</div>
+    <div class="grid-2" style="margin-bottom:4mm;">
+      <div>
+        <div style="font-size:11px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1.5mm;">Susi — what would you change?</div>
+        <textarea class="write-box" style="height:16mm;"></textarea>
+      </div>
+      <div>
+        <div style="font-size:11px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1.5mm;">Natasha — what would you change?</div>
+        <textarea class="write-box" style="height:16mm;"></textarea>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:2mm;">The Final Version <span style="color:var(--brand); font-size:10px;">(agreed by both)</span></div>
+    <textarea class="write-box" style="height:18mm; font-family:'DM Serif Display',Georgia,serif; font-size:14px; background:var(--brand-light); border-style:solid; border-color:rgba(19,176,125,0.4);"></textarea>
+
+    <div style="margin-top:3mm; display:flex; gap:2mm; align-items:flex-start;">
+      <div style="width:1.5mm; height:1.5mm; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:1.5mm;"></div>
+      <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5;">Read it out loud. If it sounds like a brochure, rewrite it. If Susi said this on a first call to an existing Nirvana member, would they lean in or pull back?</p>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club · Sales Training 2026</div>
+    <div class="page-footer-text">3 / 6</div>
+  </div>
+</div>
+
+
+<!-- PAGE 4: DISCOVERY FRAMEWORK -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 2: Discovery Framework &amp; First Contact</div>
+      <div class="page-header-tag">The Discovery Framework</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <div>
+        <div class="step-title">Three Questions Before Any Pitch</div>
+        <div class="step-time">30 minutes · Framework + delivery</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:3mm;">
+      <p style="font-size:12.5px; color:var(--text-muted); line-height:1.6;">The people you are talking to are not just buying a property. They are stepping into a new experience, and for most of them it is their first time investing in Bali. Your job is to guide them through it. That starts before any product conversation does.</p>
+    </div>
+
+    <div style="background:var(--surface); border:1px solid var(--border-mid); border-radius:3px; padding:2.5mm 4mm; margin-bottom:3mm;">
+      <div class="section-label" style="margin-bottom:1mm;">What they are really buying</div>
+      <p style="font-size:11.5px; color:var(--text-muted); line-height:1.45;">Every buyer has a stated reason and a real one. Beneath the investment return or the Bali base is a status driver: who they become when they own this. The investor is buying proof they make bold, unconventional moves. The lifestyle buyer is buying belonging to something rare. Discovery is how you find out which identity they are reaching for. Show them this is exactly how they get there, and the pitch sells itself.</p>
+    </div>
+
+    <div class="callout-accent" style="margin-bottom:3mm;">
+      <p><strong>Give, give, give, then ask.</strong> Every time you reach out, lead with something useful: a real update, a clear reason for the message, a fact they didn't have. Ask your question after. If you ask before giving anything, the chance of a reply drops sharply. The templates on the next page are built on this principle.</p>
+    </div>
+
+    <div class="callout-accent" style="margin-bottom:4mm; border-color:var(--brand); background:var(--brand-light);">
+      <p>The goal of first contact is a reply. Not a pitch, not a close. A reply. Everything else comes after.</p>
+    </div>
+
+    <div class="q-card">
+      <div class="q-card-header">
+        <div class="q-card-num">1</div>
+        <div class="q-card-label">Timeline</div>
+      </div>
+      <div class="q-card-body">
+        <div class="quote">"Are you looking at something for this year, or is this more of a 2027 situation for you?"</div>
+        <div class="tells">Tells you urgency and decision readiness. "This year" means ready to move. "2027" means qualify differently and don't put the same time in.</div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-card-header">
+        <div class="q-card-num">2</div>
+        <div class="q-card-label">Profile</div>
+      </div>
+      <div class="q-card-body">
+        <div class="quote">"Are you thinking of this primarily as an investment, or do you actually see yourself using it as a base in Bali?"</div>
+        <div class="tells">Tells you which outcome they want. Pure Investor means pitch the yield math. True Believer means pitch community, belonging, and a home base. The pitch is completely different depending on the answer.</div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-card-header">
+        <div class="q-card-num">3</div>
+        <div class="q-card-label">Comparison</div>
+      </div>
+      <div class="q-card-body">
+        <div class="quote">"Are you looking at other options right now, or is The Sanctuary your main focus?"</div>
+        <div class="tells">Tells you how to position. Comparing means differentiate first. Main focus means remove the final obstacle. If they've already decided, don't add pressure. Help them commit.</div>
+      </div>
+    </div>
+
+    <div class="q-card" style="margin-bottom:4mm;">
+      <div class="q-card-header">
+        <div class="q-card-num" style="background:var(--accent);">+</div>
+        <div class="q-card-label" style="color:var(--accent);">Follow-up</div>
+      </div>
+      <div class="q-card-body">
+        <div class="quote">"What's the main thing you're still unsure about right now?"</div>
+        <div class="tells">Use this once the three questions are answered. It surfaces the real objection before it becomes a reason not to reply. Whatever they say here is the thing you address before any close.</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="gap:3mm;">
+      <div>
+        <div class="channel-badge message">Message · Natasha / HubSpot</div>
+        <div style="font-size:12px; color:var(--text); line-height:1.5;">One question per message. Never send all three at once. Get a reply first, then go one level deeper.</div>
+        <div style="font-size:11.5px; color:var(--text-muted); margin-top:1.5mm; font-style:italic; line-height:1.4;">"Hi [name], picking this up from where we left it. Are you thinking about a move like this for this year, or is it more of a 2027 plan? Either way, happy to work around your timeline."</div>
+      </div>
+      <div>
+        <div class="channel-badge phone">Phone · Susi</div>
+        <div style="font-size:12px; color:var(--text); line-height:1.5;">All three in the first two minutes, naturally, not as a checklist. Genuine curiosity, not a form. Then pitch to the profile they gave you.</div>
+        <div style="font-size:11.5px; color:var(--text-muted); margin-top:1.5mm; font-style:italic; line-height:1.4;">"Before I go into anything, are you looking at this for this year? Investment or a base in Bali? And are you comparing other options or is this your main focus?"</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club · Sales Training 2026</div>
+    <div class="page-footer-text">4 / 6</div>
+  </div>
+</div>
+
+
+<!-- PAGE 5: TEMPLATE WORKSHOP -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 2: Discovery Framework &amp; First Contact</div>
+      <div class="page-header-tag">Template Workshop</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <div>
+        <div class="step-title">Build the Three Templates</div>
+        <div class="step-time">30 minutes · Rewrite in your own words</div>
+      </div>
+    </div>
+
+    <div class="callout-accent" style="margin-bottom:3mm;">
+      <p><strong>Urgency at every stage.</strong> 14 units. August sell-out. A price increase in July. These are facts. Mention them early and often, not just at close. Not as pressure, as honesty. A buyer who decides without knowing this isn't making a fully informed choice. Every template below should carry a real reason to act now.</p>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="tmpl-header">
+        <div class="tmpl-title">Template 1: Reactivation</div>
+        <div class="tmpl-tag">For the 74 leads who went quiet after a meeting</div>
+      </div>
+      <div class="tmpl-body">
+        <div class="tmpl-draft">"Hi [name], I know it's been a while. I'm reaching out because there are 14 units left and a 5% price increase coming in July. Before anything moves, I wanted to make sure you had the full picture. Are you still thinking about this for this year?"</div>
+        <div class="tmpl-your-version">Your version</div>
+        <textarea class="write-box" style="height:12mm;"></textarea>
+      </div>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="tmpl-header">
+        <div class="tmpl-title">Template 2: New Lead (First Contact)</div>
+        <div class="tmpl-tag">For leads who just opted in via ad · Natasha / HubSpot</div>
+      </div>
+      <div class="tmpl-body">
+        <div class="tmpl-draft">"Hi [name], thanks for reaching out about The Sanctuary. Quick question before I send you anything: are you thinking of this as an investment, or are you actually planning to come to Bali and use it as a base? It changes what I share with you."</div>
+        <div class="tmpl-your-version">Your version</div>
+        <textarea class="write-box" style="height:12mm;"></textarea>
+      </div>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="tmpl-header">
+        <div class="tmpl-title">Template 3: Nirvana Member Approach</div>
+        <div class="tmpl-tag">For existing club members · 700 people/day · Most underused source</div>
+      </div>
+      <div class="tmpl-body">
+        <div class="tmpl-draft">"Where are you staying while you're here?" [They name somewhere else.] "Did you know you can own a suite inside the club? Fully managed, lifetime membership from day one, pays 10% guaranteed while you're away. Worth a quick conversation?"</div>
+        <div class="tmpl-your-version">Your version</div>
+        <textarea class="write-box" style="height:12mm;"></textarea>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club · Sales Training 2026</div>
+    <div class="page-footer-text">5 / 6</div>
+  </div>
+</div>
+
+
+<!-- PAGE 6: HOMEWORK + SESSION 3 PREVIEW -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 2: Discovery Framework &amp; First Contact</div>
+      <div class="page-header-tag">Homework</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="background:var(--accent);">&#10003;</div>
+      <div>
+        <div class="step-title">Before Session 3</div>
+        <div class="step-time">Assigned June 25 · Due June 30 (Session 3)</div>
+      </div>
+    </div>
+
+    <div class="hw-block" style="border-left:3px solid var(--accent);">
+      <div class="hw-name">Natasha</div>
+      <div class="hw-task">Send Template 1 to five warm leads in HubSpot before Session 3. Track how many reply. Come to Session 3 with one conversation that moved and one that didn't.</div>
+    </div>
+
+    <div class="hw-block" style="border-left:3px solid var(--brand);">
+      <div class="hw-name" style="color:var(--brand);">Susi</div>
+      <div class="hw-task">Use the three discovery questions in every first call this week before any pitch. Report back what you learned about your active leads that you didn't know before. Come to Session 3 with one conversation that moved and one that didn't.</div>
+    </div>
+
+    <div class="rule" style="margin: 4mm 0;"></div>
+
+    <div class="section-label" style="margin-bottom:2mm;">Session 3 Preview: Closing Language &amp; The Committed Next Step</div>
+    <p style="font-size:12.5px; color:var(--text-muted); line-height:1.6; margin-bottom:3.5mm;">
+      Session 3 builds on everything from today. What you learn in discovery determines which close you use. The templates are the bridge between a lead that went quiet and one that's back in conversation.
+    </p>
+
+    <table style="margin-bottom:4mm;">
+      <thead>
+        <tr>
+          <th style="width:38%;">What you learn in Session 2</th>
+          <th>How it drives Session 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Timeline answer: "this year"</td>
+          <td>Full close with urgency: 14 units, July price increase, no future phase</td>
+        </tr>
+        <tr>
+          <td>Profile: Pure Investor</td>
+          <td>Close on yield math: $179K, same pool return as Tower 2, best ROI on capital deployed</td>
+        </tr>
+        <tr>
+          <td>Profile: Nirvana True Believer</td>
+          <td>Close on belonging: community, lifetime membership, owning a piece of something they already love</td>
+        </tr>
+        <tr>
+          <td>Comparison: looking at others</td>
+          <td>Differentiate first, then urgency. "What would the other option need to offer to win?"</td>
+        </tr>
+        <tr>
+          <td>Lead says "I need to think about it"</td>
+          <td>Rule 2 close: "What will happen if nothing changes today?" Never accept "not yet" as a final answer.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <p>What to bring to Session 3: your reactivation results (Natasha), your discovery call notes (Susi), and at least one real conversation to work through together.</p>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club · Sales Training 2026</div>
+    <div class="page-footer-text">6 / 6</div>
+  </div>
+</div>
+
+</body>
+</html>

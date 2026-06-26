@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Sales and Marketing for Developers and Hospitality | OLC Method</title>
+    <link rel="icon" type="image/jpeg" href="OLC_green_vertical.jpg">
+    <link rel="apple-touch-icon" href="OLC_green_vertical.jpg">
+    <meta name="description" content="OLC Method designs your Value Driven Offer, builds your sales engine, and closes buyers for you. No management fee. We both earn when we sell. Bali, Lombok, Southeast Asia.">
+    <meta property="og:title" content="Real Estate Sales and Marketing for Developers and Hospitality | OLC Method">
+    <meta property="og:description" content="We design your Value Driven Offer, build your sales engine, and close buyers for you. No management fee. We both earn when we sell.">
+    <meta property="og:url" content="https://olcmethod.com">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://olcmethod.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"OLC Method","url":"https://olcmethod.com","description":"Performance-based sales and marketing partnership for real estate developers and hospitality brands. OLC Method designs your offer, generates qualified buyers, and closes deals personally. No management fee.","email":"hello@olcmethod.com","areaServed":["Bali","Lombok","Indonesia"],"serviceType":"Performance-based real estate sales and marketing partnership"}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is OLC Method?","acceptedAnswer":{"@type":"Answer","text":"OLC Method is a marketing & sales system we build and run for real estate developers and hospitality leaders. OLC stands for Offer, Leads, Close. We design the offer, generate qualified buyers, and close deals personally. You run your project, we run your sales engine."}},{"@type":"Question","name":"How does OLC Method get paid?","acceptedAnswer":{"@type":"Answer","text":"The partnership starts with a one-time onboarding fee that funds the full strategy build: offer design, marketing documentation, and sales playbook. After that, no management fee, no invoices for work in progress. There is a small monthly running cost (~$500) for the campaign tools that keep your pipeline running. You cover the marketing budget directly. We earn a commission on each unit sold, no management fee. We both earn when we sell."}},{"@type":"Question","name":"What is the monthly campaign infrastructure cost?","acceptedAnswer":{"@type":"Answer","text":"There is a small monthly running cost (~$800) for the campaign tools that keep your pipeline running, that is it. We pass it through at cost, no markup, no management fee. You can see exactly what it covers."}},{"@type":"Question","name":"What type of projects do we work with?","acceptedAnswer":{"@type":"Answer","text":"Residential, commercial, or mixed-use. What matters is whether the project has something real behind it: a location, a concept, a design that gives a serious buyer a reason to pay attention. We don't take on every project. Trust comes first."}},{"@type":"Question","name":"How is OLC Method different from a real estate agent?","acceptedAnswer":{"@type":"Answer","text":"Agents list your property alongside dozens of others and wait for buyers. We build a sales system dedicated entirely to your project and close deals personally. We do not list properties."}},{"@type":"Question","name":"How is OLC Method different from a marketing agency?","acceptedAnswer":{"@type":"Answer","text":"An agency invoices you whether anything sells. We only get paid when you close. But the bigger difference is how we work: we're not a vendor filling a spreadsheet. We get into the project with you, help design the offer so it converts, and close the deals ourselves."}},{"@type":"Question","name":"Which markets does OLC Method operate in?","acceptedAnswer":{"@type":"Answer","text":"Bali (Seminyak, Canggu, Uluwatu, Pererenan, Nusa Dua), Lombok, and the Nusa islands."}},{"@type":"Question","name":"What does performance-based actually mean?","acceptedAnswer":{"@type":"Answer","text":"It means we get paid when we sell your offer. No management fee, no invoices for work in progress. If the project doesn't close deals, we don't earn. That's why we're selective. We don't take on a project we don't think we can sell."}},{"@type":"Question","name":"How do I get started?","acceptedAnswer":{"@type":"Answer","text":"Book your meeting through our website or email us at hello@olcmethod.com. We schedule a 30-minute call, understand your project, and tell you directly whether it is a fit. No pitch deck."}}]}</script>
+
+    <style>
+        /* ─── TOKENS ─────────────────────────────── */
+        :root {
+            --white:      #F9F8F4;
+            --off-white:  #EFEDE7;
+            --card:       #FFFFFF;
+            --sage:       #4F6352;
+            --sage-lt:    #6B8470;
+            --sage-pale:  #EDF1EE;
+            --dark:       #0D100C;
+            --text:       #0F1510;
+            --text-dim:   #3D4D40;
+            --text-muted: #9BA89E;
+            --border:     rgba(79,99,82,0.13);
+            --shadow:     0 2px 16px rgba(15,21,16,0.06);
+            --shadow-md:  0 4px 24px rgba(15,21,16,0.09);
+            --font-d: 'Cormorant', Georgia, serif;
+            --font-b: 'DM Sans', system-ui, sans-serif;
+        }
+
+        /* ─── RESET ──────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            background: var(--white);
+            color: var(--text);
+            font-family: var(--font-b);
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+
+        /* ─── TYPOGRAPHY ─────────────────────────── */
+        .label {
+            font-family: var(--font-b);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--sage);
+        }
+        h1, h2 { font-family: var(--font-d); font-weight: 400; line-height: 1.05; }
+        h3 { font-family: var(--font-b); font-weight: 500; line-height: 1.3; }
+        p { color: var(--text-dim); line-height: 1.8; font-size: 16px; }
+
+        /* ─── LAYOUT ─────────────────────────────── */
+        .wrap        { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        .wrap--tight { max-width: 840px;  margin: 0 auto; padding: 0 2rem; }
+        section      { padding: 80px 0; }
+
+        /* ─── NAV ────────────────────────────────── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+        nav.scrolled {
+            box-shadow: 0 1px 20px rgba(15,21,16,0.05);
+        }
+        .nav-inner {
+            max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+            height: 100px;
+            display: flex; align-items: center;
+        }
+        .nav-logo img {
+            height: 88px; width: auto;
+            display: block;
+            flex-shrink: 0;
+        }
+        @media (max-width: 767px) {
+            .nav-logo img { height: 104px; }
+            .nav-right { margin-left: auto; }
+            .nav-right .btn { display: none; }
+        }
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 1.875rem;
+            align-items: center;
+            margin-left: auto;
+            margin-right: 1.875rem;
+        }
+        @media (min-width: 768px) { .nav-links { display: flex; } }
+
+        /* ─── HAMBURGER ──────────────────────────── */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 36px; height: 36px;
+            background: none; border: none;
+            cursor: pointer; padding: 6px;
+            border-radius: 6px;
+        }
+        .hamburger span {
+            display: block; width: 100%; height: 1.5px;
+            background: var(--sage);
+            transition: transform 0.25s, opacity 0.25s;
+            transform-origin: center;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+        @media (min-width: 768px) { .hamburger { display: none; } }
+
+        .mobile-menu {
+            display: none;
+            position: fixed; top: 100px; left: 0; right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 2.5rem 1.75rem;
+            z-index: 99;
+            box-shadow: 0 8px 24px rgba(15,21,16,0.08);
+        }
+        .mobile-menu.open { display: block; }
+        .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+        .mobile-menu a {
+            display: block;
+            font-size: 15px; font-weight: 400;
+            color: var(--text-dim);
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: color 0.15s;
+        }
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu a:hover { color: var(--sage); }
+        @media (min-width: 768px) { .mobile-menu { display: none !important; } }
+        .nav-links a {
+            font-family: var(--font-b);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--sage);
+            padding: 0.5rem 1.1rem;
+            border-radius: 100px;
+            border: 1px solid var(--sage);
+            transition: background 0.15s, color 0.15s;
+        }
+        .nav-links a:hover { background: var(--sage); color: #fff; }
+        .nav-right { display: flex; align-items: center; gap: 0.6rem; }
+
+        /* ─── BUTTONS ────────────────────────────── */
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            font-family: var(--font-b);
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            padding: 0.65rem 1.3rem;
+            border-radius: 6px;
+            border: 1px solid var(--sage);
+            color: var(--sage);
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.18s, color 0.18s, border-color 0.18s;
+            white-space: nowrap;
+        }
+        .btn:hover { background: var(--sage); color: #fff; }
+        .btn-filled { background: var(--sage); color: #fff; }
+        .btn-filled:hover { background: var(--sage-lt); border-color: var(--sage-lt); }
+        .btn-ghost { border-color: var(--border); color: var(--text-dim); }
+        .btn-ghost:hover { border-color: var(--sage); color: var(--sage); background: transparent; }
+
+        /* Sage section buttons */
+        .btn-sage-filled { background: #FFFFFF; color: var(--sage); border-color: #FFFFFF; }
+        .btn-sage-filled:hover { background: var(--sage-pale); border-color: var(--sage-pale); }
+        .btn-sage-outline { border-color: rgba(255,255,255,0.35); color: rgba(255,255,255,0.8); }
+        .btn-sage-outline:hover { border-color: #fff; color: #fff; background: transparent; }
+
+        .wa-icon { width: 14px; height: 14px; flex-shrink: 0; }
+
+        /* ─── HERO ───────────────────────────────── */
+        #hero {
+            background: var(--white);
+            padding: 160px 0 100px;
+        }
+        .hero-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        .hero-eyebrow {
+            display: inline-flex; align-items: flex-start; gap: 0.6rem;
+            background: var(--sage-pale);
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+        .hero-eyebrow .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--sage); flex-shrink: 0;
+            margin-top: 4px;
+        }
+        .hero-eyebrow .label { line-height: 1.6; }
+        .hero-h1 {
+            font-size: clamp(34px, 4vw, 58px);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            max-width: 820px;
+            margin-bottom: 1.5rem;
+        }
+        .hero-h1 em { font-style: italic; color: var(--sage); }
+        .hero-strong {
+            font-family: var(--font-b);
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text);
+            max-width: 600px;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        .hero-sub {
+            font-size: 15px;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            line-height: 1.85;
+        }
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        /* ─── PROOF BAR ──────────────────────────── */
+        #proof-bar {
+            background: var(--sage-pale);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 0;
+            overflow: hidden;
+        }
+        .proof-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: ticker 40s linear infinite;
+        }
+        .proof-track:hover { animation-play-state: paused; }
+        @keyframes ticker {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .proof-item {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-dim);
+            white-space: nowrap;
+            min-width: 26vw;
+            text-align: center;
+            padding: 0 1.5rem;
+        }
+        .proof-item strong { color: var(--sage); font-weight: 700; }
+        .proof-sep {
+            color: var(--text-muted);
+            font-size: 12px;
+            flex-shrink: 0;
+            width: 4vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ─── SECTION HEADER ─────────────────────── */
+        .sec-head { margin-bottom: 3.5rem; }
+        .sec-head .label { display: block; margin-bottom: 0.875rem; }
+        .sec-title {
+            font-size: clamp(34px, 4.2vw, 56px);
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            max-width: 640px;
+            color: var(--text);
+            line-height: 1.08;
+        }
+        .sec-title em { font-style: italic; color: var(--sage); }
+
+        /* ─── PROBLEM ────────────────────────────── */
+        #problem { background: var(--white); }
+        .prob-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+        .prob-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem 2.25rem;
+            box-shadow: var(--shadow);
+            border-left: 3px solid var(--sage);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .prob-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .prob-num {
+            font-size: 11px; font-weight: 500;
+            letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--text-muted); margin-bottom: 1.25rem;
+        }
+        .prob-title {
+            font-size: 16px; font-weight: 500;
+            color: var(--text); margin-bottom: 0.75rem; line-height: 1.4;
+        }
+        .prob-desc { font-size: 14px; line-height: 1.8; }
+
+        /* ─── METHOD ─────────────────────────────── */
+        #method { background: var(--off-white); }
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 3.5rem;
+        }
+        .m-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.25rem;
+            box-shadow: var(--shadow);
+        }
+        .m-letter {
+            font-family: var(--font-d);
+            font-size: clamp(64px, 8vw, 100px);
+            font-weight: 600;
+            color: var(--sage);
+            line-height: 0.9;
+            margin-bottom: 1.25rem;
+            opacity: 0.35;
+        }
+        .m-title { font-size: 17px; font-weight: 500; color: var(--text); margin-bottom: 0.75rem; }
+        .m-desc { font-size: 14px; }
+
+        /* ─── WHY ────────────────────────────────── */
+        #why { background: var(--white); }
+        .why-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+            margin-top: 3.5rem;
+        }
+        .why-list { list-style: none; }
+        .why-item {
+            display: flex; gap: 1rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .why-list .why-item:first-child { border-top: 1px solid var(--border); }
+        .why-check {
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: var(--sage-pale);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; margin-top: 2px;
+        }
+        .why-check svg { width: 10px; height: 10px; color: var(--sage); }
+        .why-h { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+        .why-p { font-size: 14px; }
+        .why-pull {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: sticky;
+            top: 100px;
+        }
+        .why-pull blockquote {
+            font-family: var(--font-d);
+            font-size: clamp(1.3rem, 2vw, 1.75rem);
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.45;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+        .why-pull cite {
+            font-size: 12px; font-weight: 500;
+            letter-spacing: 0.06em; color: var(--sage); font-style: normal;
+        }
+
+        /* ─── RESULTS ────────────────────────────── */
+        #results { background: var(--off-white); }
+        .results-row {
+            display: flex; align-items: center;
+        }
+        .results-row .sec-head { flex: 1; margin-bottom: 0; }
+        .results-card-col {
+            flex: 1;
+            display: flex; justify-content: center;
+        }
+        .result-card {
+            width: 340px;
+            background: var(--card);
+            border: 1px dashed rgba(79,99,82,0.3);
+            border-radius: 10px;
+            padding: 2rem 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        .result-card .label { margin-bottom: 1rem; }
+        .result-client {
+            font-family: var(--font-d);
+            font-size: 1.5rem; font-weight: 400;
+            color: var(--text); margin-bottom: 0.75rem;
+        }
+        .result-card p { font-size: 14px; }
+        @media (max-width: 767px) {
+            .results-row { flex-direction: column; gap: 2rem; }
+            .results-card-col { width: 100%; }
+            .result-card { width: 100%; }
+        }
+
+        /* ─── FAQ ────────────────────────────────── */
+        #faq { background: var(--white); }
+        .faq-list { margin-top: 3.5rem; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-q {
+            width: 100%; background: none; border: none;
+            padding: 1.5rem 0;
+            display: flex; justify-content: space-between; align-items: center;
+            cursor: pointer; color: var(--text);
+            font-family: var(--font-b); font-size: 15px; font-weight: 400;
+            text-align: left; gap: 2rem;
+            transition: color 0.18s;
+        }
+        .faq-q:hover { color: var(--sage); }
+        .faq-plus {
+            width: 22px; height: 22px; border-radius: 50%;
+            background: var(--sage-pale);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; color: var(--sage);
+            font-size: 14px; font-weight: 400;
+            transition: transform 0.28s cubic-bezier(0.4,0,0.2,1), background 0.18s;
+            line-height: 1;
+        }
+        .faq-item.open .faq-plus { transform: rotate(45deg); background: var(--sage); color: #fff; }
+        .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.38s ease; }
+        .faq-item.open .faq-body { max-height: 500px; }
+        .faq-body-inner {
+            padding-bottom: 1.5rem; font-size: 14px;
+            line-height: 1.85; color: var(--text-dim); max-width: 680px;
+        }
+
+        /* ─── CTA (SAGE GREEN) ───────────────────── */
+        #contact {
+            background: var(--sage);
+            padding: 140px 0;
+            text-align: center;
+        }
+        .cta-h {
+            font-size: clamp(48px, 7vw, 88px);
+            font-weight: 300;
+            line-height: 1.0;
+            color: #fff;
+            margin-bottom: 1.25rem;
+        }
+        .cta-h em { font-style: italic; color: rgba(255,255,255,0.4); }
+        .cta-sub {
+            font-size: 15px;
+            color: rgba(255,255,255,0.6);
+            max-width: 440px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+        .cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+        /* ─── FOOTER (WHITE + SAGE) ──────────────── */
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 0 2rem;
+        }
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.75rem;
+            list-style: none;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        .footer-nav a {
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            color: var(--sage);
+            transition: color 0.18s;
+        }
+        .footer-nav a:hover { color: var(--text); }
+        .footer-olc-logo { height: 128px; width: auto; display: block; margin: 0 auto; }
+        .footer-copy { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 0.75rem; }
+        .footer-bottom {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+        }
+        .footer-bottom-left { }
+        .footer-powered {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.3rem;
+            justify-self: end;
+        }
+        .footer-powered span { font-size: 11px; color: var(--text-muted); letter-spacing: 0.06em; white-space: nowrap; }
+        .footer-powered img { height: 60px; width: auto; opacity: 0.7; }
+
+        /* ─── ANIMATIONS ─────────────────────────── */
+        .fu { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fu.on { opacity: 1; transform: none; }
+        .d1 { transition-delay: 0.08s; }
+        .d2 { transition-delay: 0.16s; }
+        .d3 { transition-delay: 0.24s; }
+
+        /* ─── H1 ITALIC WORD FADE ────────────────────── */
+        @keyframes word-fade {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        .hw { opacity: 0; }
+        .hw.show { animation: word-fade 0.3s ease both; }
+
+        /* ─── CARD ENTRANCE (scroll-triggered, staggered) ─── */
+        @keyframes card-in {
+            0%   { opacity: 0; transform: translateY(48px) scale(0.95); }
+            65%  { opacity: 1; transform: translateY(-8px) scale(1.01); }
+            82%  { transform: translateY(4px) scale(0.99); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .card-throw { opacity: 0; }
+        .card-throw.on { animation: card-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+        /* ─── BUTTON THROW-IN (scroll-triggered) ──── */
+        @keyframes throw-in {
+            0%   { opacity: 0; transform: translateY(-28px) rotate(-2deg) scale(0.92); }
+            60%  { opacity: 1; transform: translateY(5px) rotate(0.5deg) scale(1.02); }
+            80%  { transform: translateY(-3px) rotate(-0.3deg) scale(0.99); }
+            100% { opacity: 1; transform: translateY(0) rotate(0) scale(1); }
+        }
+        .btn-throw { opacity: 0; }
+        .btn-throw.on { animation: throw-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+        /* ─── RESPONSIVE ─────────────────────────── */
+        @media (max-width: 900px) {
+            .why-layout { grid-template-columns: 1fr; gap: 3rem; }
+            .why-pull { position: static; }
+        }
+        @media (max-width: 720px) {
+            section { padding: 70px 0; }
+            #hero { padding: 110px 0 70px; }
+            .prob-grid, .method-grid { grid-template-columns: 1fr; }
+            #contact { padding: 90px 0; }
+        }
+        @media (max-width: 420px) {
+            .wrap, .wrap--tight { padding: 0 1.25rem; }
+            nav { padding: 0 1.25rem; }
+        }
+
+        /* ─── FORMS ──────────────────────────────── */
+        #audit-form { background: var(--sage-pale); border-bottom: 1px solid var(--border); padding: 70px 0; }
+        .audit-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .audit-quote {
+            display: flex;
+            justify-content: center;
+        }
+        @media (max-width: 767px) {
+            .audit-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+            .audit-quote { display: none; }
+        }
+        .slogan-quote {
+            font-family: var(--font-d);
+            font-size: clamp(2.75rem, 5vw, 4.5rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--sage);
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+        }
+        .form-head { margin-bottom: 2rem; }
+        .form-head .label { display: block; margin-bottom: 0.6rem; }
+        .form-head p { font-size: 15px; color: var(--text-dim); max-width: 520px; line-height: 1.8; }
+        .capture-form { display: flex; flex-direction: column; gap: 0.75rem; max-width: 640px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+        .form-input {
+            font-family: var(--font-b); font-size: 14px; font-weight: 300;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--card);
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.18s;
+            width: 100%;
+        }
+        .form-input:focus { border-color: var(--sage); }
+        .form-input::placeholder { color: var(--text-muted); }
+        .form-submit { align-self: flex-start; padding: 0.75rem 1.75rem; }
+
+        /* Form on sage (bottom CTA) */
+        #contact { background: var(--sage); padding: 100px 0 0; text-align: center; }
+        .contact-form-wrap {
+            background: var(--card);
+            padding: 50px 0 60px;
+            margin-top: 60px;
+        }
+        .contact-form-inner { max-width: 640px; margin: 0 auto; padding: 0 2rem; text-align: left; }
+        .contact-form-label { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.25rem; }
+
+        @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+        @media (max-width: 420px) { .contact-form-inner { padding: 0 1.25rem; } }
+
+        /* ─── SERVICES & TOOLS ───────────────────────── */
+        #services { background: var(--white); }
+        #tools { background: var(--off-white); }
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 3.5rem;
+        }
+        .svc-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem 2.25rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .svc-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .svc-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+        }
+        .svc-icon { font-size: 1.2rem; line-height: 1; }
+        .svc-arrow { color: var(--sage); font-size: 1rem; opacity: 0.45; }
+        .svc-title {
+            font-family: var(--font-b);
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 0.35rem;
+            line-height: 1.3;
+        }
+        .svc-sub {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 0.875rem;
+        }
+        .svc-desc {
+            font-size: 14px;
+            color: var(--text-dim);
+            line-height: 1.8;
+            flex: 1;
+        }
+        .svc-proof {
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--sage);
+            font-weight: 500;
+        }
+        .tool-featured {
+            background: var(--sage);
+            border-color: var(--sage);
+        }
+        .tool-featured .svc-title { color: #fff; }
+        .tool-featured .svc-sub { color: rgba(255,255,255,0.55); }
+        .tool-featured .svc-desc { color: rgba(255,255,255,0.75); }
+        .tool-featured .svc-arrow { color: rgba(255,255,255,0.6); }
+        @media (max-width: 900px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .svc-grid { grid-template-columns: 1fr; } }
+
+        /* ─── FOR MARKET MAKERS ─────────────────────── */
+        #market-makers { background: var(--off-white); padding: 120px 0; }
+        .manifesto { margin-top: 2.5rem; max-width: 760px; }
+        .manifesto p {
+            font-family: var(--font-d);
+            font-size: clamp(1.15rem, 2vw, 1.55rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-dim);
+            line-height: 1.75;
+            margin-bottom: 1.75rem;
+        }
+        .manifesto-lead {
+            color: var(--text) !important;
+            font-size: clamp(1.3rem, 2.5vw, 1.85rem) !important;
+            font-weight: 600 !important;
+        }
+        .manifesto-close {
+            color: var(--sage) !important;
+            font-weight: 600 !important;
+            border-top: 1px solid var(--border);
+            padding-top: 1.75rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ─── MOBILE STICKY CTA ──────────────────────── */
+        .mobile-cta-bar {
+            display: none;
+        }
+        @media (max-width: 767px) {
+            .mobile-cta-bar {
+                display: block;
+                position: fixed;
+                bottom: 0; left: 0; right: 0;
+                background: var(--sage);
+                padding: 0.875rem 1.5rem;
+                z-index: 200;
+                text-align: center;
+                box-shadow: 0 -2px 16px rgba(15,21,16,0.12);
+            }
+            .mobile-cta-bar a {
+                display: inline-block;
+                font-family: var(--font-b);
+                font-size: 14px;
+                font-weight: 500;
+                color: var(--sage);
+                letter-spacing: 0.02em;
+                background: var(--off-white);
+                border-radius: 6px;
+                padding: 0.7rem 2rem;
+                width: 100%;
+                text-align: center;
+            }
+            body { padding-bottom: 60px; }
+
+            /* Footer mobile */
+            .footer-nav { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────── -->
+<nav id="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">
+            <img src="OLC_beige_horizontal.jpg" alt="OLC Method">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#method">Method</a></li>
+            <li><a href="#why">Why OLC</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="#audit-form" class="btn btn-filled">Get my free consultation</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+    <ul>
+        <li><a href="#method" onclick="closeMobileMenu()">Method</a></li>
+        <li><a href="#why" onclick="closeMobileMenu()">Why OLC</a></li>
+        <li><a href="#results" onclick="closeMobileMenu()">Results</a></li>
+        <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+        <li><a href="#tools" onclick="closeMobileMenu()">Tools</a></li>
+        <li><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
+        <li><a href="#audit-form" onclick="closeMobileMenu()">Get my free consultation</a></li>
+    </ul>
+</div>
+
+
+<!-- ── HERO ───────────────────────────────────── -->
+<section id="hero">
+    <div class="hero-inner">
+        <div class="hero-eyebrow" id="hero-eyebrow">
+            <div class="dot"></div>
+            <span class="label">Performance-based sales &amp; marketing for real estate developers and hospitality brands &middot; Bali, Lombok, Southeast Asia</span>
+        </div>
+        <h1 class="hero-h1" id="hero-h1">
+            Turnkey marketing strategy &amp;<br>
+            sales cycles for real estate developers<br>
+            <em>who want deals closed.</em>
+        </h1>
+        <p class="hero-strong fu d2">
+            We design your value-driven offer, build your sales pipeline, and convert leads into buyers. No management fee. We only win when you do.
+        </p>
+        <div class="hero-ctas">
+            <a href="#audit-form" class="btn btn-filled btn-throw">Book my meeting</a>
+            <a href="#method" class="btn btn-ghost btn-throw" style="animation-delay:0.15s">See how it works</a>
+            <a href="#results" class="btn btn-ghost btn-throw" style="animation-delay:0.3s">See our results</a>
+            <a href="#market-makers" class="btn btn-ghost btn-throw" style="animation-delay:0.45s">For Market Makers</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── AUDIT FORM ──────────────────────────────── -->
+<section id="audit-form">
+    <div class="wrap">
+        <div class="audit-layout">
+            <div>
+                <div class="form-head fu">
+                    <span class="label">Free project audit</span>
+                    <h2 class="sec-title" style="font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 0.75rem;">See if your project <em>qualifies.</em></h2>
+                    <p>Residential, commercial, or mixed-use. If the project has something real behind it, we'll review it and tell you honestly what we think.</p>
+                </div>
+                <form name="olc-audit" method="POST" data-netlify="true" action="/thank-you.html" class="capture-form fu d1">
+                    <input type="hidden" name="form-name" value="olc-audit">
+                    <input type="hidden" name="source" value="audit">
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Your name" required class="form-input">
+                        <input type="email" name="email" placeholder="Email address" required class="form-input">
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="project" placeholder="Project or company name" required class="form-input">
+                        <input type="tel" name="phone" placeholder="Phone (optional)" class="form-input">
+                    </div>
+                    <button type="submit" class="btn btn-filled form-submit btn-throw">Request my free audit</button>
+                </form>
+            </div>
+            <div class="audit-quote fu d2">
+                <blockquote class="slogan-quote">&ldquo;Stop listing,<br>Start Selling&rdquo;</blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── PROOF BAR ──────────────────────────────── -->
+<div id="proof-bar" aria-label="Key benefits">
+    <div class="proof-track">
+        <div class="proof-item"><strong>Value driven</strong> strategy</div>
+        <span class="proof-sep">&middot;</span>
+        <div class="proof-item"><strong>Dynamic</strong> marketing</div>
+        <span class="proof-sep">&middot;</span>
+        <div class="proof-item"><strong>Dedicated</strong> sales system</div>
+        <span class="proof-sep">&middot;</span>
+        <div class="proof-item">No <strong>management fee</strong></div>
+        <span class="proof-sep">&middot;</span>
+        <div class="proof-item">Paid <strong>on closing</strong></div>
+        <span class="proof-sep">&middot;</span>
+        <!-- duplicate for seamless loop -->
+        <div class="proof-item" aria-hidden="true"><strong>Value driven</strong> strategy</div>
+        <span class="proof-sep" aria-hidden="true">&middot;</span>
+        <div class="proof-item" aria-hidden="true"><strong>Dynamic</strong> marketing</div>
+        <span class="proof-sep" aria-hidden="true">&middot;</span>
+        <div class="proof-item" aria-hidden="true"><strong>Dedicated</strong> sales system</div>
+        <span class="proof-sep" aria-hidden="true">&middot;</span>
+        <div class="proof-item" aria-hidden="true">No <strong>management fee</strong></div>
+        <span class="proof-sep" aria-hidden="true">&middot;</span>
+        <div class="proof-item" aria-hidden="true">Paid <strong>on closing</strong></div>
+        <span class="proof-sep" aria-hidden="true">&middot;</span>
+    </div>
+</div>
+
+
+<!-- ── PROBLEM ────────────────────────────────── -->
+<section id="problem">
+    <div class="wrap">
+        <div class="sec-head fu">
+            <span class="label">The problem</span>
+            <h2 class="sec-title">Developers undersell their own <em>project.</em></h2>
+            <p style="margin-top: 1.25rem; max-width: 600px;">Most developers lead with specs: sqm, finishes, views. Buyers decide based on outcomes: returns, lifestyle, status. When that story is missing, the offer becomes a commodity, price becomes the only conversation, and you lose.</p>
+        </div>
+        <div class="prob-grid">
+            <div class="prob-card fu d1">
+                <div class="prob-num">01</div>
+                <h3 class="prob-title">No system, no value, only listings.</h3>
+                <p class="prob-desc">Putting a property on a portal is not sales. Without a designed offer, a funnel, and someone actively following up, you are waiting for the right buyer to show up. Most of them never do.</p>
+            </div>
+            <div class="prob-card fu d2">
+                <div class="prob-num">02</div>
+                <h3 class="prob-title">The offer has no story.</h3>
+                <p class="prob-desc">A location and a price is not an offer. Without a clear value narrative: returns, lifestyle, who this is for and why, buyers have nothing to say yes to. The spec sheet does not close deals.</p>
+            </div>
+            <div class="prob-card fu d3">
+                <div class="prob-num">03</div>
+                <h3 class="prob-title">You have leads. Nobody is closing them.</h3>
+                <p class="prob-desc">Marketing agencies stop at the spreadsheet. Traditional agents spread their time across 30 listings. Neither one is accountable for signed contracts. The gap between interested and sold is where money disappears.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── METHOD ─────────────────────────────────── -->
+<section id="method">
+    <div class="wrap">
+        <div class="sec-head fu">
+            <span class="label">The method</span>
+            <h2 class="sec-title">Three phases. One outcome: <em>units sold.</em></h2>
+            <p style="margin-top: 1.25rem; max-width: 560px;">We don't just hand you a list of names. We take full accountability for your revenue.</p>
+        </div>
+        <div class="method-grid">
+            <div class="m-card card-throw">
+                <div class="m-letter">O</div>
+                <h3 class="m-title">Offer design</h3>
+                <p class="m-desc">We redesign how your project is sold around its real value, the story you tell buyers. When the offer is right, price stops being the main objection. Tailored to attract cross-border buyers who know what they're looking for.</p>
+            </div>
+            <div class="m-card card-throw" style="animation-delay:0.2s">
+                <div class="m-letter">L</div>
+                <h3 class="m-title">Lead generation</h3>
+                <p class="m-desc">We run paid campaigns to find qualified buyers who are actually ready. Not traffic, not impressions. People with real budget, clear intent, and a decision timeline. You allocate the marketing budget. We make it work.</p>
+            </div>
+            <div class="m-card card-throw" style="animation-delay:0.4s">
+                <div class="m-letter">C</div>
+                <h3 class="m-title">Close</h3>
+                <p class="m-desc">We handle every prospect from first contact to signed agreement, turning your pipeline into signed contracts. From discovery calls to contracts, we close. That is the job, and it is the only thing we measure.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── WHY ────────────────────────────────────── -->
+<section id="why">
+    <div class="wrap">
+        <div class="sec-head fu">
+            <span class="label">Why OLC Method</span>
+            <h2 class="sec-title">Not an agency. Not an agent. <em>A different game.</em></h2>
+        </div>
+        <div class="why-layout">
+            <ul class="why-list">
+                <li class="why-item fu">
+                    <div class="why-check">
+                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg>
+                    </div>
+                    <div>
+                        <div class="why-h">Strategy to last.</div>
+                        <p class="why-p">Full 360 degree audit and an implemented Value Driven Strategy built around your project. Not a template. Not a checklist. A real plan built to close.</p>
+                    </div>
+                </li>
+                <li class="why-item fu d1">
+                    <div class="why-check">
+                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg>
+                    </div>
+                    <div>
+                        <div class="why-h">No management fee. Ever.</div>
+                        <p class="why-p">We don't invoice you for our time. The only monthly cost is the running cost of the campaign infrastructure: the CRM, automation, and landing pages that run your pipeline. ~$500/month, fully transparent, no markup.</p>
+                    </div>
+                </li>
+                <li class="why-item fu d2">
+                    <div class="why-check">
+                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg>
+                    </div>
+                    <div>
+                        <div class="why-h">Your project only.</div>
+                        <p class="why-p">We work with a small number of clients at a time. Your project gets its own system, not a listing slot in someone else's portfolio.</p>
+                    </div>
+                </li>
+                <li class="why-item fu d3">
+                    <div class="why-check">
+                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg>
+                    </div>
+                    <div>
+                        <div class="why-h">We close, not just generate.</div>
+                        <p class="why-p">The gap between an interested buyer and a signed contract is where most revenue leaks. We are closers who also generate leads.</p>
+                    </div>
+                </li>
+                <li class="why-item fu d3">
+                    <div class="why-check">
+                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg>
+                    </div>
+                    <div>
+                        <div class="why-h">Built for this market.</div>
+                        <p class="why-p">Five years of senior sales management in South East Asia real estate. That is the experience behind every deal we close.</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="why-pull fu d2">
+                <blockquote>"Your project is not average. Your sales partner should not be either."</blockquote>
+                <cite>OLC Method</cite>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── RESULTS ────────────────────────────────── -->
+<section id="results">
+    <div class="wrap">
+        <div class="results-row">
+            <div class="sec-head fu">
+                <span class="label">Results</span>
+                <h2 class="sec-title">Real testimonials from<br><em>market leaders.</em></h2>
+            </div>
+            <div class="results-card-col">
+                <div class="result-card fu">
+                    <img src="clients/Nirvana.png" alt="Nirvana Health Club" style="width:72px;height:72px;border-radius:50%;object-fit:cover;margin:0 auto 1.25rem;">
+                    <span class="label">Case study in progress</span>
+                    <div class="result-client">Nirvana Health Club &mdash; Bali</div>
+                    <p>Case study publishing Q3 2026. We will document the offer redesign, campaign results, units sold, and how long it took to close the first deal.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── SERVICES ──────────────────────────────── -->
+<section id="services">
+    <div class="wrap">
+        <div class="sec-head fu">
+            <span class="label">What we do</span>
+            <h2 class="sec-title">Everything it takes to<br><em>sell your project.</em></h2>
+        </div>
+        <div class="svc-grid">
+
+            <div class="svc-card card-throw">
+                <span class="svc-icon">&#128221;</span>
+                <div class="svc-title">Sales Strategy &amp; Playbook</div>
+                <div class="svc-sub">Strategy &middot; Go-to-market &middot; Playbook</div>
+                <p class="svc-desc">We define your value-based offer, figure out who your perfect buyer is and how to talk about it. The output is a written playbook our team can run from day one.</p>
+                <div class="svc-proof">&#10003; Tested and approved by experts</div>
+            </div>
+
+            <div class="svc-card card-throw" style="animation-delay:0.1s">
+                <span class="svc-icon">&#128188;</span>
+                <div class="svc-title">Marketing Documentation</div>
+                <div class="svc-sub">Website &middot; Pitch Decks &middot; Presentations &middot; Instagram</div>
+                <p class="svc-desc">Website, pitch deck, presentations, Instagram content. We build what your project needs to look the part and give buyers something to say yes to.</p>
+                <div class="svc-proof">&#10003; Built for cross-border buyer conversion</div>
+            </div>
+
+            <div class="svc-card card-throw" style="animation-delay:0.2s">
+                <span class="svc-icon">&#128140;</span>
+                <div class="svc-title">Outbound Outreach</div>
+                <div class="svc-sub">Cold Email &middot; LinkedIn &middot; Data Enrichment</div>
+                <p class="svc-desc">Cold email, LinkedIn, enriched data lists. We build and run the outbound operation that gets your project in front of people who fit the buyer profile.</p>
+                <div class="svc-proof">&#10003; Targeted across buyer and broker networks</div>
+            </div>
+
+            <div class="svc-card card-throw" style="animation-delay:0.3s">
+                <span class="svc-icon">&#128270;</span>
+                <div class="svc-title">Lead Generation &amp; Qualification</div>
+                <div class="svc-sub">SDR-Led Qualification</div>
+                <p class="svc-desc">Every lead gets screened by a dedicated SDR before it reaches the closer. The ones who don't fit don't get through.</p>
+                <div class="svc-proof">&#10003; Quality over volume, every time</div>
+            </div>
+
+            <div class="svc-card card-throw" style="animation-delay:0.4s">
+                <span class="svc-icon">&#128222;</span>
+                <div class="svc-title">Appointment Setting</div>
+                <div class="svc-sub">Pipeline Building</div>
+                <p class="svc-desc">We handle the outreach, the calls, and the follow-up. You don't need to show up. We do the closing.</p>
+                <div class="svc-proof">&#10003; Consistent pipeline from day one</div>
+            </div>
+
+            <div class="svc-card card-throw" style="animation-delay:0.5s">
+                <span class="svc-icon">&#9889;</span>
+                <div class="svc-title">Closing by Experts</div>
+                <div class="svc-sub">Dedicated Sales Closing</div>
+                <p class="svc-desc">OLC Method handles the full cycle, from first contact to signed contract. You get a sales playbook, CRM visibility, and a monthly recap of where everything stands.</p>
+                <div class="svc-proof">&#10003; No close, no fee</div>
+            </div>
+
+            <div class="svc-card card-throw" style="animation-delay:0.6s">
+                <span class="svc-icon">&#128202;</span>
+                <div class="svc-title">CRM &amp; Back Office</div>
+                <div class="svc-sub">Performance Tracking</div>
+                <p class="svc-desc">Every deal in the pipeline, visible in one place. Where it is, what's moving, what's stuck. Monthly report included, no chasing.</p>
+                <div class="svc-proof">&#10003; Built on Scale-Rise</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ── TOOLS ──────────────────────────────────── -->
+<section id="tools">
+    <div class="wrap">
+        <div class="sec-head fu">
+            <span class="label">How we operate</span>
+            <h2 class="sec-title">Built on the <em>right stack.</em></h2>
+        </div>
+        <div class="svc-grid">
+
+            <div class="svc-card tool-featured card-throw">
+                <span class="svc-icon">&#9881;&#65039;</span>
+                <div class="svc-title">Scale-Rise</div>
+                <div class="svc-sub">Business Operating System</div>
+                <p class="svc-desc">Scale-Rise is the system running OLC's back office. It handles reporting, follow-up, and campaign tracking so the team spends time on deals, not admin.</p>
+            </div>
+
+            <div class="svc-card card-throw" style="animation-delay:0.15s">
+                <span class="svc-icon">&#128203;</span>
+                <div class="svc-title">Meta Ads</div>
+                <div class="svc-sub">Primary Lead Engine</div>
+                <p class="svc-desc">Our main lead channel. Campaigns built around your project, reaching international buyers with real budget and purchase intent.</p>
+            </div>
+
+            <div class="svc-card card-throw" style="animation-delay:0.3s">
+                <span class="svc-icon">&#128269;</span>
+                <div class="svc-title">Google Ads</div>
+                <div class="svc-sub">Intent-Based Traffic</div>
+                <p class="svc-desc">Catches buyers already searching for investment properties in Bali and Lombok. Lower volume than Meta, but intent is already there.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ── FAQ ────────────────────────────────────── -->
+<section id="faq">
+    <div class="wrap--tight">
+        <div class="sec-head fu">
+            <span class="label">Questions</span>
+            <h2 class="sec-title">Everything you need to <em>decide.</em></h2>
+        </div>
+        <div class="faq-list">
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">What is OLC Method?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">OLC Method is a marketing &amp; sales system we build and run for real estate developers and hospitality leaders. OLC stands for Offer, Leads, Close. We design the offer, generate qualified buyers, and close deals personally. You run your project, we run your sales engine.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">How does OLC Method get paid?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">The partnership starts with a one-time onboarding fee that funds the full strategy build: offer design, marketing documentation, and sales playbook. After that, no management fee, no invoices for work in progress. There is a small monthly running cost (~$500) for the campaign tools that keep your pipeline running. You cover the marketing budget directly. We earn a commission on each unit sold, no management fee. We both earn when we sell.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">What type of projects do we work with?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">Residential, commercial, or mixed-use. What matters is whether the project has something real behind it: a location, a concept, a design that gives a serious buyer a reason to pay attention. We don't take on every project. Trust comes first.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">How is this different from hiring a real estate agent?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">Agents list your property alongside dozens of others and wait for buyers. We build a sales system dedicated entirely to your project and close deals personally. We do not list properties.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">How is this different from a marketing agency?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">An agency invoices you whether anything sells. We get paid when you close. But the bigger difference is how we work: we're not a vendor filling a spreadsheet. We get into the project with you, help design the offer so it converts, and close the deals ourselves.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">Which markets do we operate in?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">We started in Bali (Seminyak, Canggu, Uluwatu, Pererenan, Nusa Dua) and serve surrounding islands Lombok, and the Nusa islands. Geographic expansion in South East Asia is considered case by case.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">What does performance-based actually mean?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">It means we get paid when we sell your offer. No management fee, no invoices for work in progress. If the project doesn't close deals, we don't earn. That's why we're selective. We don't take on a project we don't think we can sell.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">What is the monthly campaign infrastructure cost?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">There is a small monthly running cost (~$800) for the campaign tools that keep your pipeline running, that is it. We pass it through at cost, no markup, no management fee. You can see exactly what it covers.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">How do I get started?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">Book your meeting through our website or email us at hello@olcmethod.com. We schedule a 30-minute call, understand your project, and tell you directly whether it is a fit. No pitch deck.</div></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ── FOR MARKET MAKERS ──────────────────────── -->
+<section id="market-makers">
+    <div class="wrap--tight">
+        <span class="label fu">For Market Makers</span>
+        <div class="manifesto">
+            <p class="manifesto-lead fu">Your project is not a commodity. It never was.</p>
+            <p class="fu d1">It was built with a standard most developers in this market can't reach and most agencies can't comprehend. The comparables they pull, the pricing they accept, the buyers they attract. None of that was built for what you've created.</p>
+            <p class="fu d2">Smaller developers look at your work and see where they want to be. Don't trade that down for the comfort of a familiar process.</p>
+            <p class="fu d2">The agency path is easy. That's also why most projects in this market undersell.</p>
+            <p class="manifesto-close fu d3">You're a Market Maker. The right sales partner doesn't undermine your project. They prove it.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── CTA ────────────────────────────────────── -->
+<section id="contact">
+    <div class="wrap">
+        <h2 class="cta-h fu">Ready to see how fast<br>your project can sell out?</h2>
+        <p class="cta-sub fu d1">One free session. We map out your current offer, show you what is missing, and suggest exactly how to fix it.</p>
+    </div>
+    <div class="contact-form-wrap fu d2">
+        <div class="contact-form-inner">
+            <span class="contact-form-label">Free Value Driven Offer builder</span>
+            <form name="olc-offer" method="POST" data-netlify="true" action="/thank-you.html" class="capture-form">
+                <input type="hidden" name="form-name" value="olc-offer">
+                <input type="hidden" name="source" value="offer-builder">
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Your name" required class="form-input">
+                    <input type="email" name="email" placeholder="Email address" required class="form-input">
+                </div>
+                <div class="form-row">
+                    <input type="text" name="project" placeholder="Project or company name" required class="form-input">
+                    <input type="tel" name="phone" placeholder="Phone (optional)" class="form-input">
+                </div>
+                <button type="submit" class="btn btn-filled form-submit btn-throw">Build my offer for free</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── FOOTER ─────────────────────────────────── -->
+<footer>
+    <div class="wrap">
+        <div class="footer-bottom">
+            <div></div>
+            <img class="footer-olc-logo" src="OLC_beige_vertical.jpg" alt="OLC Method">
+            <div class="footer-powered">
+                <span>Powered by</span>
+                <img src="scalrise-logo-horizontal.jpg" alt="Scale-Rise">
+            </div>
+        </div>
+        <div class="footer-copy">&copy; 2026 OLC Method, all rights reserved</div>
+    </div>
+</footer>
+
+
+<!-- ── MOBILE STICKY CTA ───────────────────────── -->
+<div class="mobile-cta-bar">
+    <a href="#audit-form">Get my free consultation</a>
+</div>
+
+<script>
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+
+    const obs = new IntersectionObserver(
+        entries => entries.forEach(e => {
+            if (e.target.classList.contains('fu')) {
+                if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+            } else {
+                if (e.isIntersecting) {
+                    e.target.classList.add('on');
+                } else {
+                    e.target.classList.remove('on');
+                }
+            }
+        }),
+        { threshold: 0.08 }
+    );
+    document.querySelectorAll('.fu, .btn-throw, .card-throw').forEach(el => obs.observe(el));
+
+    // H1 italic: "who want deals closed." fades in word by word
+    const heroEm = document.querySelector('#hero-h1 em');
+    heroEm.innerHTML = heroEm.textContent.trim().split(' ')
+        .map(w => `<span class="hw">${w}</span>`).join(' ');
+
+    new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            const words = e.target.querySelectorAll('.hw');
+            if (e.isIntersecting) {
+                words.forEach((w, i) => {
+                    w.style.animationDelay = `${i * 0.22}s`;
+                    w.classList.add('show');
+                });
+            } else {
+                words.forEach(w => w.classList.remove('show'));
+            }
+        });
+    }, { threshold: 0.2 }).observe(document.getElementById('hero-h1'));
+
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+    });
+    function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+    }
+
+    document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
