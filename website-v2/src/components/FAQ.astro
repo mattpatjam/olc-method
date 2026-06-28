@@ -1,0 +1,74 @@
+<!-- ── FAQ ────────────────────────────────────── -->
+<section id="faq">
+    <div class="wrap--tight">
+        <div class="sec-head fu">
+            <span class="label">Questions</span>
+            <h2 class="sec-title">Everything you need to <em>decide.</em></h2>
+        </div>
+        <div class="faq-list">
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">What is OLC Method?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">OLC Method is a marketing &amp; sales system we build and run for real estate developers and hospitality leaders. OLC stands for Offer, Leads, Close. We design the offer, generate qualified buyers, and close deals personally. You run your project, we run your sales engine.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">How does OLC Method get paid?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">The partnership starts with a one-time onboarding fee that funds the full strategy build: offer design, marketing documentation, and sales playbook. After that, no management fee, no invoices for work in progress. There is a small monthly running cost (~$500) for the campaign tools that keep your pipeline running. You cover the marketing budget directly. We earn a commission on each unit sold, no management fee. We both earn when we sell.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">What type of projects do we work with?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">Residential, commercial, or mixed-use. What matters is whether the project has something real behind it: a location, a concept, a design that gives a serious buyer a reason to pay attention. We don't take on every project. Trust comes first.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">How is this different from hiring a real estate agent?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">Agents list your property alongside dozens of others and wait for buyers. We build a sales system dedicated entirely to your project and close deals personally. We do not list properties.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">How is this different from a marketing agency?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">An agency invoices you whether anything sells. We get paid when you close. But the bigger difference is how we work: we're not a vendor filling a spreadsheet. We get into the project with you, help design the offer so it converts, and close the deals ourselves.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">Which markets do we operate in?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">We started in Bali (Seminyak, Canggu, Uluwatu, Pererenan, Nusa Dua) and serve surrounding islands Lombok, and the Nusa islands. Geographic expansion in South East Asia is considered case by case.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">What does performance-based actually mean?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">It means we get paid when we sell your offer. No management fee, no invoices for work in progress. If the project doesn't close deals, we don't earn. That's why we're selective. We don't take on a project we don't think we can sell.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">What is the monthly campaign infrastructure cost?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">There is a small monthly running cost (~$800) for the campaign tools that keep your pipeline running, that is it. We pass it through at cost, no markup, no management fee. You can see exactly what it covers.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">How do I get started?<span class="faq-plus">+</span></button>
+                <div class="faq-body"><div class="faq-body-inner">Book your meeting through our website or email us at hello@olcmethod.com. We schedule a 30-minute call, understand your project, and tell you directly whether it is a fit. No pitch deck.</div></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+</script>

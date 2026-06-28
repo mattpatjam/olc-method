@@ -1,0 +1,91 @@
+---
+---
+
+<!-- ── CTA ────────────────────────────────────── -->
+<section id="contact">
+    <div class="wrap">
+        <h2 class="cta-h fu">Ready to see how fast<br>your project can sell out?</h2>
+        <p class="cta-sub fu d1">One free session. We map out your current offer, show you what is missing, and suggest exactly how to fix it.</p>
+    </div>
+    <div class="contact-form-wrap fu d2">
+        <div class="contact-form-inner">
+            <span class="contact-form-label">Free Value Driven Offer builder</span>
+            <form name="olc-offer" method="POST" action="https://formspree.io/f/xlgynlgb" class="capture-form">
+                <input type="hidden" name="_next" value="https://olcmethod.com/thank-you">
+                <input type="hidden" name="form-name" value="olc-offer">
+                <input type="hidden" name="source" value="offer-builder">
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Your name" required class="form-input">
+                    <input type="email" name="email" placeholder="Email address" required class="form-input">
+                </div>
+                <div class="form-row">
+                    <input type="text" name="project" placeholder="Project or company name" required class="form-input">
+                    <input type="tel" name="phone" placeholder="Phone (optional)" class="form-input">
+                </div>
+                <button type="submit" class="btn btn-filled form-submit btn-throw">Build my offer for free</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* ─── CTA (SAGE GREEN) ───────────────────── */
+    #contact { background: var(--sage); padding: 100px 0 0; text-align: center; }
+    .cta-h {
+        font-size: clamp(48px, 7vw, 88px);
+        font-weight: 300;
+        line-height: 1.0;
+        color: #fff;
+        margin-bottom: 1.25rem;
+    }
+    .cta-h em { font-style: italic; color: rgba(255,255,255,0.4); }
+    .cta-sub {
+        font-size: 15px;
+        color: rgba(255,255,255,0.6);
+        max-width: 440px;
+        margin: 0 auto 2.5rem;
+        line-height: 1.8;
+    }
+
+    /* Form on sage (bottom CTA) */
+    .contact-form-wrap {
+        background: var(--card);
+        padding: 50px 0 60px;
+        margin-top: 60px;
+    }
+    .contact-form-inner { max-width: 640px; margin: 0 auto; padding: 0 2rem; text-align: left; }
+    .contact-form-label {
+        display: block;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--sage);
+        margin-bottom: 1.25rem;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+    .form-input {
+        font-family: var(--font-b);
+        font-size: 14px;
+        padding: 0.7rem 1rem;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--card);
+        color: var(--text);
+        outline: none;
+        transition: border-color 0.18s;
+        width: 100%;
+    }
+    .form-input:focus { border-color: var(--sage); }
+    .form-input::placeholder { color: var(--text-muted); }
+    .form-submit { align-self: flex-start; padding: 0.75rem 1.75rem; margin-top: 0.75rem; }
+
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+    @media (max-width: 420px) { .contact-form-inner { padding: 0 1.25rem; } }
+</style>

@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="You're confirmed — OLC Method">
+    <div class="wrap">
+        <img src="/OLC_beige_vertical.jpg" alt="OLC Method" class="logo">
+        <div class="check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4,12 9,17 20,6"/>
+            </svg>
+        </div>
+        <h1>You're <em>confirmed.</em></h1>
+        <p>Thank you for submitting your information. Taking you to the calendar to book your call.</p>
+        <div class="progress"><div class="progress-bar"></div></div>
+        <p class="hint">Not redirecting? <a href="https://calendar.app.google/oYsM65Bb7M6rc8MM6">Click here.</a></p>
+    </div>
+    <script>
+        setTimeout(() => { window.location.href = 'https://calendar.app.google/oYsM65Bb7M6rc8MM6'; }, 3000);
+    </script>
+</BaseLayout>
+
+<style>
+    body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        font-weight: 300;
+    }
+    .wrap {
+        max-width: 480px;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+    .logo {
+        height: 72px;
+        width: auto;
+        margin: 0 auto 2.5rem;
+        opacity: 0.85;
+    }
+    .check {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--sage-pale);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+    }
+    .check svg { width: 22px; height: 22px; color: var(--sage); }
+    h1 {
+        font-family: var(--font-d);
+        font-size: clamp(36px, 5vw, 52px);
+        font-weight: 300;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+    }
+    h1 em { font-style: italic; color: var(--sage); }
+    p {
+        font-size: 15px;
+        color: var(--text-dim);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+    .progress {
+        height: 2px;
+        background: var(--border);
+        border-radius: 2px;
+        overflow: hidden;
+        margin-bottom: 1.25rem;
+    }
+    .progress-bar {
+        height: 100%;
+        background: var(--sage);
+        border-radius: 2px;
+        animation: fill 3s linear forwards;
+    }
+    @keyframes fill { from { width: 0; } to { width: 100%; } }
+    .hint {
+        font-size: 12px;
+        color: var(--text-dim);
+    }
+    .hint a {
+        color: var(--sage);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+</style>

@@ -1,0 +1,66 @@
+---
+---
+
+<!-- ── AUDIT FORM ──────────────────────────────── -->
+<section id="audit-form">
+  <div class="wrap">
+    <div class="audit-layout">
+      <div>
+        <div class="form-head fu">
+          <span class="label">Free project audit</span>
+          <h2 class="sec-title" style="font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 0.75rem;">See if your project <em>qualifies.</em></h2>
+          <p>Residential, commercial, or mixed-use. If the project has something real behind it, we'll review it and tell you honestly what we think.</p>
+        </div>
+        <form
+          name="olc-audit"
+          method="POST"
+          action="https://formspree.io/f/maqgjbqq"
+          class="capture-form fu d1"
+          id="audit-form-el"
+        >
+
+          <input type="hidden" name="source" value="audit">
+          <input type="hidden" name="_next" value="https://olcmethod.com/thank-you">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your name" required class="form-input">
+            <input type="email" name="email" placeholder="Email address" required class="form-input">
+          </div>
+          <div class="form-row">
+            <input type="text" name="project" placeholder="Project or company name" required class="form-input">
+            <input type="tel" name="phone" placeholder="Phone (optional)" class="form-input">
+          </div>
+          <button type="submit" class="btn btn-filled form-submit btn-throw">Request my free audit</button>
+        </form>
+      </div>
+      <div class="audit-quote fu d2">
+        <blockquote class="slogan-quote">&ldquo;Stop listing,<br>Start Selling&rdquo;</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Formspree AJAX submit with /thank-you redirect
+  const form = document.getElementById('audit-form-el');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          window.location.href = '/thank-you';
+        } else {
+          // Fallback: let native submit handle it (will use _next field)
+          form.submit();
+        }
+      } catch {
+        form.submit();
+      }
+    });
+  }
+</script>
