@@ -42,8 +42,8 @@ const {
         <svg class="splash-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Outer ring: draws clockwise from 12 o'clock -->
           <circle class="sm-ring" cx="50" cy="50" r="44" stroke="#4F6352" stroke-width="1.4" pathLength="1" transform="rotate(-90 50 50)"/>
-          <!-- Inner C arc: gap from 12 to 3, draws from 3 o'clock counterclockwise to 12 -->
-          <path class="sm-arc" d="M82,50 A32,32 0 1,0 50,18" stroke="#4F6352" stroke-width="1.4" stroke-linecap="round" fill="none" pathLength="1"/>
+          <!-- Inner C arc: gap from 12 to 3, draws clockwise from 3 o'clock through 6+9 to 12 -->
+          <path class="sm-arc" d="M82,50 A32,32 0 1,1 50,18" stroke="#4F6352" stroke-width="1.4" stroke-linecap="round" fill="none" pathLength="1"/>
           <!-- Minute hand to 12 o'clock -->
           <line class="sm-min" x1="50" y1="50" x2="50" y2="24" stroke="#4F6352" stroke-width="1.4" stroke-linecap="round" pathLength="1"/>
           <!-- Hour hand to 3 o'clock -->
@@ -63,15 +63,11 @@ const {
       (function () {
         var splash = document.getElementById('splash');
         if (!splash) return;
-        if (sessionStorage.getItem('olc-splash')) { splash.remove(); return; }
         document.body.classList.add('splash-open');
         setTimeout(function () {
           splash.classList.add('splash-out');
           document.body.classList.remove('splash-open');
-          setTimeout(function () {
-            splash.remove();
-            sessionStorage.setItem('olc-splash', '1');
-          }, 580);
+          setTimeout(function () { splash.remove(); }, 580);
         }, 2050);
       })();
     </script>
