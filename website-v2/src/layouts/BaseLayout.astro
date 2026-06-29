@@ -37,6 +37,45 @@ const {
     />
   </head>
   <body>
+    <div id="splash" aria-hidden="true">
+      <div class="splash-wrap">
+        <svg class="splash-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer ring: draws clockwise from 12 o'clock -->
+          <circle class="sm-ring" cx="50" cy="50" r="44" stroke="#4F6352" stroke-width="1.4" pathLength="1" transform="rotate(-90 50 50)"/>
+          <!-- Inner C arc: gap from 12 to 3, draws from 3 o'clock counterclockwise to 12 -->
+          <path class="sm-arc" d="M82,50 A32,32 0 1,0 50,18" stroke="#4F6352" stroke-width="1.4" stroke-linecap="round" fill="none" pathLength="1"/>
+          <!-- Minute hand to 12 o'clock -->
+          <line class="sm-min" x1="50" y1="50" x2="50" y2="24" stroke="#4F6352" stroke-width="1.4" stroke-linecap="round" pathLength="1"/>
+          <!-- Hour hand to 3 o'clock -->
+          <line class="sm-hour" x1="50" y1="50" x2="74" y2="50" stroke="#4F6352" stroke-width="1.4" stroke-linecap="round" pathLength="1"/>
+          <!-- Center hub -->
+          <circle class="sm-hub" cx="50" cy="50" r="2.2" fill="#4F6352"/>
+        </svg>
+        <div class="splash-word">
+          <div class="splash-rules"><span></span><span></span></div>
+          <p class="splash-meth">METHOD</p>
+          <p class="splash-olc">OFFER · LEADS · CLOSE</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var splash = document.getElementById('splash');
+        if (!splash) return;
+        if (sessionStorage.getItem('olc-splash')) { splash.remove(); return; }
+        document.body.classList.add('splash-open');
+        setTimeout(function () {
+          splash.classList.add('splash-out');
+          document.body.classList.remove('splash-open');
+          setTimeout(function () {
+            splash.remove();
+            sessionStorage.setItem('olc-splash', '1');
+          }, 580);
+        }, 2050);
+      })();
+    </script>
+
     <slot />
   </body>
 </html>
@@ -470,6 +509,85 @@ const {
   .form-input:focus { border-color: var(--sage); }
   .form-input::placeholder { color: var(--text-muted); }
   .form-submit { align-self: flex-start; padding: 0.75rem 1.75rem; margin-top: 0.75rem; }
+
+  /* ─── SPLASH ─────────────────────────────── */
+  body.splash-open { overflow: hidden; }
+
+  #splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.55s ease;
+  }
+  #splash.splash-out { opacity: 0; pointer-events: none; }
+
+  .splash-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+  }
+  .splash-mark { width: 96px; height: 96px; }
+
+  /* Stroke draw */
+  .sm-ring, .sm-arc, .sm-min, .sm-hour {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .sm-hub { opacity: 0; }
+
+  @keyframes olc-draw { to { stroke-dashoffset: 0; } }
+  @keyframes olc-pop  { to { opacity: 1; } }
+  @keyframes olc-word {
+    from { opacity: 0; transform: translateY(5px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .sm-ring { animation: olc-draw 0.65s cubic-bezier(0.4,0,0.2,1) 0.05s both; }
+  .sm-arc  { animation: olc-draw 0.55s cubic-bezier(0.4,0,0.2,1) 0.40s both; }
+  .sm-min  { animation: olc-draw 0.20s ease 0.80s both; }
+  .sm-hour { animation: olc-draw 0.20s ease 0.92s both; }
+  .sm-hub  { animation: olc-pop  0.15s ease 1.00s both; }
+
+  .splash-word {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    opacity: 0;
+    animation: olc-word 0.4s ease 1.08s both;
+  }
+  .splash-rules {
+    display: flex;
+    gap: 0.5rem;
+    width: 130px;
+    margin-bottom: 0.45rem;
+  }
+  .splash-rules span { flex: 1; height: 1px; background: var(--border); }
+  .splash-meth {
+    font-family: var(--font-b);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--text);
+    line-height: 1;
+  }
+  .splash-olc {
+    font-family: var(--font-b);
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    line-height: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) { #splash { display: none; } }
 
   /* ─── ANIMATIONS ─────────────────────────── */
   .fu { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
