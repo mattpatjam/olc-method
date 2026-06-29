@@ -21,6 +21,7 @@
             <a href="#results" class="btn btn-ghost btn-throw" style="animation-delay:0.3s">See our results</a>
             <a href="#market-makers" class="btn btn-ghost btn-throw" style="animation-delay:0.45s">For Market Makers</a>
         </div>
+        <p class="hero-powered">Powered by <a href="https://scale-rise.com" target="_blank" rel="noopener noreferrer">Scale-Rise</a></p>
     </div>
 </section>
 
@@ -99,6 +100,19 @@
         align-items: center;
         gap: 0.65rem;
     }
+    .hero-powered {
+        margin-top: 0.85rem;
+        font-size: 12px;
+        color: var(--text-muted);
+        letter-spacing: 0.04em;
+    }
+    .hero-powered a {
+        color: var(--text-muted);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        transition: color 0.18s;
+    }
+    .hero-powered a:hover { color: var(--sage); }
 
     /* ─── ANIMATIONS ─────────────────────────── */
     .fu { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
