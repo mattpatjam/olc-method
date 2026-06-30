@@ -43,9 +43,9 @@ const {
           <!-- Outer ring: draws clockwise from 12 o'clock -->
           <circle class="sm-ring" cx="50" cy="50" r="44" stroke="#4F6352" stroke-width="1.1" pathLength="1" transform="rotate(-90 50 50)"/>
           <!-- Inner C arc: r=35, endpoints symmetric around 3 o'clock (horizontal L arm).
-               ~5:30 (60.8,83.3) and ~12:30 (60.8,16.7) — each 72° from horizontal.
-               Draws clockwise from 5:30 through 6, 9, 12 to 12:30. -->
-          <path class="sm-arc" d="M60.8,83.3 A35,35 0 1,1 60.8,16.7" stroke="#4F6352" stroke-width="1.1" stroke-linecap="round" fill="none" pathLength="1"/>
+               4:30 (75,75) and 1:30 (75,25) — each 45° from horizontal.
+               Draws clockwise from 4:30 through 6, 9, 12 to 1:30. -->
+          <path class="sm-arc" d="M75,75 A35,35 0 1,1 75,25" stroke="#4F6352" stroke-width="1.1" stroke-linecap="round" fill="none" pathLength="1"/>
           <!-- Minute hand: center to 12 o'clock tip on outer ring -->
           <line class="sm-min" x1="50" y1="50" x2="50" y2="6" stroke="#4F6352" stroke-width="1.1" stroke-linecap="round" pathLength="1"/>
           <!-- Hour hand: center to 3 o'clock tip on outer ring -->
