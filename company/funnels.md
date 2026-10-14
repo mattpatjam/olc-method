@@ -218,6 +218,8 @@ When the `funnel-builder` skill is built, this is the sequence it follows:
 
 Framework definitions for each step → `.claude/knowledge/dotcom-secrets-reference.md`
 
+**Repeat-partner note (build this in from day one, don't retrofit later):** mirrors `offer-builder`'s Phase 0. If the developer is a returning partner, Steps 1-2 (Dream Customer, Secret Formula) should pull forward the prior project's funnel/campaign data instead of starting blank, only the genuinely new parts (new inventory, new buyer segment) need fresh answers.
+
 ---
 
 *Last updated: June 2026*

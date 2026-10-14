@@ -39,7 +39,7 @@ The contrast that makes this obvious:
 
 ## How an Engagement Works
 
-1. **Onboarding** — Developer pays onboarding fee (starts at USD 5,000, varies by scope). This filters for commitment and funds the initial build phase.
+1. **Onboarding** — Developer pays onboarding fee (starts at USD 5,000, varies by scope). This filters for commitment and funds the initial build phase. **Referral terms are set here, day one** — see Referral Engine below. Not raised for the first time after results land; the developer knows from the onboarding conversation that it's part of the partnership. **First 48 hours:** kickoff call held (not just scheduled), a concrete first artifact in the developer's hands even if unfinished, and a real date for the next update — see `methodology/phase-4-scale.md` Client Communication Cadence.
 2. **Offer Design** — Deep-dive with the developer to build a unique value-driven offer: what they're selling, how it's positioned, what value is stacked, what makes buyers say yes. Output: offer document, sales playbook, ICP profile.
 3. **Marketing Build** — Sales materials, project website, visual identity, ad creatives. Developer pays production costs. OLC directs the brief.
 4. **Lead Generation** — Bespoke lead gen strategy designed for this project's buyer profile, price point, and market. Channels, messaging, targeting, and the full lead-to-first-conversation journey mapped per project. Developer pays ad spend directly.
@@ -109,6 +109,54 @@ Strong marketing infrastructure ($19,800 setup). But three parties, no closer, b
 No retainer, no ad spend risk, no overhead. OLC's revenue scales with the developer's project.
 
 *Pricing is discussed privately after fit is established. No public rate card on the website.*
+
+---
+
+## Three Oceans Play — OLC's Positioning Logic
+
+The Three Oceans framework (Sabri Suby) explains why OLC's approach works at both levels: pitching to developer prospects AND generating leads for developer clients.
+
+**For acquiring developer clients (B2B):**
+
+| Ocean | Who's there | What this means for OLC |
+|---|---|---|
+| Red | Every traditional agency and listing portal | Competing on price, fighting for the same 3 developers ready to move now |
+| Orange | Developers who've had a bad experience with agencies | OLC leads with proof (case studies, track record) — proof wins Orange |
+| Blue | Developers who haven't considered this model | OLC educates first (free audit → organic content → webinar) — this is the uncontested market |
+
+OLC's developer pitch is itself a Blue Ocean move: the free audit is a LIVO that captures all pyramid levels, not just the 3% ready to hire a partner now. Most agency competitors don't do this — they only pitch developers ready to spend.
+
+**For generating leads for developer clients (B2C):**
+
+The same logic applies to buyer lead generation. Most developer campaigns fight for the 3% ready to buy now (Red Ocean = price competition, portal listings, "book a viewing"). OLC's system builds for the 7% and 12% through LIVO + education + proof-first content — and captures the 3% automatically along the way.
+
+This is why OLC's offer is fundamentally different from listing agents: OLC is not fishing in the same ocean.
+
+*Reference: `advertising/marketing-strategy.md` — Three Oceans + Market Pyramid full framework*
+
+---
+
+## Referral Engine (OLC's Own Growth)
+
+Referred developer clients cost nothing to acquire and arrive pre-sold on the model — the same logic that makes buyer referrals compound inside a project (see `methodology/phase-4-scale.md`) applies to OLC acquiring its next developer client.
+
+**The terms, agreed at onboarding (step 1 above), not asked for cold at project end:**
+- Two-sided credit: if the developer introduces OLC to another developer who signs on, the referring developer gets a credit against their next performance fee (e.g. 1% off the next tranche's 5%); the referred developer gets a reduced onboarding fee on their first engagement.
+- Reinforced ongoing, not a one-shot ask: the Phase 4 Quarterly Performance Review (`methodology/phase-4-scale.md`) is the natural recurring moment to restate it — "if this keeps working, who else should see these numbers?" — so it isn't forgotten by the time results are strong enough to make the ask land.
+- The formula worth tracking once there are 3+ developer clients: `% of developers who refer − % who don't renew/expand = OLC's own compounding growth rate`. Below zero, OLC is on the outbound hamster wheel described in the referral playbook; above zero, OLC grows without new outbound.
+
+*Full framework: `.claude/knowledge/hormozi-advisor/knowledge/referrals.md`*
+
+---
+
+## Repeat Partner Engine (Same Developer, Next Project)
+
+Different from the Referral Engine above, this is not a new developer coming in through an introduction, it's the same developer returning for their next tranche or project. `methodology/phase-4-scale.md` already frames this as a compounding loop: "each cycle starts from a stronger baseline." This section makes the mechanics explicit.
+
+- **How it starts:** every Quarterly Performance Review (`phase-4-scale.md`) closes by naming a next step, expand scope, release the next tranche, or start a second project. A repeat engagement is never a cold restart of the relationship.
+- **How the next engagement gets built:** `offer-builder`'s Phase 0 repeat-partner check pulls forward the prior project's Phase 4 learnings and Lead Intelligence Report instead of rebuilding brand foundation and ICP from zero. Faster to a finished offer, same rigor.
+- **Pricing:** no discount for a repeat engagement, same "never discount, add value instead" rule that governs first engagements (`company/offer.md` Internal Notes). The value delivered to a repeat partner is speed and a sharper first draft, not a lower fee.
+- **Forward note, not urgent yet:** at 1-2 projects a year this is still one person (Matthieu) handling both new-partner acquisition and repeat-partner expansion. Once volume or a growth partner changes that, these are genuinely different motions (per *Predictable Revenue*'s SDR/AE specialization and *Customer Success*'s new-business-vs-retention organizational split) and will likely need to be split rather than run by the same person indefinitely. Nothing to act on now, just don't let it become an accidental bottleneck later.
 
 ---
 

@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Sanctuary Sales Playbook | The Sanctuary by Nirvana Health Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand:       #13b07d;
+    --brand-mid:   rgba(19, 176, 125, 0.12);
+    --brand-light: rgba(19, 176, 125, 0.07);
+    --accent:      #c4884a;
+    --accent-light: rgba(196, 136, 74, 0.10);
+    --red:         #b8433a;
+    --red-light:   rgba(184, 67, 58, 0.10);
+    --text:        #0d0d0d;
+    --text-muted:  #4a4a4a;
+    --text-light:  #9a9a9a;
+    --border:      #e2e2e2;
+    --border-mid:  #d0d0d0;
+    --surface:     #f9f9f7;
+    --white:       #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: #d8d8d4; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--white);
+    margin: 0 auto 8mm;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.10);
+    overflow: hidden;
+  }
+
+  .page-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 8mm 16mm 0;
+    overflow: hidden;
+  }
+
+  @page { size: 210mm 297mm; margin: 0; }
+  @media print {
+    html { background: white; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+      height: 297mm;
+      overflow: hidden;
+      max-height: 297mm;
+    }
+  }
+
+  .serif { font-family: 'DM Serif Display', Georgia, serif; }
+
+  .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 1.5mm;
+  }
+
+  .rule { height: 1px; background: var(--border); width: 100%; margin: 3mm 0; }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 3mm;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4.5mm;
+    flex-shrink: 0;
+  }
+  .page-header-title { font-size: 11px; font-weight: 500; color: var(--text-muted); }
+  .page-header-tag { font-size: 11px; font-weight: 600; color: var(--brand); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .page-footer {
+    padding: 3mm 16mm;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .page-footer-text { font-size: 10px; color: var(--text-light); }
+
+  .step-header { display: flex; align-items: flex-start; gap: 3mm; margin-bottom: 3mm; flex-shrink: 0; }
+  .step-number {
+    width: 6.5mm; height: 6.5mm; border-radius: 50%;
+    background: var(--brand); color: white;
+    font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1mm;
+  }
+  .step-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 17px; line-height: 1.15; }
+  .step-time { font-size: 11px; color: var(--text-light); margin-top: 1mm; }
+
+  .callout {
+    background: var(--brand-light);
+    border-left: 3px solid var(--brand);
+    padding: 2.5mm 4mm;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout p { font-size: 12px; color: var(--text); line-height: 1.45; }
+  .callout-accent {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 2.5mm 4mm;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout-accent p { font-size: 12px; color: var(--text); line-height: 1.45; }
+  .callout-red {
+    background: var(--red-light);
+    border-left: 3px solid var(--red);
+    padding: 2.5mm 4mm;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout-red p { font-size: 12px; color: var(--text); line-height: 1.45; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: var(--brand-mid);
+    color: var(--text); font-weight: 600;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 2.5mm 3mm; text-align: left;
+    border-bottom: 1.5px solid var(--brand);
+  }
+  td {
+    padding: 2mm 3mm;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    font-size: 12px; line-height: 1.4; color: var(--text);
+  }
+  tr:last-child td { border-bottom: none; }
+
+  .rule-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 3.5mm;
+    padding: 3mm 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .rule-block:last-child { border-bottom: none; }
+  .rule-num {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 22px;
+    color: var(--brand);
+    line-height: 1;
+    min-width: 7mm;
+    flex-shrink: 0;
+    margin-top: 0.5mm;
+  }
+  .rule-text { font-size: 13px; line-height: 1.5; color: var(--text); font-weight: 400; }
+  .rule-note { font-size: 11px; color: var(--text-muted); margin-top: 1mm; }
+
+  .formula {
+    background: var(--surface);
+    border: 1px solid var(--border-mid);
+    border-radius: 3px;
+    padding: 3mm 4mm;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 3mm;
+  }
+  .formula span { color: var(--brand); font-style: italic; }
+
+  .msg-card {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 2.5mm;
+  }
+  .msg-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5mm 3.5mm;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .msg-title { font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text); }
+  .msg-body { padding: 2mm 3.5mm; }
+  .msg-body p { font-family: 'DM Serif Display', Georgia, serif; font-style: italic; font-size: 12.5px; color: var(--text); line-height: 1.4; }
+
+  .tag {
+    display: inline-block;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 0.9mm 2.5mm;
+    border-radius: 10px;
+    margin-right: 2mm;
+  }
+  .tag-a { background: var(--brand-mid); color: var(--brand); }
+  .tag-b { background: var(--accent-light); color: var(--accent); }
+  .tag-c { background: var(--red-light); color: var(--red); }
+
+  .profile-card {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 3mm;
+  }
+  .profile-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 15px; margin-bottom: 1mm; }
+
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 3.5mm;
+    padding: 2.5mm 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .flow-step:last-child { border-bottom: none; }
+  .flow-num {
+    width: 7mm; height: 7mm; border-radius: 50%;
+    background: var(--brand); color: white;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 0.5mm;
+  }
+  .flow-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 14.5px; margin-bottom: 0.5mm; }
+  .flow-goal { font-size: 11px; color: var(--text); line-height: 1.4; margin-bottom: 0.5mm; }
+  .flow-how { font-size: 10.5px; color: var(--text-muted); line-height: 1.4; }
+  .flow-chip { font-size: 9.5px; color: var(--text-light); white-space: nowrap; margin-top: 1mm; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page">
+
+  <div style="height:2mm; background: var(--brand); flex-shrink:0;"></div>
+
+  <div style="flex:1; display:flex; flex-direction:column; padding:14mm 16mm 0;">
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+      <div class="label" style="color:var(--brand); letter-spacing:0.15em;">The Sanctuary by Nirvana Health Club</div>
+      <div class="label">Sales Playbook</div>
+    </div>
+
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:6mm; padding-bottom:4mm;">
+      <div style="display:flex; align-items:center; justify-content:center; gap:8mm;">
+        <img src="../../../website-v2/public/OLC_beige_vertical.jpg" alt="OLC Method" style="height:82px; object-fit:contain; opacity:0.88;">
+        <div style="width:1px; height:54px; background:var(--border);"></div>
+        <img src="../../../website-v2/public/clients/Nirvana.png" alt="Nirvana Life" style="height:64px; object-fit:contain; opacity:0.88;">
+      </div>
+      <p style="font-family:'DM Serif Display',Georgia,serif; font-size:12.5px; font-style:italic; color:var(--text-muted); line-height:1.6; text-align:center; max-width:140mm; margin:0;">
+        "The offer is strong. This is how you sell it, start to finish, every time."
+      </p>
+    </div>
+
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-top:4mm;">
+      <div style="font-size:11px; font-weight:500; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3mm;">The Playbook</div>
+      <div class="serif" style="font-size:32px; line-height:1.15; color:var(--text); margin-bottom:4mm;">First Contact<br>to Close.</div>
+      <div style="width:12mm; height:1.5px; background:var(--brand); margin-bottom:5mm;"></div>
+      <div style="font-size:14px; color:var(--text-muted); line-height:1.6; max-width:130mm;">
+        Everything needed to sell The Sanctuary well: the process, the offer, the buyers, the questions, the objections, and the close. Built from five sessions and six weeks of real conversations with real buyers, for whoever sells this product, now or later.
+      </div>
+    </div>
+
+  </div>
+
+  <div style="padding:3mm 16mm; border-top:1px solid var(--border); flex-shrink:0; display:grid; grid-template-columns:1fr 1fr 1fr; gap:4mm;">
+    <div>
+      <div class="label" style="margin-bottom:1mm;">Handed Over</div>
+      <div style="font-size:13px; font-weight:500;">Tuesday, July 21, 2026</div>
+    </div>
+    <div>
+      <div class="label" style="margin-bottom:1mm;">For</div>
+      <div style="font-size:13px; font-weight:500;">The Sanctuary Sales Team</div>
+    </div>
+    <div>
+      <div class="label" style="margin-bottom:1mm;">Built By</div>
+      <div style="font-size:13px; font-weight:500;">Matthieu Jammers, OLC Method</div>
+    </div>
+  </div>
+
+  <div style="height:1mm; background: linear-gradient(to right, var(--brand), var(--accent)); flex-shrink:0;"></div>
+
+</div>
+
+
+<!-- PAGE 2: THE SALES PROCESS MAP -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">The Sanctuary Sales Playbook</div>
+      <div class="page-header-tag">The Sales Process</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="width:7mm;height:7mm;font-size:13px;">&middot;</div>
+      <div>
+        <div class="step-title">Sales Process from Contact to Close</div>
+        <div class="step-time">Six stages. Everything after this page is the depth behind each one.</div>
+      </div>
+    </div>
+
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:3mm;">Read this page first, every time you're unsure what to do next on a live deal. Each stage below has one goal and one core move. The section number tells you where to go for the full script.</p>
+
+    <div style="margin-bottom:3mm;">
+
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div style="flex:1;">
+          <div class="flow-name">First Contact</div>
+          <div class="flow-goal">Goal: earn a reply, not a sale.</div>
+          <div class="flow-how">One clear question, no pitch. Give something real before you ask for anything.</div>
+        </div>
+        <div class="flow-chip">Section 3</div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div style="flex:1;">
+          <div class="flow-name">Discovery</div>
+          <div class="flow-goal">Goal: find out who you're actually talking to, and avoid wasting time later in the process.</div>
+          <div class="flow-how">Ask what's true about their situation, then what's bothering them about it, then what it's costing them to wait. Not a checklist.</div>
+        </div>
+        <div class="flow-chip">Section 3</div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div style="flex:1;">
+          <div class="flow-name">Present the Offer</div>
+          <div class="flow-goal">Goal: match the pitch to the buyer, not the buyer to the pitch.</div>
+          <div class="flow-how">One strong proof point beats four medium ones. Name the real drawbacks yourself, first.</div>
+        </div>
+        <div class="flow-chip">Sections 1 &amp; 2</div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div style="flex:1;">
+          <div class="flow-name">Handle Objections</div>
+          <div class="flow-goal">Goal: find what's really underneath the objection.</div>
+          <div class="flow-how">Every stall is a layer to work through (their situation, someone else, or themselves), not a wall to argue with.</div>
+        </div>
+        <div class="flow-chip">Section 4</div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div style="flex:1;">
+          <div class="flow-name">Close</div>
+          <div class="flow-goal">Goal: propose the next step plainly, once.</div>
+          <div class="flow-how">Summarize what they told you, confirm they agree, then state the next step. Asking twice loses more deals than it wins.</div>
+        </div>
+        <div class="flow-chip">Section 5</div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">6</div>
+        <div style="flex:1;">
+          <div class="flow-name">Follow-Up</div>
+          <div class="flow-goal">Goal: earn the next reply, if today wasn't the day.</div>
+          <div class="flow-how">Give something before you ask again. Never "just checking in."</div>
+        </div>
+        <div class="flow-chip">Section 6</div>
+      </div>
+
+    </div>
+
+    <div class="callout-accent">
+      <p>Two rules apply at every stage, not just one of them. Every call opens with a quick frame, why you're calling, how it'll run, so it feels like a process, not an improvised pitch. And every call closes with the next meeting actually set, never left open. If a stage isn't working, the fix is almost always the stage before it.</p>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Playbook</div>
+    <div class="page-footer-text">2 / 13</div>
+  </div>
+</div>
+
+
+<!-- PAGE 3: SECTION 1 - THE OFFER -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">The Sanctuary Sales Playbook</div>
+      <div class="page-header-tag">1 &middot; The Offer</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <div>
+        <div class="step-title">What You're Selling, and How Much of It to Say</div>
+        <div class="step-time">One strong proof point beats a list of good ones</div>
+      </div>
+    </div>
+
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:2mm;">The one-sentence offer: <em>"Guaranteed minimum 10% ROI without the nightmare of daily management, even if you've never invested in Bali before."</em> Below is what backs it up. Lead with your single strongest row, the guarantee, and keep the rest in reserve for when they ask. Piling on proof points weakens a pitch more than it strengthens one, a buyer's impression is built from the average of what you tell them, not the total.</p>
+
+    <div class="section-label" style="margin-bottom:1mm;">The Value Stack (27-Year Totals)</div>
+    <table style="margin-bottom:2mm;">
+      <tr><th>Element</th><th>27-year value</th><th>Objection it solves</th></tr>
+      <tr><td>Your suite, 40&ndash;44sqm wellness studio</td><td>$179,000&ndash;$259,000</td><td>"I want my own space"</td></tr>
+      <tr><td><strong>10% ROI guarantee</strong>, contractual, 2&ndash;3 yrs</td><td>$483,300&ndash;$699,300 ($17,900&ndash;$25,900/yr)</td><td>"Is the guarantee real?"</td></tr>
+      <tr><td>Lifetime Nirvana Life Club membership</td><td>$134,000</td><td>"Will I still belong here?"</td></tr>
+      <tr><td>28 personal-use nights/year, no fee</td><td>$151,000</td><td>"Can I actually use this?"</td></tr>
+      <tr><td>Full property management</td><td>~$162,000</td><td>"I can't run this from abroad"</td></tr>
+      <tr><td>Legal support package</td><td>$24,000</td><td>"My advisor needs to review this"</td></tr>
+      <tr><td><strong>Total stack value</strong></td><td><strong>$1,019,300+</strong></td><td></td></tr>
+      <tr><td><strong>Your investment</strong></td><td><strong>$179,000&ndash;$259,000</strong></td><td></td></tr>
+      <tr><td><strong>Multiple on investment</strong></td><td><strong>5.7&times; at $179K / 4.8&times; at $259K</strong></td><td></td></tr>
+    </table>
+
+    <div class="callout-accent">
+      <span class="tag tag-b">Technique</span>
+      <p style="margin-top:1.5mm;">Raise the two real drawbacks yourself, before they ask: the lease runs 27 years <em>from handover</em>, not from signing, and construction is still in progress. Naming your own product's drawbacks early builds more trust than hiding them, and takes the objection off the table before it becomes one.</p>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Playbook</div>
+    <div class="page-footer-text">3 / 13</div>
+  </div>
+</div>
+
+
+<!-- PAGE 4: SECTION 1 - THE OFFER, TOWER 1 -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">The Sanctuary Sales Playbook</div>
+      <div class="page-header-tag">1 &middot; The Offer</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="width:7mm;height:7mm;font-size:13px;">&middot;</div>
+      <div>
+        <div class="step-title">Tower 1: Same Offer, Different Buyer</div>
+        <div class="step-time">Never a discount version of Tower 2</div>
+      </div>
+    </div>
+
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:2.5mm;">Tower 1 ground floor keeps getting framed as the lesser choice. No buyer consciously wants the second-best option at nearly the same price. Fix: these are two distinct offers for two distinct buyers, not one offer with a discount attached.</p>
+
+    <div class="grid-2" style="margin-bottom:2.5mm;">
+      <div class="profile-card">
+        <div style="font-size:10px; font-weight:600; color:var(--brand); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1.5mm;">Pure Investor Pitch</div>
+        <p style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11.5px; color:var(--text); line-height:1.5;">"You're not paying $80K extra for a sauna you'd use 28 days a year. You're investing $179K for the exact same ROI percentage as a $259K unit, same income pool, same guarantee, same management. That $80K keeps working for you elsewhere."</p>
+      </div>
+      <div class="profile-card">
+        <div style="font-size:10px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1.5mm;">Club Floor Pitch</div>
+        <p style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11.5px; color:var(--text); line-height:1.5;">"Ground level means you wake up inside the facility. No elevator, direct terrace access, 30 steps from the gym, the pool, the restaurant. Tower 2 has the view. Tower 1 has the life."</p>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">Tower 1 Extras</div>
+    <p style="font-size:11px; color:var(--text-muted); line-height:1.5; margin-bottom:2.5mm;">3-year ROI guarantee (vs. 2 years on Tower 2, pending Toby's sign-off) &middot; priority booking on the 28 personal-use days &middot; Founding Investor recognition, last units in the development ever (pending sign-off) &middot; monthly construction update.</p>
+
+    <div class="section-label" style="margin-bottom:1mm;">What to Avoid</div>
+    <ul style="font-size:11px; color:var(--text-muted); line-height:1.6; margin-bottom:2.5mm; padding-left:4mm;">
+      <li>Never compare Tower 1 and Tower 2 in the same sentence. "Same but without the sauna" kills it immediately.</li>
+      <li>Don't lead with square meters or floor level. Lead with the buyer type.</li>
+      <li>Don't discount the price. It devalues the brand and insults the 18 buyers who already paid full price.</li>
+    </ul>
+
+    <div class="formula" style="font-size:12px;">
+      "Based on what you've told me, you want a passive investment, no management headache, strong return, Tower 1 is actually the better fit. Same guarantee, same management, same brand, but $179K instead of $259K. That's $80K you keep working for you elsewhere. And these are the last units in the development. <span>When are you looking to make a decision?</span>"
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Playbook</div>
+    <div class="page-footer-text">4 / 13</div>
+  </div>
+</div>
+
+
+<!-- PAGE 5: SECTION 2 - CLIENT PROFILES -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">The Sanctuary Sales Playbook</div>
+      <div class="page-header-tag">2 &middot; Client Profiles</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <div>
+        <div class="step-title">Who You're Actually Talking To</div>
+        <div class="step-time">Three profiles. A guess until discovery confirms it.</div>
+      </div>
+    </div>
+
+    <p style="font-size:11px; color:var(--text-muted); line-height:1.45; margin-bottom:2mm;">Not "a boutique hotel suite in Bali." Every buyer wants something underneath that. A profile below is a hypothesis, not a label, it only becomes real once the buyer's own words in discovery (Section 3) confirm it.</p>
+
+    <div class="profile-card" style="margin-bottom:2mm;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:1mm;">
+        <div class="profile-name" style="color:var(--brand); font-size:14px;">Pure Investor</div>
+      </div>
+      <p style="font-size:11px; color:var(--text-muted); line-height:1.45;">Wants financial security, money working without them, zero-headache passive income. Decision is driven by the math, not amenities. <strong style="color:var(--text);">Real example:</strong> a Singapore-based investor who'd spent two years walking away from unverified projects stopped at the income-pool model and said "this is the first project where I actually understand how I make money." Signed within the week.</p>
+    </div>
+
+    <div class="profile-card" style="margin-bottom:2mm;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:1mm;">
+        <div class="profile-name" style="color:var(--accent); font-size:14px;">Club Floor (Lifestyle Investor)</div>
+      </div>
+      <p style="font-size:11px; color:var(--text-muted); line-height:1.45;">Wants a life split between home and Bali that pays for itself, embedded in the community, not just financially exposed. Decision is driven by identity, not math. <strong style="color:var(--text);">Real example:</strong> a repeat visitor already spending roughly $8,000/year on accommodation and membership realized "I'm basically paying to own the place instead of renting it every time" once the numbers were run together.</p>
+    </div>
+
+    <div class="profile-card" style="margin-bottom:2.5mm;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:1mm;">
+        <div class="profile-name" style="font-size:14px;">Member Lead (Nirvana Member)</div>
+      </div>
+      <p style="font-size:11px; color:var(--text-muted); line-height:1.45;">Wants to stop being a visitor and become an owner of something they already love. Highest-opportunity, most underused profile, roughly 700 people a day through the club, almost none approached. <strong style="color:var(--text);">Real example:</strong> a 3-year member said "I feel like I'm already home here, I just don't own any of it" when Tower 1 launched. Bought three weeks later.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">Match Fast: Discovery Answer to Profile</div>
+    <table style="margin-bottom:2mm;">
+      <tr><th>They say...</th><th>Profile</th><th>Lead with</th></tr>
+      <tr><td>"Purely an investment, I won't be here much"</td><td>Pure Investor</td><td>ROI math, income pool, guarantee</td></tr>
+      <tr><td>"I'd actually stay here myself"</td><td>Club Floor</td><td>Embedded lifestyle, community, the life not the view</td></tr>
+      <tr><td>Already a member, hasn't been approached</td><td>Member Lead</td><td>"You already belong here, own a piece of it"</td></tr>
+    </table>
+
+    <p style="font-size:10.5px; color:var(--text-muted); line-height:1.4;">A profile guess from tone is a start, not a conclusion. Confirm it in the buyer's own words during discovery before you pitch to it, pitching the wrong story to the right buyer reads as generic.</p>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Playbook</div>
+    <div class="page-footer-text">5 / 13</div>
+  </div>
+</div>
+
+
+<!-- PAGE 6: SECTION 3 - DISCOVERY I -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">The Sanctuary Sales Playbook</div>
+      <div class="page-header-tag">3 &middot; Discovery</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">3</div>
+      <div>
+        <div class="step-title">Open the Call, Then Discover</div>
+        <div class="step-time">Every call starts with a frame and ends with a next step (Section 5)</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">Open With a Frame</div>
+    <p style="font-size:11px; color:var(--text-muted); line-height:1.45; margin-bottom:2mm;">Before any question, say why you're calling and how the call will run: "I wanted to reach out because [reason]. This'll take about ten minutes, I'll ask a few questions to understand where you're at, then share what's relevant to you." A short frame like this signals a process, not an improvised pitch, the same reason every call should end with a specific next step confirmed, never left open.</p>
+
+    <div class="callout" style="margin-bottom:2mm;">
+      <span class="tag tag-a">Technique</span>
+      <p style="margin-top:1.5mm;">The largest sales-behavior study ever run found something counterintuitive: pitching advantages before a buyer has said what they need doesn't just fail, it creates objections, because they've got nothing yet to weigh the value against. Skipping discovery to "save time" costs more time than it saves.</p>
+    </div>
+
+    <p style="font-size:11px; color:var(--text-muted); line-height:1.45; margin-bottom:2mm;">You are not sellers, you are guides. The buyer is the hero, trying to reach something real, financial security, a Bali base, proof to themselves that they make bold moves. Every buyer has a stated reason and a real one, discovery is how you find the real one.</p>
+
+    <div class="section-label" style="margin-bottom:1mm;">The Four Base Questions</div>
+    <table style="margin-bottom:2mm;">
+      <tr><th>Question</th><th>What it tells you</th></tr>
+      <tr>
+        <td style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11.5px;">"Are you looking at something for this year, or is this more of a 2027 situation for you?"</td>
+        <td>Urgency and decision readiness. "This year" means close. "2027" means qualify differently or move on.</td>
+      </tr>
+      <tr>
+        <td style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11.5px;">"Are you thinking of this primarily as an investment, or do you actually see yourself using it as a base in Bali?"</td>
+        <td>Which profile you're talking to. Pure Investor vs. Club Floor. The pitch after this is completely different.</td>
+      </tr>
+      <tr>
+        <td style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11.5px;">"Are you looking at other options right now, or is The Sanctuary your main focus?"</td>
+        <td>How to position and how much urgency to use. Comparing means differentiate. Main focus means remove the last obstacle.</td>
+      </tr>
+      <tr>
+        <td style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11.5px;">"Beyond price and timing, is there anything else that would hold you back if everything checked out?"</td>
+        <td>Surfaces a real objection early, before you've pitched anything, so it doesn't blindside you at the close (Section 4).</td>
+      </tr>
+    </table>
+
+    <p style="font-size:10.5px; color:var(--text-muted); line-height:1.4;"><strong style="color:var(--text);">Selective investor posture</strong> (hesitant leads and Member Leads): let part of the discovery feel like an interview, not a pitch. "What's your investing background?" or "we're selective about who we bring in at this stage" reframes the dynamic, the buyer is being considered, not deciding whether to buy. Confidence, not arrogance.</p>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Playbook</div>
+    <div class="page-footer-text">6 / 13</div>
+  </div>
+</div>
+
+
+<!-- PAGE 7: SECTION 3 - DISCOVERY II -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">The Sanctuary Sales Playbook</div>
+      <div class="page-header-tag">3 &middot; Discovery</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="width:7mm;height:7mm;font-size:13px;">&middot;</div>
+      <div>
+        <div class="step-title">Going One Level Deeper</div>
+        <div class="step-time">For a buyer who's interested but hasn't moved yet</div>
+      </div>
+    </div>
+
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:2mm;">The base questions tell you who you're talking to. They don't always tell you why someone who seems genuinely interested still hasn't acted. When that's the case, two more questions do real work, asked after the base four, not instead of them:</p>
+
+    <div class="grid-2" style="margin-bottom:2.5mm;">
+      <div class="profile-card">
+        <div style="font-size:10px; font-weight:600; color:var(--brand); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1.5mm;">Surface what's held them back</div>
+        <p style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:12px; color:var(--text); line-height:1.5;">"What's stopped you from making a move like this before now?"</p>
+      </div>
+      <div class="profile-card">
+        <div style="font-size:10px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1.5mm;">Make waiting feel costly, honestly</div>
+        <p style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:12px; color:var(--text); line-height:1.5;">"What would waiting another year actually cost you?"</p>
+      </div>
+    </div>
+
+    <p style="font-size:11px; color:var(--text-muted); line-height:1.5; margin-bottom:3mm;">These aren't tricks, they're genuine questions that most buyers haven't asked themselves out loud. Getting a real answer, in their own words, does more to move a stalled deal forward than any amount of you restating the guarantee. If they don't have a real answer, that's useful information too, it usually means the hesitation is somewhere else (see Section 4).</p>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">How Discovery Starts, in Writing</div>
+    <div class="msg-card">
+      <div class="msg-header"><div class="msg-title">Reactivation (warm lead who went quiet)</div></div>
+      <div class="msg-body"><p>"Hi [name], I know it's been a while. I'm reaching out because there are 14 units left and a price increase coming. Before anything moves, I want to make sure you had the full picture. Are you still thinking about this for this year?"</p></div>
+    </div>
+    <div class="msg-card">
+      <div class="msg-header"><div class="msg-title">New lead (first message after ad opt-in)</div></div>
+      <div class="msg-body"><p>"Hi [name], thanks for reaching out about The Sanctuary. Quick question before I send you anything, are you thinking of this as an investment, or are you actually planning to come to Bali and use it as a base?"</p></div>
+    </div>
+    <div class="msg-card">
+      <div class="msg-header"><div class="msg-title">Member approach (on-site or warm outreach)</div></div>
+      <div class="msg-body"><p>"Where are you staying while you're here?" [They name somewhere else.] "Did you know you can own a suite inside the club? Fully managed, lifetime membership from day one, pays you 10% a year while you're away. Worth a quick conversation?"</p></div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Playbook</div>
+    <div class="page-footer-text">7 / 13</div>
+  </div>
+</div>
+
+
+<!-- PAGE 8: SECTION 4 - OBJECTIONS I -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">The Sanctuary Sales Playbook</div>
+      <div class="page-header-tag">4 &middot; Objections</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">4</div>
+      <div>
+        <div class="step-title">Mirror It, Then Diagnose the Layer</div>
+        <div class="step-time">Circumstances, then other people, then themselves</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-bottom:2.5mm;">
+      <span class="tag tag-c">Technique</span>
+      <p style="margin-top:1.5mm;">Objections stack in a predictable order: first circumstances (time, money), then other people (a partner, an advisor), then the buyer's own fear of getting it wrong. Whatever layer it's in, mirror it back first, repeat the key phrase with a questioning tone ("Too expensive?") to confirm you heard the real concern and invite them to expand, rather than answer your own assumption of what they meant. Once they've confirmed and expanded, ask a question that brings it back to size. That's the pattern for every layer below.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">Layer 1 &middot; Circumstances &mdash; "It's Too Expensive"</div>
+    <p style="font-size:11.5px; color:var(--text); line-height:1.5; margin-bottom:1mm;">Mirror it first ("Too expensive?"), then: "How much do you typically spend when you come to Bali, accommodation, membership, restaurants?" Run the number: $6,000&ndash;$8,000 per visit, two to three visits a year, potentially $300,000 spent renting over 25 years. "That spend becomes ownership, and it generates income on top."</p>
+    <p style="font-size:10.5px; color:var(--text-muted); line-height:1.4; margin-bottom:2mm;">Almost always a value problem, not a resource problem. Offered for free, they'd find the money, so the real question is what makes waiting feel safer than moving.</p>
+
+    <div class="section-label" style="margin-bottom:1mm;">Layer 2 &middot; Other People &mdash; "I Need to Talk to My Partner or Advisor"</div>
+    <p style="font-size:11.5px; color:var(--text); line-height:1.5; margin-bottom:1mm;">Mirror it ("Talk to your partner?"), then: "Of course, I fully understand. What part of this do you think they might have concerns about?" Whatever they name is the real conversation, the advisor isn't the opponent, the belief is.</p>
+    <div class="callout-accent" style="margin-bottom:2mm;">
+      <span class="tag tag-b">Technique</span>
+      <p style="margin-top:1.5mm;">Treat it as a position, not the real answer, then ask what interest it's protecting, usually the buyer is revealing their own concern, not the absent person's. Follow with: "are you looking for their permission, or their support after you've already decided?" Permission keeps them stuck, support means they've already decided.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">Layer 3 &middot; Self &mdash; "I Need to Think About It"</div>
+    <p style="font-size:11px; color:var(--text); line-height:1.45;">Mirror it ("Think about it?"), then: "Totally fair. When you get home, what specifically are you going to think through?" Then stop talking. Most have no real answer, and the vagueness becomes visible to them.</p>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Playbook</div>
+    <div class="page-footer-text">8 / 13</div>
+  </div>
+</div>
+
+
+<!-- PAGE 9: SECTION 4 - OBJECTIONS II -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">The Sanctuary Sales Playbook</div>
+      <div class="page-header-tag">4 &middot; Objections</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="width:7mm;height:7mm;font-size:13px;">&middot;</div>
+      <div>
+        <div class="step-title">Quick Reference: Top 5</div>
+        <div class="step-time">Prepared before the objection is raised, not after</div>
+      </div>
+    </div>
+
+    <table style="margin-bottom:2.5mm;">
+      <tr><th>Objection</th><th>Layer</th><th>Answer</th></tr>
+      <tr><td>"I need to think about it"</td><td>Self</td><td>Directional decision frame. See previous page.</td></tr>
+      <tr><td>"I need to check with my partner / advisor"</td><td>Other people</td><td>Isolate the real concern, permission vs. support. See previous page.</td></tr>
+      <tr><td>"It's too expensive"</td><td>Circumstances</td><td>Reference point shift, rent vs. own. See previous page.</td></tr>
+      <tr>
+        <td><strong>"Is the ROI guarantee actually real?"</strong></td>
+        <td>Circumstances</td>
+        <td>10% minimum guaranteed in writing, 2 years on Tower 2, 3 years on Tower 1. 18 of 32 units already sold, existing buyers believed it enough to commit. Name the specific number, don't gesture at "a guarantee."</td>
+      </tr>
+      <tr>
+        <td><strong>"What if construction is delayed?"</strong></td>
+        <td>Circumstances</td>
+        <td>The monthly construction update program, photo and video sent to all buyers. Top floor already 5 weeks ahead of schedule, name that specific fact. PT Global Development, the same contractor that built for Kempinski, is independent proof of construction quality.</td>
+      </tr>
+    </table>
+
+    <div class="callout-red">
+      <p><strong>Real example worth knowing:</strong> a buyer who'd already reserved elsewhere converted at The Sanctuary on hard property-management performance data, real occupancy and payout numbers beat a competing project's projections. If you have a similar comparison in front of a hesitant buyer, use numbers, not just story, this is the one objection where data does the work.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm; margin-top:2.5mm;">Two Habits Worth Building</div>
+    <p style="font-size:11px; color:var(--text-muted); line-height:1.5; margin-bottom:1mm;">List every likely objection before a meeting, not just these five, and have an answer ready as a question or statement, not a rebuttal. Surface and disarm it early rather than waiting for it to arrive.</p>
+    <p style="font-size:11px; color:var(--text-muted); line-height:1.5;">Normalize it: when an objection comes up, mention that another buyer had the exact same one. Real examples make hesitation feel normal instead of personal. Section 2's profiles and the property-management story above are ready-made for this, not a script trick, just true.</p>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Playbook</div>
+    <div class="page-footer-text">9 / 13</div>
+  </div>
+</div>
+
+
+<!-- PAGE 10: SECTION 5 - CLOSING I -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">The Sanctuary Sales Playbook</div>
+      <div class="page-header-tag">5 &middot; How to Close</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">5</div>
+      <div>
+        <div class="step-title">Propose the Next Step Plainly, Once</div>
+        <div class="step-time">Pushing twice loses more deals than it wins</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-bottom:2.5mm;">
+      <span class="tag tag-a">Technique</span>
+      <p style="margin-top:1.5mm;">On a purchase this size, pressure-based closing measurably backfires, buyers who feel pushed report lower satisfaction even when they say yes, and one hard close performs worse than a single, plainly-stated next step. A buyer who's been genuinely heard through discovery and objections doesn't need to be closed, they close themselves. Your job at this stage is three moves, in order, not a script to push through.</p>
+    </div>
+
+    <div style="margin-bottom:2.5mm;">
+      <div class="rule-block">
+        <div class="rule-num">1</div>
+        <div class="rule-text" style="font-size:12.5px;">Check nothing's left unsaid. Ask directly if any concern is still sitting there before you propose anything.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">2</div>
+        <div class="rule-text" style="font-size:12.5px;">Summarize what they actually told you, in their words, tied to what they said they needed. Then confirm it lands: you'll know it landed when you hear "that's right," not just "you're right." The second one means they're placating you, not agreeing.</div>
+      </div>
+      <div class="rule-block" style="border-bottom:none;">
+        <div class="rule-num">3</div>
+        <div class="rule-text" style="font-size:12.5px;">Propose one specific next step, stated plainly, not asked tentatively. "The next step is X" beats "would you maybe want to X?"</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">The One Line That Anchors Everything</div>
+    <div class="formula">
+      "The Sanctuary is the only wellness real estate exit in Bali that generates income while you own it, in a project that will never be replicated, <span>with 14 units left.</span>"
+    </div>
+    <p style="font-size:11px; color:var(--text-muted); line-height:1.45;">Say it in your own words, not read off a page. When an objection comes up, don't debate it, return to this. If they believe this sentence, every other concern becomes secondary.</p>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Playbook</div>
+    <div class="page-footer-text">10 / 13</div>
+  </div>
+</div>
+
+
+<!-- PAGE 11: SECTION 5 - CLOSING II -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">The Sanctuary Sales Playbook</div>
+      <div class="page-header-tag">5 &middot; How to Close</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="width:7mm;height:7mm;font-size:13px;">&middot;</div>
+      <div>
+        <div class="step-title">Committed Next Step, Every Time</div>
+        <div class="step-time">"I'll send you the details" is a handoff to silence, not a next step</div>
+      </div>
+    </div>
+
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:1.5mm;">Every conversation ends with a date, a time, and a reason. Accepted versions:</p>
+    <ul style="font-size:11.5px; color:var(--text-muted); line-height:1.6; margin-bottom:3mm; padding-left:4mm;">
+      <li>"Let's speak Thursday at 3pm to go through any questions you have."</li>
+      <li>"I'll send the numbers now, can we jump on a quick call this week?"</li>
+      <li>"If you're ready to move forward, the next step is the reservation form and a 10% deposit."</li>
+    </ul>
+
+    <div class="section-label" style="margin-bottom:1mm;">If You're Not Sure the Yes Is Real</div>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:2.5mm;">Two questions test whether agreement is genuine: <em>"How will we know we're on track?"</em> and <em>"How will we handle it if we're off track?"</em> A vague or hesitant answer, or a reply of "I'll try," means the yes isn't solid yet, keep asking until they state it in their own words.</p>
+
+    <div class="callout-accent">
+      <p><strong>No Reason Left frame, for a genuinely stuck conversation:</strong> "Both options here have no real downside. Walking away changes nothing today. Moving forward has real upside. If there's no risk either way, which option actually gives you something?" Best case, their life changes. Worst case, they got closer to a decision they were already circling. Neither is a bad outcome for them.</p>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Playbook</div>
+    <div class="page-footer-text">11 / 13</div>
+  </div>
+</div>
+
+
+<!-- PAGE 12: SECTION 6 - FOLLOW-UP -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">The Sanctuary Sales Playbook</div>
+      <div class="page-header-tag">6 &middot; Follow-Up</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">6</div>
+      <div>
+        <div class="step-title">Earn the Reply, Don't Just Ask For It</div>
+        <div class="step-time">Never "just checking in." Always bring something.</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">The Structure: Give &rarr; Tease &rarr; Ask</div>
+    <div class="grid-3" style="margin-bottom:2mm;">
+      <div style="border:1px solid var(--border); border-radius:3px; padding:2.5mm;">
+        <div style="font-size:10px; font-weight:600; color:var(--brand); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Give</div>
+        <p style="font-size:10.5px; color:var(--text-muted); line-height:1.35;">A real update or fact. Construction progress, units sold, a price change.</p>
+      </div>
+      <div style="border:1px solid var(--border); border-radius:3px; padding:2.5mm;">
+        <div style="font-size:10px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Tease</div>
+        <p style="font-size:10.5px; color:var(--text-muted); line-height:1.35;">Let urgency show through what you gave. What they'd miss by waiting.</p>
+      </div>
+      <div style="border:1px solid var(--border); border-radius:3px; padding:2.5mm;">
+        <div style="font-size:10px; font-weight:600; color:var(--red); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Ask</div>
+        <p style="font-size:10.5px; color:var(--text-muted); line-height:1.35;">One clear, specific, low-friction question.</p>
+      </div>
+    </div>
+
+    <div class="callout-accent" style="margin-bottom:2.5mm;">
+      <div style="font-size:10px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Magic Urgency Line</div>
+      <p style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:13px; color:var(--text);">"Have you given up on making this happen for you?"</p>
+      <p style="font-size:10.5px; color:var(--text-muted); margin-top:1.5mm;">Deliberately client-centered. Their goal was never Nirvana's success, it's their own. A quiet lead is far more likely to reply and deny giving up than to stay silent.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">The Five Touchpoints</div>
+    <table>
+      <tr><th style="width:10mm;">#</th><th>When</th><th>What to send</th></tr>
+      <tr><td style="font-family:'DM Serif Display',Georgia,serif; font-size:15px; color:var(--brand);">1</td><td>Same day the next step is missed</td><td>Reason-based message tied to what was promised.</td></tr>
+      <tr><td style="font-family:'DM Serif Display',Georgia,serif; font-size:15px; color:var(--brand);">2</td><td>+2 days</td><td>Second attempt, still specific. "A few units have sold since then, we're down to 14 remaining."</td></tr>
+      <tr><td style="font-family:'DM Serif Display',Georgia,serif; font-size:15px; color:var(--brand);">3</td><td>+5 days</td><td>Final personal attempt, pattern interrupt. "Fair to say this is off your radar for now?"</td></tr>
+      <tr><td style="font-family:'DM Serif Display',Georgia,serif; font-size:15px; color:var(--brand);">4</td><td>Any point, member never approached</td><td>The member approach template from Section 3.</td></tr>
+      <tr><td style="font-family:'DM Serif Display',Georgia,serif; font-size:15px; color:var(--brand);">5</td><td>After +5 days, no reply</td><td>Hand off to the marketing team's automated sequence. Your personal follow-up did its job.</td></tr>
+    </table>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Playbook</div>
+    <div class="page-footer-text">12 / 13</div>
+  </div>
+</div>
+
+
+<!-- PAGE 13: WHAT TO DO WHEN IT'S NOT IN HERE -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">The Sanctuary Sales Playbook</div>
+      <div class="page-header-tag">Closing</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="width:7mm;height:7mm;font-size:13px;">&middot;</div>
+      <div>
+        <div class="step-title">What To Do When It's Not In Here</div>
+        <div class="step-time">A situation will come up that isn't covered. Here's the judgment.</div>
+      </div>
+    </div>
+
+    <p style="font-size:12px; color:var(--text-muted); line-height:1.55; margin-bottom:3mm;">Three steps, in order.</p>
+
+    <div style="margin-bottom:3mm;">
+      <div class="rule-block">
+        <div class="rule-num">1</div>
+        <div>
+          <div class="rule-text">Use your own judgment first.</div>
+          <div class="rule-note">Most situations are a variation on something already in this playbook, not something genuinely new.</div>
+        </div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">2</div>
+        <div>
+          <div class="rule-text">Fall back to the guide, hero frame.</div>
+          <div class="rule-note">You're the guide, the buyer is the hero. The question is always "what does the hero need to take the next step," not "what's the exact right line." When in doubt, ask a discovery question rather than guess. That frame covers situations no script can.</div>
+        </div>
+      </div>
+      <div class="rule-block" style="border-bottom:none;">
+        <div class="rule-num">3</div>
+        <div>
+          <div class="rule-text">Flag real gaps instead of improvising.</div>
+          <div class="rule-note">Pricing, terms, anything that needs Toby's sign-off, or a genuinely new objection isn't yours to decide alone. Flag it to Toby or Matthieu.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-bottom:3mm;">
+      <p>This playbook is built to work without anyone standing over your shoulder, whether you're on the team today or joining later. The process on page 2 is the whole shape of the job. Everything after it is depth for the moment you need it.</p>
+    </div>
+
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:flex-end;">
+      <div class="rule"></div>
+      <p style="font-size:11px; color:var(--text-light); text-align:center; font-style:italic;">The Sanctuary by Nirvana Health Club &middot; Sales Training, June to July 2026 &middot; OLC Method</p>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Playbook</div>
+    <div class="page-footer-text">13 / 13</div>
+  </div>
+</div>
+
+</body>
+</html>

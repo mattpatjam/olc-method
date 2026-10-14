@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Real Conversation Review, Solo Close & Playbook Handover: Session 5 | The Sanctuary by Nirvana Health Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand:       #13b07d;
+    --brand-mid:   rgba(19, 176, 125, 0.12);
+    --brand-light: rgba(19, 176, 125, 0.07);
+    --accent:      #c4884a;
+    --accent-light: rgba(196, 136, 74, 0.10);
+    --text:        #0d0d0d;
+    --text-muted:  #4a4a4a;
+    --text-light:  #9a9a9a;
+    --border:      #e2e2e2;
+    --border-mid:  #d0d0d0;
+    --surface:     #f9f9f7;
+    --white:       #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: #d8d8d4; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--white);
+    margin: 0 auto 8mm;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.10);
+    overflow: hidden;
+  }
+
+  .page-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 8mm 16mm 0;
+    overflow: hidden;
+  }
+
+  @page { size: 210mm 297mm; margin: 0; }
+  @media print {
+    html { background: white; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+      height: 297mm;
+      overflow: hidden;
+      max-height: 297mm;
+    }
+  }
+
+  .serif { font-family: 'DM Serif Display', Georgia, serif; }
+
+  .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 1.5mm;
+  }
+
+  .rule { height: 1px; background: var(--border); width: 100%; margin: 3mm 0; }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 3mm;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4.5mm;
+    flex-shrink: 0;
+  }
+  .page-header-title { font-size: 11px; font-weight: 500; color: var(--text-muted); }
+  .page-header-tag { font-size: 11px; font-weight: 600; color: var(--brand); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .page-footer {
+    padding: 3mm 16mm;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .page-footer-text { font-size: 10px; color: var(--text-light); }
+
+  .step-header { display: flex; align-items: flex-start; gap: 3mm; margin-bottom: 3mm; flex-shrink: 0; }
+  .step-number {
+    width: 6.5mm; height: 6.5mm; border-radius: 50%;
+    background: var(--brand); color: white;
+    font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1mm;
+  }
+  .step-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 17px; line-height: 1.15; }
+  .step-time { font-size: 11px; color: var(--text-light); margin-top: 1mm; }
+
+  .write-box {
+    border: 1px dashed var(--border-mid);
+    border-radius: 2px;
+    background: var(--surface);
+    padding: 2.5mm 3mm;
+    width: 100%;
+  }
+  textarea.write-box {
+    resize: none;
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 12px;
+    color: var(--text);
+    outline: none;
+    display: block;
+    overflow-y: auto;
+    line-height: 1.5;
+  }
+  textarea.write-box:focus {
+    border-color: var(--brand);
+    background: var(--white);
+  }
+
+  .callout {
+    background: var(--brand-light);
+    border-left: 3px solid var(--brand);
+    padding: 2.5mm 4mm;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout p { font-size: 12px; color: var(--text); line-height: 1.45; }
+  .callout-accent {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 2.5mm 4mm;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout-accent p { font-size: 12px; color: var(--text); line-height: 1.45; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: var(--brand-mid);
+    color: var(--text); font-weight: 600;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 2.5mm 3mm; text-align: left;
+    border-bottom: 1.5px solid var(--brand);
+  }
+  td {
+    padding: 2mm 3mm;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    font-size: 12px; line-height: 1.4; color: var(--text);
+  }
+  tr:last-child td { border-bottom: none; }
+
+  .rule-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 3.5mm;
+    padding: 3mm 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .rule-block:last-child { border-bottom: none; }
+  .rule-num {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 22px;
+    color: var(--brand);
+    line-height: 1;
+    min-width: 7mm;
+    flex-shrink: 0;
+    margin-top: 0.5mm;
+  }
+  .rule-text { font-size: 13px; line-height: 1.5; color: var(--text); font-weight: 400; }
+  .rule-note { font-size: 11px; color: var(--text-muted); margin-top: 1mm; font-style: italic; }
+
+  .formula {
+    background: var(--surface);
+    border: 1px solid var(--border-mid);
+    border-radius: 3px;
+    padding: 3mm 4mm;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 3mm;
+  }
+  .formula span { color: var(--brand); font-style: italic; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page">
+
+  <div style="height:2mm; background: var(--brand); flex-shrink:0;"></div>
+
+  <div style="flex:1; display:flex; flex-direction:column; padding:14mm 16mm 0;">
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+      <div class="label" style="color:var(--brand); letter-spacing:0.15em;">The Sanctuary by Nirvana Health Club</div>
+      <div class="label">Sales Training · Session 5 of 5</div>
+    </div>
+
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5mm;">
+      <p style="font-family:'DM Serif Display',Georgia,serif; font-size:12.5px; font-style:italic; color:var(--text-muted); line-height:1.6; text-align:center; max-width:140mm; margin:0;">
+        "The system doesn't leave when the training ends. It leaves with you, because it's already yours."
+      </p>
+    </div>
+
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-top:4mm;">
+      <div style="font-size:11px; font-weight:500; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3mm;">Session 5 · Final Session</div>
+      <div class="serif" style="font-size:32px; line-height:1.15; color:var(--text); margin-bottom:4mm;">Real Conversation Review,<br>Solo Close &amp; Playbook Handover</div>
+      <div style="width:12mm; height:1.5px; background:var(--brand); margin-bottom:5mm;"></div>
+      <div style="font-size:14px; color:var(--text-muted); line-height:1.6; max-width:120mm;">
+        Real calls reviewed, Natasha's proof of concept, and the full playbook handed over. Five sessions, one system, now yours to run.
+      </div>
+    </div>
+
+  </div>
+
+  <div style="padding:3mm 16mm; border-top:1px solid var(--border); flex-shrink:0; display:grid; grid-template-columns:1fr 1fr 1fr; gap:4mm;">
+    <div>
+      <div class="label" style="margin-bottom:1mm;">Date</div>
+      <div style="font-size:13px; font-weight:500;">Tuesday, July 21, 2026</div>
+    </div>
+    <div>
+      <div class="label" style="margin-bottom:1mm;">Time</div>
+      <div style="font-size:13px; font-weight:500;">3:00 to 5:00 PM</div>
+    </div>
+    <div>
+      <div class="label" style="margin-bottom:1mm;">Facilitator</div>
+      <div style="font-size:13px; font-weight:500;">Matthieu Jammers</div>
+    </div>
+  </div>
+
+  <div style="height:1mm; background: linear-gradient(to right, var(--brand), var(--accent)); flex-shrink:0;"></div>
+
+</div>
+
+
+<!-- PAGE 2: RECAP -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 5: Real Conversation Review, Solo Close &amp; Playbook Handover</div>
+      <div class="page-header-tag">Recap &middot; The System So Far</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="width:7mm;height:7mm;font-size:13px;">&middot;</div>
+      <div>
+        <div class="step-title">Five Sessions, One System</div>
+        <div class="step-time">A quick look back before we start today's work</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-bottom:3mm;">
+      <p>This is a refresher, not a test. Today isn't about learning anything new, it's about proving the system works on real conversations, and handing it over for good.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">Session 1 &mdash; What We're Selling</div>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:2.5mm;">Three buyer types, one thing each really wants: <strong>Pure Investor</strong> (money working without me), <strong>Lifestyle Investor</strong> (a life split between home and Bali that pays for itself), <strong>Nirvana Member</strong> (I own a piece of this). One-sentence offer: <em>"Guaranteed minimum 10% ROI without the nightmare of daily management, even if you've never invested in Bali before."</em> Buyers hesitate on "is this real?", not price. Proof beats persuasion.</p>
+
+    <div class="section-label" style="margin-bottom:1mm;">Session 2 &mdash; Ask Before You Pitch</div>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:2.5mm;">First contact earns a reply, it doesn't pitch. Discovery before presentation. Every buyer has a stated reason and a real one, the real one is usually status. You are the guide, the buyer is the hero, your job is to walk them to their own decision, not push them to yours.</p>
+
+    <div class="section-label" style="margin-bottom:1mm;">Session 3 &mdash; Closing the Conversation</div>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:2.5mm;">Tell a story before the numbers. When they hesitate, find out what's really behind it, then match a story, don't argue with data. Whatever the objection, bring it back to the Session 1 value stack. No conversation ends without a date, a time, and a reason.</p>
+
+    <div class="section-label" style="margin-bottom:1mm;">Session 4 &mdash; Follow-Up, The Full Call &amp; Tower 1</div>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:1.5mm;">Follow-up earns a reply through <strong>Give &rarr; Tease &rarr; Ask</strong>, never "just checking in." Every call runs on <strong>FRAME</strong>: Frame, Read, Admit, Match, Engage, opened with a permission question and closed with a committed next step. Tower 1 is a different product for a different buyer, not a discount version of Tower 2.</p>
+
+    <div class="formula" style="font-size:12.5px; margin-top:2mm;">
+      Today, Session 5, is where all four of these get tested on real conversations, not practiced on hypothetical ones.
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Training 2026</div>
+    <div class="page-footer-text">2 / 6</div>
+  </div>
+</div>
+
+
+<!-- PAGE 3: PART 1 - REAL CONVERSATION REVIEW -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 5: Real Conversation Review, Solo Close &amp; Playbook Handover</div>
+      <div class="page-header-tag">Part 1 &middot; Real Conversation Review</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <div>
+        <div class="step-title">Two Conversations Each</div>
+        <div class="step-time">45 minutes &middot; walk them together, refine as we go</div>
+      </div>
+    </div>
+
+    <div class="callout-accent" style="margin-bottom:2.5mm;">
+      <p>One conversation that worked, one that didn't &mdash; from the past 4 weeks. Bring the lead, what was said, and where it turned. Real language beats scripted language, whatever surfaces here gets folded straight into the playbook.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">Susi &mdash; the one that worked</div>
+    <textarea class="write-box" style="height:15mm; margin-bottom:2mm;" placeholder="Lead / buyer type, what happened, where in FRAME it landed, what to keep."></textarea>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">Susi &mdash; the one that didn't</div>
+    <textarea class="write-box" style="height:15mm; margin-bottom:2mm;" placeholder="Lead / buyer type, where it broke down, what to change next time."></textarea>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">Natasha &mdash; the one that worked</div>
+    <textarea class="write-box" style="height:15mm; margin-bottom:2mm;" placeholder="Lead / buyer type, what happened, where in FRAME it landed, what to keep."></textarea>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">Natasha &mdash; the one that didn't</div>
+    <textarea class="write-box" style="height:15mm;" placeholder="Lead / buyer type, where it broke down, what to change next time."></textarea>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Training 2026</div>
+    <div class="page-footer-text">3 / 6</div>
+  </div>
+</div>
+
+
+<!-- PAGE 4: PART 2 - WHAT'S CHANGED -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 5: Real Conversation Review, Solo Close &amp; Playbook Handover</div>
+      <div class="page-header-tag">Part 2 &middot; What's Changed</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <div>
+        <div class="step-title">Go-Round: Where We Actually Are</div>
+        <div class="step-time">30 minutes &middot; short, specific answers, numbers over impressions</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">What's working now that wasn't before? (one real example each)</div>
+    <textarea class="write-box" style="height:13mm; margin-bottom:2.5mm;"></textarea>
+
+    <div class="section-label" style="margin-bottom:1mm;">What's still hard? What needs more reps?</div>
+    <textarea class="write-box" style="height:13mm; margin-bottom:3mm;"></textarea>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">Pipeline Check &mdash; Audit Baseline vs. Today</div>
+    <table style="margin-bottom:2.5mm;">
+      <tr><th>Stage</th><th>Audit baseline (June 9)</th><th>Where are we now?</th></tr>
+      <tr><td>SQL (had a conversation)</td><td>212</td><td></td></tr>
+      <tr><td>Meetings booked</td><td>144</td><td></td></tr>
+      <tr><td>Still interested post-meeting</td><td>74</td><td></td></tr>
+      <tr><td>Closed</td><td>8</td><td></td></tr>
+      <tr><td>Units remaining</td><td>14</td><td></td></tr>
+    </table>
+
+    <div class="callout" style="margin-bottom:2mm;">
+      <p><strong>The real question:</strong> at this pace, are we on track for an August sell-out? If not, what's the gap, and what needs to happen in the next 4-6 weeks?</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">Answer, plainly</div>
+    <textarea class="write-box" style="height:12mm;"></textarea>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Training 2026</div>
+    <div class="page-footer-text">4 / 6</div>
+  </div>
+</div>
+
+
+<!-- PAGE 5: PART 3 - NATASHA'S SOLO CLOSE -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 5: Real Conversation Review, Solo Close &amp; Playbook Handover</div>
+      <div class="page-header-tag">Part 3 &middot; Natasha's Solo Close</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">3</div>
+      <div>
+        <div class="step-title">Discovery Through Next Step</div>
+        <div class="step-time">30 minutes &middot; lower pressure than a drill, closer to a real call</div>
+      </div>
+    </div>
+
+    <div class="callout-accent" style="margin-bottom:2.5mm;">
+      <p>Session 4 showed Natasha gets stressed under drill conditions but performs better on real calls. This is built to feel like a real call, not a test. She runs it start to finish: opening, Read, Admit, Match, Engage, objection if it comes up, and a committed next step.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">Today's Lead</div>
+    <div style="border:1px dashed var(--border-mid); border-radius:2px; background:var(--surface); padding:3mm 4mm; margin-bottom:3mm;">
+      <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5;"><em>[Lead chosen the morning of the session by Matthieu. Buyer type, funnel stage, and any known hesitation are briefed to the group right before this starts.]</em></p>
+      <div class="grid-2" style="margin-top:2.5mm;">
+        <div>
+          <div style="font-size:10px; font-weight:600; color:var(--brand); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Buyer type</div>
+          <div class="write-box" style="height:8mm;"></div>
+        </div>
+        <div>
+          <div style="font-size:10px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Funnel stage</div>
+          <div class="write-box" style="height:8mm;"></div>
+        </div>
+      </div>
+      <div style="font-size:10px; font-weight:600; color:var(--text-light); text-transform:uppercase; letter-spacing:0.06em; margin:2.5mm 0 1mm;">Known hesitation, if any</div>
+      <div class="write-box" style="height:8mm;"></div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">Live notes, as it happens (Read / Admit / Match / Engage / next step)</div>
+    <textarea class="write-box" style="height:20mm; margin-bottom:3mm;"></textarea>
+
+    <div class="section-label" style="margin-bottom:1mm;">Feedback: what worked, what to adjust (Natasha first, then Susi, then Matthieu)</div>
+    <textarea class="write-box" style="height:14mm;"></textarea>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Training 2026</div>
+    <div class="page-footer-text">5 / 6</div>
+  </div>
+</div>
+
+
+<!-- PAGE 6: CLOSING - WHAT I'M TAKING FORWARD -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 5: Real Conversation Review, Solo Close &amp; Playbook Handover</div>
+      <div class="page-header-tag">Close-Out</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="width:7mm;height:7mm;font-size:13px;">&middot;</div>
+      <div>
+        <div class="step-title">What I'm Taking Forward</div>
+        <div class="step-time">The last page of the last session</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-bottom:3mm;">
+      <p>This is the last formally scheduled session in the program. That doesn't mean support disappears, Matthieu stays available, and the relationship with Toby continues. But from today, the system runs on what you carry forward yourselves: the playbook, the frameworks, the reps you've already put in.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">One thing I'm committing to, starting this week</div>
+    <textarea class="write-box" style="height:16mm; margin-bottom:3mm;" placeholder="Be specific: what will you do differently on your very next call or follow-up?"></textarea>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">Where I'll go if I get stuck</div>
+    <div class="grid-2" style="margin-bottom:3mm;">
+      <div style="border:1px solid var(--border); border-radius:3px; padding:2.5mm;">
+        <div style="font-size:10px; font-weight:600; color:var(--brand); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Not covered by the playbook</div>
+        <p style="font-size:10.5px; color:var(--text-muted); line-height:1.4;">Judgment first, then the guide/hero frame, then flag it to Toby or Matthieu.</p>
+      </div>
+      <div style="border:1px solid var(--border); border-radius:3px; padding:2.5mm;">
+        <div style="font-size:10px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Need a check-in</div>
+        <p style="font-size:10.5px; color:var(--text-muted); line-height:1.4;">Matthieu remains reachable after the program ends. Ask.</p>
+      </div>
+    </div>
+
+    <div class="formula" style="font-size:13px; text-align:center;">
+      Five sessions. One system. <span>Now yours to run.</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Training 2026</div>
+    <div class="page-footer-text">6 / 6</div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nirvana Life — Continuation Proposal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────── */
+    :root {
+      --white:        #F9F8F4;
+      --off-white:    #EFEDE7;
+      --accent:       #4F6352;
+      --accent-lt:    #6B8470;
+      --accent-pale:  #EDF1EE;
+      --sand:         #C4A06A;
+      --sand-pale:    #F7F2EA;
+      --dark:         #0D100C;
+      --text:         #0F1510;
+      --text-dim:     #3D4D40;
+      --text-muted:   #9BA89E;
+      --border:       rgba(79,99,82,0.13);
+      --font-d:       'Cormorant', Georgia, serif;
+      --font-b:       'DM Sans', system-ui, sans-serif;
+      --sidebar-w:    54px;
+    }
+
+    /* ─── RESET ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #C8C6BF;
+      font-family: var(--font-b);
+      font-size: 14px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      color: var(--text-dim);
+    }
+
+    /* ─── A4 PAGE ────────────────────────────── */
+    @page { size: A4; margin: 0; }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 16px auto;
+      background: var(--white);
+      position: relative;
+      display: flex;
+      overflow: hidden;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.22);
+      page-break-after: always;
+    }
+    .last-page { page-break-after: auto; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; }
+    }
+
+    /* ─── SIDEBAR ────────────────────────────── */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: var(--accent);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .sidebar-label {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .sidebar-cover {
+      justify-content: space-between;
+      padding: 28mm 0;
+    }
+
+    .sidebar-cover .sidebar-top {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .sidebar-cover .sidebar-bottom {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    /* ─── CONTENT ────────────────────────────── */
+    .content {
+      flex: 1;
+      padding: 28mm 24mm 24mm 20mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── TYPE ───────────────────────────────── */
+    .label {
+      font-family: var(--font-b);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 5mm;
+    }
+
+    h1 {
+      font-family: var(--font-d);
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 1.08;
+      color: var(--dark);
+      margin-bottom: 6mm;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    h2 {
+      font-family: var(--font-d);
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.12;
+      color: var(--dark);
+      margin-bottom: 5mm;
+    }
+
+    h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    h3 {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 6mm;
+      margin-bottom: 2.5mm;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--text-dim);
+      margin-bottom: 3.5mm;
+    }
+
+    strong {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    em.green {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    /* ─── STATS ROW ──────────────────────────── */
+    .stats {
+      display: flex;
+      gap: 5mm;
+      margin: 8mm 0 6mm;
+    }
+
+    .stat {
+      flex: 1;
+      border-top: 1.5px solid var(--accent);
+      padding-top: 3mm;
+    }
+
+    .stat-num {
+      font-family: var(--font-d);
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1;
+      margin-bottom: 1.5mm;
+    }
+
+    .stat-sub {
+      font-family: var(--font-b);
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── HIGHLIGHT ──────────────────────────── */
+    .highlight {
+      background: var(--accent-pale);
+      border-left: 2px solid var(--accent);
+      padding: 4mm 5mm;
+      margin: 4mm 0;
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: var(--text-dim);
+    }
+
+    .highlight strong {
+      color: var(--text);
+    }
+
+    /* ─── MODEL BOX ──────────────────────────── */
+    .model-box {
+      border: 1.5px solid var(--accent);
+      padding: 4.5mm 5mm;
+      margin: 2.5mm 0;
+    }
+
+    .model-title {
+      font-family: var(--font-d);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 1mm;
+    }
+
+    .model-sub {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-bottom: 2.5mm;
+    }
+
+    .model-item {
+      display: flex;
+      gap: 3mm;
+      align-items: flex-start;
+      font-size: 11.5px;
+      line-height: 1.45;
+      margin-bottom: 1.3mm;
+    }
+
+    .model-item::before {
+      content: '·';
+      color: var(--sand);
+      font-size: 18px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: -1px;
+    }
+
+    /* ─── FRAMEWORKS ─────────────────────────── */
+    .fw-item {
+      display: flex;
+      gap: 4mm;
+      align-items: flex-start;
+      padding: 3.5mm 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fw-item:first-of-type {
+      border-top: 1px solid var(--border);
+    }
+
+    .fw-tag {
+      font-family: var(--font-b);
+      font-size: 7.5px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-pale);
+      padding: 2px 5px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .fw-body {
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    .fw-title {
+      font-family: var(--font-d);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      display: block;
+      margin-bottom: 1mm;
+    }
+
+    .fw-desc {
+      color: var(--text-dim);
+    }
+
+    /* ─── RULE ───────────────────────────────── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 5mm 0;
+    }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    .footer {
+      position: absolute;
+      bottom: 9mm;
+      left: calc(var(--sidebar-w) + 20mm);
+      right: 24mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-l {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .footer-r {
+      font-family: var(--font-d);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .spacer { flex: 1; }
+  </style>
+</head>
+<body>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 1 — COVER
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar sidebar-cover">
+    <span class="sidebar-top">OLC Method</span>
+    <span class="sidebar-bottom">Confidential</span>
+  </div>
+  <div class="content" style="justify-content: space-between;">
+
+    <div>
+      <span class="label">Nirvana Life — Continuation Proposal</span>
+      <h1>Let's keep<br>the <em>momentum</em><br>going.</h1>
+      <p style="max-width: 110mm; color: var(--text-dim);">Five weeks of training built the skill. Here's how we keep it live on real deals, and move the units still sitting in the pipeline.</p>
+    </div>
+
+    <div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 9mm; margin-bottom: 7mm;">
+        <img src="../../../website-v2/public/OLC_beige_vertical.jpg" alt="OLC Method" style="height: 114px; object-fit: contain; opacity: 0.88;">
+        <div style="width: 1px; height: 80px; background: var(--border);"></div>
+        <img src="../../../website-v2/public/clients/Nirvana.png" alt="Nirvana Life" style="height: 90px; object-fit: contain; opacity: 0.88;">
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">7</div>
+          <div class="stat-sub">Sessions delivered</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-sub">Fee paid in full</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">16+</div>
+          <div class="stat-sub">Units still to move</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">74</div>
+          <div class="stat-sub">Leads interested, not yet closed</div>
+        </div>
+      </div>
+
+      <hr>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4mm;">
+        <div>
+          <div style="font-family: var(--font-d); font-size: 15px; color: var(--dark);">Matthieu Jammers</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 1mm;">OLC Method — hello@olcmethod.com</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 10px; color: var(--text-muted);">July 2026</div>
+          <div style="font-size: 10px; color: var(--text-muted);">Prepared for Toby Sutton and the Nirvana team</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 2 — WHAT WE DID
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar">
+    <span class="sidebar-label">What We Did</span>
+  </div>
+  <div class="content">
+
+    <span class="label">01 — What We Did</span>
+    <h2>Five sessions,<br><em>real movement.</em></h2>
+
+    <p>Between June and July, Susi and Natasha went through a full sales system, built for The Sanctuary specifically, not a generic script. Each session built on the last.</p>
+
+    <div class="fw-item">
+      <span class="fw-tag">Session 1</span>
+      <div class="fw-body">
+        <span class="fw-title">Offer Workshop</span>
+        <span class="fw-desc">Dream outcomes for each buyer profile, the value equation, and the master objection list the team still works from today.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Session 2</span>
+      <div class="fw-body">
+        <span class="fw-title">Discovery Framework</span>
+        <span class="fw-desc">A question framework that gets timeline, budget, and real hesitation on the table before a pitch ever starts.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Session 3</span>
+      <div class="fw-body">
+        <span class="fw-title">Closing Language</span>
+        <span class="fw-desc">Scripts for the three most common objections, and a formula for ending every call with a real committed next step.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Session 4</span>
+      <div class="fw-body">
+        <span class="fw-title">Follow-Up, The Full Call &amp; Tower 1</span>
+        <span class="fw-desc">A five-step call structure (FRAME), reactivation messages for leads that have gone quiet, and live role-play reps against real objections.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Session 5</span>
+      <div class="fw-body">
+        <span class="fw-title">Review &amp; Playbook Handover</span>
+        <span class="fw-desc">A full written playbook as a standing reference, plus a live review of real deals in progress: what's worked, what hasn't, and why.</span>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>It's already showing up in real calls.</strong> Susi's third live role-play in Session 4 closed clean, permission opener, objection handled, real committed next step. Natasha closed Sara Isabel the same week, first attempt, no hesitation.
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span class="footer-l">OLC Method × Nirvana Life — Confidential</span>
+    <span class="footer-r">2</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 3 — WHAT'S STILL FRAGILE
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar">
+    <span class="sidebar-label">What's Still Fragile</span>
+  </div>
+  <div class="content">
+
+    <span class="label">02 — What's Still Fragile</span>
+    <h2>Skill without<br><em>reps</em> fades.</h2>
+
+    <p>Training builds the skill. It doesn't, on its own, hold it in place once the pressure of a real call hits. Natasha has the mechanics down. What's still untested is how she holds up when a real negotiation gets complicated, a hesitant buyer, a hard number, a decision that has to happen now. That only gets built with live reps on real deals, not more theory. Susi closes fast and well, but under time pressure she still front-loads information instead of pacing the call. Both are normal. Both need someone in the room every week keeping the habit live.</p>
+
+    <p>Marketing is doing its job well, leads are coming in. The bottleneck isn't volume.</p>
+
+    <div class="highlight">
+      <strong>Of the 74 leads still marked interested, only 4 are in negotiation and 1 in due diligence.</strong> That drop happens between "interested" and "closing," which is exactly the stage the training targets. It's a coaching gap, not a lead-gen gap, and right now nothing is holding that gap closed week over week.
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span class="footer-l">OLC Method × Nirvana Life — Confidential</span>
+    <span class="footer-r">3</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 4 — WHAT WE'LL DO
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar">
+    <span class="sidebar-label">What We'll Do</span>
+  </div>
+  <div class="content">
+
+    <span class="label" style="margin-bottom: 3mm;">03 — What We'll Do</span>
+    <h2 style="margin-bottom: 3mm;">Three ways to<br>keep <em>moving units.</em></h2>
+
+    <p style="margin-bottom: 2mm;">Three layers, stack as needed. Each one ties directly to the work already delivered, no new ramp-up required.</p>
+
+    <div class="model-box">
+      <div class="model-title">Weekly Coaching &amp; Strategy</div>
+      <div class="model-sub">Ongoing — compensation scaled to scope of work</div>
+      <div class="model-item">A weekly session with Susi and Natasha, live pipeline review and coaching on real deals in progress, not hypotheticals</div>
+      <div class="model-item">Recommendations to the marketing team and input on general sales strategy</div>
+      <div class="model-item">Consulting and recommendations for sales and marketing strategy meetings</div>
+    </div>
+
+    <div class="model-box">
+      <div class="model-title">Closing Assist</div>
+      <div class="model-sub">Optional, per deal — 1% commission</div>
+      <div class="model-item">I step in personally on stuck or near-ready deals in the pipeline, triggered by Susi or Natasha</div>
+      <div class="model-item">No fixed schedule, only where it's needed</div>
+      <div class="model-item">Paid only on units that actually close</div>
+    </div>
+
+    <div class="model-box">
+      <div class="model-title">Outside Client, Self-Sourced</div>
+      <div class="model-sub">Optional, per deal — 4% commission</div>
+      <div class="model-item">I bring a buyer, from my own network or my own outreach, and handle the full cycle, discovery through close</div>
+      <div class="model-item">No marketing cost or sales team time required from Nirvana</div>
+      <div class="model-item">Paid only on units that actually close</div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span class="footer-l">OLC Method × Nirvana Life — Confidential</span>
+    <span class="footer-r">4</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 5 — WHAT I GET IN EXCHANGE / CLOSE
+═══════════════════════════════════════════════ -->
+<div class="page last-page">
+  <div class="sidebar">
+    <span class="sidebar-label">Next Step</span>
+  </div>
+  <div class="content" style="justify-content: center;">
+
+    <span class="label" style="margin-bottom: 3mm;">04 — What I Get In Exchange</span>
+    <h2 style="font-size: 36px; margin-bottom: 6mm;">Simple, and<br>tied to <em>results.</em></h2>
+
+    <div class="highlight" style="margin-bottom: 6mm;">
+      An ongoing Nirvana membership for the weekly coaching and strategy work. Commission only on units that close through direct involvement: <strong>1%</strong> on deals I help close from your existing pipeline, <strong>4%</strong> on clients I bring and close myself, whether from my own network or my own outreach. Nothing owed either way unless a unit actually moves.
+    </div>
+
+    <p style="max-width: 115mm;">Everything above builds directly on the five weeks we already ran together, no new relationship to build, no new ramp-up. If this works for you, I can have the first weekly session on the calendar next week.</p>
+
+    <p style="color: var(--text-muted); font-size: 12px; margin-top: 1mm;">Reply to confirm and I'll have the first session on the calendar for next week.</p>
+
+    <hr style="margin-top: 10mm;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 4mm;">
+      <div>
+        <div style="font-family: var(--font-d); font-size: 16px; color: var(--dark);">Matthieu Jammers</div>
+        <div style="font-size: 10px; color: var(--text-muted); margin-top: 1.5mm;">OLC Method</div>
+        <div style="font-size: 10px; color: var(--accent); margin-top: 1mm; letter-spacing: 0.02em;">hello@olcmethod.com</div>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-family: var(--font-d); font-size: 13px; color: var(--text-muted); font-style: italic;">Offer, Leads, Close</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

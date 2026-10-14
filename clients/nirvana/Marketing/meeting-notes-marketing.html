@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marketing Meeting — Presenter Notes | Nirvana Life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:      #13b07d;
+    --green-pale: rgba(19,176,125,0.09);
+    --amber:      #c4884a;
+    --amber-pale: rgba(196,136,74,0.10);
+    --red:        #c0392b;
+    --red-pale:   rgba(192,57,43,0.08);
+    --ink:        #0d0d0d;
+    --muted:      #4a4a4a;
+    --light:      #9a9a9a;
+    --border:     #e0e0e0;
+    --surface:    #f8f8f6;
+    --white:      #ffffff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { background:#ccc; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 9.5pt;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--white);
+    margin: 0 auto;
+    padding: 9mm 12mm 7mm;
+    display: flex;
+    flex-direction: column;
+    gap: 4mm;
+    overflow: hidden;
+  }
+  @page { size: 210mm 297mm; margin: 0; }
+  @media print {
+    html { background: white; }
+    .page { margin:0; box-shadow:none; padding: 10mm 12mm 8mm; }
+  }
+
+  /* ── Header ── */
+  .header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1.5pt solid var(--green);
+    padding-bottom: 3mm;
+  }
+  .header-title {
+    font-family: 'Cormorant', serif;
+    font-size: 15pt;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .header-sub {
+    font-size: 8pt;
+    color: var(--light);
+    font-weight: 300;
+  }
+  .badge {
+    font-size: 7.5pt;
+    font-weight: 500;
+    color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 3px;
+    padding: 1px 6px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  /* ── Grid ── */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    flex: 1;
+    min-height: 0;
+  }
+  .col { display: flex; flex-direction: column; gap: 3mm; overflow: hidden; }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--surface);
+    border-radius: 4px;
+    padding: 4mm 5mm;
+    border-left: 2.5pt solid transparent;
+  }
+  .card.green  { border-left-color: var(--green);  background: var(--green-pale); }
+  .card.amber  { border-left-color: var(--amber);  background: var(--amber-pale); }
+  .card.red    { border-left-color: var(--red);    background: var(--red-pale); }
+  .card.plain  { border-left-color: var(--border); }
+
+  .card-label {
+    font-size: 6.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2.5mm;
+  }
+  .card.green  .card-label { color: var(--green); }
+  .card.amber  .card-label { color: var(--amber); }
+  .card.red    .card-label { color: var(--red); }
+  .card.plain  .card-label { color: var(--light); }
+
+  .card p {
+    font-size: 9pt;
+    line-height: 1.5;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .card p strong { color: var(--ink); font-style: normal; }
+
+  /* ── Flow ── */
+  .flow { list-style: none; display: flex; flex-direction: column; gap: 2.5mm; }
+  .flow li {
+    display: flex;
+    align-items: flex-start;
+    gap: 3mm;
+    font-size: 9pt;
+    line-height: 1.45;
+    color: var(--muted);
+  }
+  .flow-num {
+    flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    background: var(--green);
+    color: white;
+    border-radius: 50%;
+    font-size: 7.5pt;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .flow li strong { color: var(--ink); }
+  .flow-time {
+    font-size: 7.5pt;
+    color: var(--light);
+    white-space: nowrap;
+    margin-left: auto;
+    padding-left: 4mm;
+    font-weight: 300;
+  }
+
+  /* ── Ask blocks ── */
+  .ask {
+    background: var(--surface);
+    border-radius: 4px;
+    padding: 3.5mm 4.5mm;
+  }
+  .ask + .ask { margin-top: 3mm; }
+  .ask-label {
+    font-size: 6.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--light);
+    margin-bottom: 1.5mm;
+  }
+  .ask-body {
+    font-size: 9pt;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .ask-note {
+    font-size: 8pt;
+    color: var(--muted);
+    margin-top: 1.5mm;
+  }
+
+  /* ── Numbers grid ── */
+  .nums {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2mm;
+  }
+  .num-item {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 2.5mm 3.5mm;
+  }
+  .num-val {
+    font-family: 'Cormorant', serif;
+    font-size: 13pt;
+    font-weight: 600;
+    color: var(--green);
+    line-height: 1.2;
+  }
+  .num-label {
+    font-size: 7.5pt;
+    color: var(--muted);
+    line-height: 1.3;
+    margin-top: 0.5mm;
+  }
+
+  /* ── Checklist ── */
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 2mm; }
+  .checklist li {
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+    font-size: 8.5pt;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .check-box {
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid var(--green);
+    border-radius: 2px;
+  }
+
+  /* ── No list ── */
+  .no-list { list-style: none; display: flex; flex-direction: column; gap: 2mm; }
+  .no-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5mm;
+    font-size: 8.5pt;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .no-dot {
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 8pt;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  /* ── Footer strip ── */
+  .footer-strip {
+    border-top: 1px solid var(--border);
+    padding-top: 3mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4mm;
+    flex-shrink: 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .tip-block { }
+  .tip-label {
+    font-size: 6.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--amber);
+    margin-bottom: 1.5mm;
+  }
+  .tip-body {
+    font-size: 8pt;
+    line-height: 1.45;
+    color: var(--muted);
+  }
+  .tip-body em { font-style: italic; color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <div class="header-title">Marketing Meeting — Nirvana Life</div>
+      <div class="header-sub">Internal use only &nbsp;·&nbsp; Do not share</div>
+    </div>
+    <div class="badge">Presenter Notes</div>
+  </div>
+
+  <!-- Main grid -->
+  <div class="grid">
+
+    <!-- LEFT COLUMN -->
+    <div class="col">
+
+      <!-- Intro -->
+      <div class="card plain">
+        <div class="card-label">60-Second Intro</div>
+        <p>"I've been working with Susi and Natasha for the past six weeks — an audit of the pipeline, then two sessions to build the offer stack and objection framework. I found three distinct buyer profiles, each with a different reason to buy and a different blocker. <strong>I wanted to share that work so we're all describing the same opportunity in the same language</strong> — and see if there's a warm channel we can run alongside the paid campaigns."</p>
+        <p style="margin-top:2mm; font-size:8pt;"><strong>Tone:</strong> peer in the room. Not consulting. Not pitching.</p>
+      </div>
+
+      <!-- Meeting flow -->
+      <div>
+        <div class="card-label" style="color:var(--light); font-size:6.5pt; font-weight:600; text-transform:uppercase; letter-spacing:.08em; margin-bottom:3mm;">Meeting Flow</div>
+        <ul class="flow">
+          <li>
+            <span class="flow-num">1</span>
+            <span><strong>Introduce the brief</strong> — hand it over, walk page 1 quickly. Earns credibility first.</span>
+            <span class="flow-time">5 min</span>
+          </li>
+          <li>
+            <span class="flow-num">2</span>
+            <span><strong>Walk the 3 buyer profiles</strong> — p.4 of brief. Ask: <em>which profile are ads targeting? Who's converting?</em></span>
+            <span class="flow-time">10 min</span>
+          </li>
+          <li>
+            <span class="flow-num">3</span>
+            <span><strong>Show the gap</strong> — pp.2–3. Flag the broken [X]% on the website explicitly.</span>
+            <span class="flow-time">5 min</span>
+          </li>
+          <li>
+            <span class="flow-num">4</span>
+            <span><strong>Propose Channel B</strong> — p.6. Their campaigns untouched. <em>Channel B is additive.</em></span>
+            <span class="flow-time">5 min</span>
+          </li>
+          <li>
+            <span class="flow-num">5</span>
+            <span><strong>Make the two asks</strong> — see right column.</span>
+            <span class="flow-time">5 min</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- What not to do -->
+      <div class="card red" style="margin-top:auto;">
+        <div class="card-label">Do Not</div>
+        <ul class="no-list">
+          <li><span class="no-dot">✕</span>Mention any fee for the marketing work — commission is the payment</li>
+          <li><span class="no-dot">✕</span>Position OLC as competing with or replacing their team</li>
+          <li><span class="no-dot">✕</span>Get drawn into ad budgets, platforms, or campaign mechanics</li>
+          <li><span class="no-dot">✕</span>Name Susi or Natasha individually — say "the team"</li>
+          <li><span class="no-dot">✕</span>Over-promise on email outreach — "one test sequence, see what converts"</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col">
+
+      <!-- The two asks -->
+      <div>
+        <div class="card-label" style="color:var(--light); font-size:6.5pt; font-weight:600; text-transform:uppercase; letter-spacing:.08em; margin-bottom:3mm;">The Asks</div>
+        <div class="ask">
+          <div class="ask-label">Ask from the marketing team</div>
+          <div class="ask-body">Alignment on <strong>which buyer profile to lead with</strong> in the next campaign cycle. Wrong profile = wasted budget. Right profile = fast win they can point to.</div>
+        </div>
+        <div class="ask">
+          <div class="ask-label">Ask from Toby</div>
+          <div class="ask-body">Access to the <strong>member / email list</strong> for Channel B outreach.</div>
+          <div class="ask-note">Frame: "Before anything goes out, you approve the message. Zero risk to the brand." If he asks about commission — point to the proposal. 5% on OLC-sourced leads. Already in writing.</div>
+        </div>
+        <div class="ask" style="background:var(--green-pale); border-left:2.5pt solid var(--green);">
+          <div class="ask-label" style="color:var(--green);">If they ask what you get out of this</div>
+          <div class="ask-body" style="font-style:italic; color:var(--muted); font-size:8.5pt;">"If the warm channel performs, I earn a commission per closed unit from those leads. Toby and I already agreed the structure. The brief today is my way of making sure paid channels work from the same foundation — that's good for everyone."</div>
+        </div>
+      </div>
+
+      <!-- Numbers -->
+      <div>
+        <div class="card-label" style="color:var(--light); font-size:6.5pt; font-weight:600; text-transform:uppercase; letter-spacing:.08em; margin-bottom:3mm;">Numbers Cold</div>
+        <div class="nums">
+          <div class="num-item">
+            <span class="num-val">14</span>
+            <span class="num-label">Units remaining (9 T1 + 5 T2)</span>
+          </div>
+          <div class="num-item">
+            <span class="num-val">18/32</span>
+            <span class="num-label">Sold — 56% sell-through, off-plan</span>
+          </div>
+          <div class="num-item">
+            <span class="num-val">$189K–$259K</span>
+            <span class="num-label">Investment range</span>
+          </div>
+          <div class="num-item">
+            <span class="num-val">10%</span>
+            <span class="num-label">Guaranteed ROI, contractual years 1–2</span>
+          </div>
+          <div class="num-item">
+            <span class="num-val">July</span>
+            <span class="num-label">5% price increase — urgency trigger</span>
+          </div>
+          <div class="num-item">
+            <span class="num-val">August</span>
+            <span class="num-label">Sell-out target</span>
+          </div>
+          <div class="num-item">
+            <span class="num-val">$884K+</span>
+            <span class="num-label">Total offer stack value</span>
+          </div>
+          <div class="num-item">
+            <span class="num-val">~700/day</span>
+            <span class="num-label">Gym entries — untapped warm list</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Walk out with -->
+      <div class="card green" style="margin-top:auto;">
+        <div class="card-label">Walk Out With</div>
+        <ul class="checklist">
+          <li><span class="check-box"></span>Agreement on which buyer profile to lead in next campaign</li>
+          <li><span class="check-box"></span>Broken [X]% fix committed — website team looped in</li>
+          <li><span class="check-box"></span>Date Toby sends the member / email export</li>
+          <li><span class="check-box"></span>Follow-up booked to review first outreach sequence before it goes out</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer — Optional ad talking points -->
+  <div class="footer-strip">
+    <div class="tip-block">
+      <div class="tip-label">If ads come up — Market Pyramid</div>
+      <div class="tip-body">"Most property ads fight for the 3% ready to buy now. The member list reaches the 7–12% before they're ready — that's the uncontested market. <em>Channel B isn't a sales tactic. It's a structural advantage.</em>"</div>
+    </div>
+    <div class="tip-block">
+      <div class="tip-label">If they show you ad copy — Dobie Test</div>
+      <div class="tip-body"><em>Doesn't work:</em> "Luxury suites from $189K. Book a viewing." &nbsp;<em>Works:</em> "How Bali wellness investors earn guaranteed 10% income without the offshore complexity — here's the structure." Intrigue around the HOW + specific benefit.</div>
+    </div>
+    <div class="tip-block">
+      <div class="tip-label">Immediately actionable — Identity Trigger</div>
+      <div class="tip-body">Take their best ad, add a niche identity word: <em>"How <strong>European investors</strong> earn guaranteed 10% from Bali wellness real estate."</em> Meta finds a new audience pocket. Same budget, lower CPL. Test alongside control, results in 5–7 days.</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

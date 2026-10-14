@@ -38,7 +38,20 @@ OLC's closing process is face-to-face. The steps below are built for that contex
 ## Closing Process
 
 ### Step 1 — Discovery Call
-- Open with calibrated questions: understand where the buyer is, what's driving them, and what they've tried before
+
+Before presenting anything, ask. The first 10 minutes of any call are questions, not pitching. This is the standard discovery script, ask these before explaining the offer:
+
+1. What's your biggest challenge right now?
+2. Why is this a priority today?
+3. What have you already tried?
+4. What's stopping you from fixing it?
+5. What happens if nothing changes?
+6. What outcome are you aiming for?
+7. Who else is involved in the decision?
+8. Is there anything making you hesitate?
+
+When the real problem is clear, objections get easier to handle later, you're responding to the cause, not the excuse that surfaces at the close.
+
 - Never pitch before the motivation is clear
 - Identify: wealth / health / relationships — which core desire is this purchase serving?
 - Qualify against the ICP green light criteria from Phase 1C
@@ -90,14 +103,63 @@ When a buyer hesitates or objects, the words they use are almost never the real 
 
 All four story types are built in Phase 1I and stored in the client's playbook. If a new objection type surfaces repeatedly, add a story for it.
 
+### Step 4B — Logical Close Layer
+
+After the story breaks the belief, the buyer is emotionally ready — but may not have moved to a decision yet. This is where the logical close sequence activates. These are not scripts to read; they are the underlying frameworks that make the close feel like helping, not selling.
+
+**The goal reframe (Hormozi):** Your job is not to get them to buy. It is to help them decide. Train yourself and client sales teams on this: reward getting to a decision — either direction — not just a yes. This reframe changes posture, removes commission breath, and produces better outcomes.
+
+**The 3 layers of objection (confirmed by Hormozi + Brunson):**
+Every objection is a person casting their power away. Map to the right layer before responding:
+
+| Layer | What they say | What they mean |
+|---|---|---|
+| **Circumstances** (time/money/market) | "I can't afford it / not the right time / market feels uncertain" | "External conditions control this decision" |
+| **Other people** (authority) | "I need to talk to my advisor / partner / legal team" | "Someone else controls this decision" |
+| **Self** (fear of mistake) | "I need to think about it / not sure it's for me" | "I don't trust myself to make this call" |
+
+The story from Step 4 breaks the belief. The logical close below dissolves the remaining resistance.
+
+**Directional decision frame:**
+Replace "Will this be the best decision I've ever made?" with "Will this get me closer or further from what I want?"
+
+> "Both options are risk-free in a sense. You walk out and nothing changes. Or you take this step — it may not be everything, but it gets you closer to [the outcome they named in discovery]. One has potential upside. The other stays the same. Which direction do you want to go?"
+
+This removes the pressure of certainty. Closer = do it. They don't need a guarantee that it's perfect.
+
+**Cost of inaction (for any time/money objection):**
+Reframe the risk from "can I afford this?" to "what does not deciding cost me?"
+
+> "What has waiting cost you over the last three years? How many projects have you watched sell out? What does that number add up to?"
+
+Then: "Is our fee more expensive than that?"
+
+**The mirror close:**
+Whatever reason they give for not deciding — reflect it back as the reason they should.
+- "I don't have the time right now." → "That's exactly the reason this is worth addressing now — so this doesn't take more time later."
+- "I'm not sure it's for me." → "That uncertainty is exactly what this conversation is for."
+
+This works because the stated obstacle is usually a symptom of the problem the project solves.
+
+*Reference: `advertising/sales-closing.md` — Hormozi logical closing framework. Cross-reference: Brunson false belief types = Hormozi objection layers, confirmed by two independent sources.*
+
 ### Step 5 — Committed Next Step
 - Every conversation ends with a committed next step — never "I'll think about it"
 - Accepted next steps: signed LOI, deposit paid, property visit booked, second call scheduled with a date
 - A buyer who won't commit to a next step is not a qualified buyer
 
-### Step 5 — Follow-Up
+### Step 6 — Follow-Up
 - All follow-ups are tracked in CRM with a date and action
 - Sequence continues until yes, no, or disqualified — never goes cold
+
+### Step 7 — Referral Ask
+- Fires at the same moment as Step 5 — signed LOI or deposit paid, when enthusiasm is highest. Don't wait until the unit is delivered; by then the buyer has moved on and forgotten the feeling.
+- Ask WHO, not IF: "Who else in your life is looking for [the outcome they named in discovery]?" — never "do you know anyone?"
+- Add a referral field to the reservation/contract paperwork: name and contact of one person this buyer would introduce
+- Frame it as help for the friend, not a favor to OLC or the developer: doing it together tends to get both buyers a better outcome
+- Log the referral source in CRM immediately — feeds the referral-rate KPI in Phase 4
+
+*Full ask methodology (7 ways to ask, gift card play): `.claude/knowledge/hormozi-advisor/knowledge/referrals.md`*
 
 ---
 
@@ -137,4 +199,5 @@ Marketing spend (~2.5% per unit) is always the developer's cost, paid directly t
 - ICP qualification criteria: `company/icp.md`
 - Pricing model and competitive benchmark: `company/pricing.md`
 - CRM and automation stack: `research/tool-stack.md`
+- Referral ask methodology (Step 7): `.claude/knowledge/hormozi-advisor/knowledge/referrals.md`
 - Next phase: `phase-4-scale.md` (runs in parallel)

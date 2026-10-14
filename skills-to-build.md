@@ -213,6 +213,27 @@ Matthieu is already a closer. The skill to build is scripting the developer pitc
 
 ---
 
+## Reading Queue (Cross-Business)
+
+*Logged here since this file already tracks Matthieu's reading curriculum, even though books on this list may close a Scale-Rise gap rather than an OLC one. Tagged with which gap each one closes.*
+
+**Up next, in order:**
+1. **Predictable Revenue** (Aaron Ross) — closes: Scale-Rise's cold outreach framework doc still not written (ICP corrected 2026-07-07, doc itself still open — see `Scale-Rise/Internal/tracker.md`). The literal outbound system to build against that ICP.
+2. **$100M Money Models** (Alex Hormozi) — closes: Scale-Rise `offer.md` Tier 2/3 pricing still unset (Communication + Operations, Full Stack).
+3. **Yes! 50 Scientifically Proven Ways to Be Persuasive** (Robert Cialdini) — swapped in for *Influence* (too long/repetitive per Matthieu, this is Cialdini's own condensed fix, same 6 principles). Sharpens cold outreach copy and closing scripts.
+4. **Ready, Fire, Aim** (Michael Masterson) — read once the cold outreach engine is live. Growth-stage roadmap (sell it yourself → optimize → systems/team → leverage), relevant as both businesses approach the first-hire threshold (see `context/work.md` — Ideal First Hire).
+5. **The Sales Acceleration Formula** (Mark Roberge) — read when scoping that first hire. Data-driven sales process and hiring framework.
+
+**On the bench — no active gap tied to these yet:**
+- *One to Many* (Jason Fladlien) — skip, overlaps heavily with Expert Secrets' live-presentation-funnel content already in the knowledge base.
+- *How to Win Friends and Influence People* (Dale Carnegie) — lower marginal value, Matthieu's already a strong natural closer.
+- *The Bezos Letters* (Steve Anderson), *Wooden on Leadership* (John Wooden), *The Motive* (Patrick Lencioni) — leadership/team books, revisit after the SC hire is made.
+- *The Almanack of Naval Ravikant* — read for pleasure, no tactical urgency right now.
+
+**Already done:** 100M Offers, DotCom Secrets, Expert Secrets, 100M Leads (all logged above under Priority 1, 2, 9).
+
+---
+
 ## Top 5 to Study for Positioning
 
 Reverse-engineer how they write, position, run their site, and post content:
@@ -229,7 +250,16 @@ Reverse-engineer how they write, position, run their site, and post content:
 
 - **`funnel-builder`** — Full funnel build workflow (VLMS → Secret Formula → Value Ladder → Funnel Hacking → pick funnel type → write scripts → follow-up). Build when OLC or a developer client is ready to build an actual funnel. Uses `company/funnels.md` as knowledge base.
 
-- **`olc-ad-creator`** — OLC paid ad creative workflow. Generates ad hooks, story-driven ad scripts (32-second Epiphany Bridge for hooks, full 7-phase script for longer formats), and creative briefs for Meta. Combines Expert Secrets (storytelling, villain, desire, hero's journey phases) + 100M Leads (channel strategy, audience targeting, lead gen mechanics) + Meta Ads execution knowledge + ICP from `company/icp.md`. **Do not build until all three are complete:** (1) Expert Secrets fully read, (2) 100M Leads read (Priority 9), (3) Meta Ads fluency (Priority 6 — Blueprint + Ben Heath + $50-100 test campaign). Target: after Week 5 (~Jul 13).
+- **`olc-ad-creator`** — OLC paid ad creative workflow. Generates ad hooks, story-driven ad scripts (High-Value Dobie headlines, Epiphany Bridge story ads, full NEUE Wave copy), creative briefs for Meta, and audience-specific identity trigger variations. Combines: High-Value Dobie + four creative formats + copy rules (Sabri Suby, `advertising/facebook-ads.md`) + NEUE Wave formula + 9 questions (Sabri Suby, `advertising/copywriting.md`) + Expert Secrets (storytelling, Epiphany Bridge, false beliefs) + ICP from `company/icp.md`.
+
+**Prerequisite status (updated 2026-07-09):**
+- [x] Expert Secrets — DONE
+- [x] Sabri Suby ads (High-Value Dobie, NEUE Wave, Meta scaling tactics) — DONE (`advertising/facebook-ads.md`, `advertising/copywriting.md`)
+- [x] Hormozi closing — DONE (applied to methodology, not needed for ad creator itself)
+- [x] 100M Leads — DONE (finished 2026-07-09)
+- [ ] Meta Ads fluency — NOT STARTED (Blueprint + Ben Heath + $50-100 test campaign, ~Week 5 target Jul 13)
+
+**Target: build after Week 5 (~Jul 13).** Only one prerequisite left: hands-on Meta Ads platform fluency. You need to have run a real campaign before you can write a skill that generates credible ad briefs and creative specs. Jul 13 is four days out and this hasn't started — tightest link in the chain right now.
 
 ---
 

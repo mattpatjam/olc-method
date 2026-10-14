@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sanctuary, Sales Partnership Proposal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────── */
+    :root {
+      --white:        #F9F8F4;
+      --off-white:    #EFEDE7;
+      --accent:       #4F6352;
+      --accent-lt:    #6B8470;
+      --accent-pale:  #EDF1EE;
+      --sand:         #C4A06A;
+      --sand-pale:    #F7F2EA;
+      --dark:         #0D100C;
+      --text:         #0F1510;
+      --text-dim:     #3D4D40;
+      --text-muted:   #9BA89E;
+      --border:       rgba(79,99,82,0.13);
+      --font-d:       'Cormorant', Georgia, serif;
+      --font-b:       'DM Sans', system-ui, sans-serif;
+      --sidebar-w:    54px;
+    }
+
+    /* ─── RESET ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #C8C6BF;
+      font-family: var(--font-b);
+      font-size: 14px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      color: var(--text-dim);
+    }
+
+    /* ─── A4 PAGE ────────────────────────────── */
+    @page { size: A4; margin: 0; }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 16px auto;
+      background: var(--white);
+      position: relative;
+      display: flex;
+      overflow: hidden;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.22);
+      page-break-after: always;
+    }
+    .last-page { page-break-after: auto; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; }
+    }
+
+    /* ─── SIDEBAR ────────────────────────────── */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: var(--accent);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .sidebar-label {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .sidebar-cover {
+      justify-content: space-between;
+      padding: 28mm 0;
+    }
+
+    .sidebar-cover .sidebar-top {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .sidebar-cover .sidebar-bottom {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    /* ─── CONTENT ────────────────────────────── */
+    .content {
+      flex: 1;
+      padding: 28mm 24mm 24mm 20mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── TYPE ───────────────────────────────── */
+    .label {
+      font-family: var(--font-b);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 5mm;
+    }
+
+    h1 {
+      font-family: var(--font-d);
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 1.08;
+      color: var(--dark);
+      margin-bottom: 6mm;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    h2 {
+      font-family: var(--font-d);
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.12;
+      color: var(--dark);
+      margin-bottom: 5mm;
+    }
+
+    h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    h3 {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 6mm;
+      margin-bottom: 2.5mm;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--text-dim);
+      margin-bottom: 3.5mm;
+    }
+
+    strong {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    em.green {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    /* ─── STATS ROW ──────────────────────────── */
+    .stats {
+      display: flex;
+      gap: 5mm;
+      margin: 8mm 0 6mm;
+    }
+
+    .stat {
+      flex: 1;
+      border-top: 1.5px solid var(--accent);
+      padding-top: 3mm;
+    }
+
+    .stat-num {
+      font-family: var(--font-d);
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1;
+      margin-bottom: 1.5mm;
+    }
+
+    .stat-sub {
+      font-family: var(--font-b);
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── MOVES ──────────────────────────────── */
+    .move {
+      border-top: 1px solid var(--border);
+      padding-top: 4mm;
+      margin-bottom: 4.5mm;
+    }
+
+    .move-head {
+      display: flex;
+      align-items: baseline;
+      gap: 3mm;
+      margin-bottom: 1.5mm;
+    }
+
+    .move-n {
+      font-family: var(--font-b);
+      font-size: 9px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    .move-title {
+      font-family: var(--font-d);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    .move p {
+      font-size: 12px;
+      line-height: 1.75;
+      color: var(--text-dim);
+      margin-bottom: 0;
+    }
+
+    /* ─── AVATAR HOOKS ───────────────────────── */
+    .avatar-hooks {
+      margin-top: 2.5mm;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5mm;
+    }
+
+    .hook-line {
+      display: flex;
+      gap: 2.5mm;
+      align-items: flex-start;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .hook-tag {
+      font-family: var(--font-b);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-pale);
+      padding: 1px 5px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .hook-copy {
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    /* ─── HIGHLIGHT ──────────────────────────── */
+    .highlight {
+      background: var(--accent-pale);
+      border-left: 2px solid var(--accent);
+      padding: 4mm 5mm;
+      margin: 4mm 0;
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: var(--text-dim);
+    }
+
+    .highlight strong {
+      color: var(--text);
+    }
+
+    /* ─── BELIEFS ────────────────────────────── */
+    .belief-list {
+      margin-top: 2mm;
+      display: flex;
+      flex-direction: column;
+      gap: 3mm;
+    }
+
+    .belief {
+      display: flex;
+      gap: 4mm;
+      align-items: flex-start;
+    }
+
+    .belief-n {
+      font-family: var(--font-d);
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--sand);
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: -1mm;
+    }
+
+    .belief-text {
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    .belief-title {
+      font-weight: 500;
+      color: var(--text);
+      display: block;
+      margin-bottom: 1mm;
+    }
+
+    .belief-answer {
+      color: var(--text-dim);
+    }
+
+    /* ─── MODEL BOX ──────────────────────────── */
+    .model-box {
+      border: 1.5px solid var(--accent);
+      padding: 7mm;
+      margin: 5mm 0;
+    }
+
+    .model-title {
+      font-family: var(--font-d);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 2mm;
+    }
+
+    .model-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 4mm;
+    }
+
+    .model-item {
+      display: flex;
+      gap: 3mm;
+      align-items: flex-start;
+      font-size: 12.5px;
+      line-height: 1.6;
+      margin-bottom: 2.5mm;
+    }
+
+    .model-item::before {
+      content: '·';
+      color: var(--sand);
+      font-size: 18px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: -1px;
+    }
+
+    /* ─── FRAMEWORKS ─────────────────────────── */
+    .fw-item {
+      display: flex;
+      gap: 4mm;
+      align-items: flex-start;
+      padding: 3.5mm 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fw-item:first-of-type {
+      border-top: 1px solid var(--border);
+    }
+
+    .fw-tag {
+      font-family: var(--font-b);
+      font-size: 7.5px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-pale);
+      padding: 2px 5px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+      width: 28mm;
+      text-align: center;
+    }
+
+    .fw-body {
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    .fw-title {
+      font-family: var(--font-d);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      display: block;
+      margin-bottom: 1mm;
+    }
+
+    .fw-desc {
+      color: var(--text-dim);
+    }
+
+    /* ─── CTA PAGE ───────────────────────────── */
+    .cta-big {
+      font-family: var(--font-d);
+      font-weight: 300;
+      font-size: 90px;
+      color: rgba(79,99,82,0.1);
+      line-height: 1;
+      margin-bottom: -14mm;
+      margin-left: -2mm;
+    }
+
+    /* ─── RULE ───────────────────────────────── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 5mm 0;
+    }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    .footer {
+      position: absolute;
+      bottom: 9mm;
+      left: calc(var(--sidebar-w) + 20mm);
+      right: 24mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-l {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .footer-r {
+      font-family: var(--font-d);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .spacer { flex: 1; }
+
+    /* ─── VALUE STACK ────────────────────────────── */
+    .value-stack {
+      margin: 2.5mm 0 0;
+    }
+
+    .stack-row {
+      display: flex;
+      align-items: center;
+      gap: 2.5mm;
+      padding: 1.8mm 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .stack-row:first-child { border-top: 1px solid var(--border); }
+
+    .stack-n {
+      font-family: var(--font-d);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--sand);
+      flex-shrink: 0;
+      width: 4.5mm;
+      line-height: 1;
+    }
+
+    .stack-body { flex: 1; }
+
+    .stack-label {
+      font-weight: 500;
+      color: var(--text);
+      display: block;
+      font-size: 11px;
+    }
+
+    .stack-note {
+      color: var(--text-muted);
+      font-size: 9.5px;
+      display: block;
+      line-height: 1.3;
+    }
+
+    .stack-val {
+      font-family: var(--font-d);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--dark);
+      text-align: right;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .stack-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2.5mm 0 2mm;
+      border-top: 1.5px solid var(--accent);
+    }
+
+    .stack-total-label {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 8.5px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .stack-total-val {
+      font-family: var(--font-d);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--dark);
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 4mm;
+      margin-top: 7mm;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      font-family: var(--font-b);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding: 3.5mm 7mm;
+      border-radius: 2px;
+    }
+
+    .cta-btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .cta-btn-secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+    }
+
+    .deploy-list {
+      margin-top: 4mm;
+    }
+
+    .deploy-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 3mm;
+      padding: 1.8mm 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 11.5px;
+      line-height: 1.5;
+    }
+
+    .deploy-row:first-child { border-top: 1px solid var(--border); }
+
+    .deploy-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--sand);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    .deploy-label {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .deploy-note {
+      color: var(--text-muted);
+      font-size: 10.5px;
+    }
+  </style>
+</head>
+<body>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 1 — COVER
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar sidebar-cover">
+    <span class="sidebar-top">OLC Method</span>
+    <span class="sidebar-bottom">Confidential</span>
+  </div>
+  <div class="content" style="justify-content: space-between;">
+
+    <div>
+      <span class="label">The Sanctuary by Nirvana Life, Sales Partnership</span>
+      <h1>Closing<br><em>the last 14</em><br>before August.</h1>
+      <p style="max-width: 110mm; color: var(--text-dim);">Five sales moves, a system ready to deploy, and a partnership model to take The Sanctuary to sell-out.</p>
+    </div>
+
+    <div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 9mm; margin-bottom: 7mm;">
+        <img src="../../../website-v2/public/OLC_beige_vertical.jpg" alt="OLC Method" style="height: 114px; object-fit: contain; opacity: 0.88;">
+        <div style="width: 1px; height: 80px; background: var(--border);"></div>
+        <img src="../../../website-v2/public/clients/Nirvana.png" alt="Nirvana Life" style="height: 90px; object-fit: contain; opacity: 0.88;">
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">18</div>
+          <div class="stat-sub">Units sold off-plan</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">14</div>
+          <div class="stat-sub">Units remaining</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">July</div>
+          <div class="stat-sub">5% price increase</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Aug</div>
+          <div class="stat-sub">Sell-out target</div>
+        </div>
+      </div>
+
+      <hr>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4mm;">
+        <div>
+          <div style="font-family: var(--font-d); font-size: 15px; color: var(--dark);">Matthieu Jammers</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 1mm;">OLC Method, hello@olcmethod.com</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 10px; color: var(--text-muted);">June 2026</div>
+          <div style="font-size: 10px; color: var(--text-muted);">Prepared for Toby and the Nirvana team</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 2 — CONTEXT
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar">
+    <span class="sidebar-label">Context</span>
+  </div>
+  <div class="content">
+
+    <span class="label">Where Things Stand</span>
+    <h2>The machine is working.<br><em>The warm list is not.</em></h2>
+
+    <p>Eighteen units closed off-plan before construction completed. That is not a slow project. That is proof of concept. The product, the guarantee, and the offer stack are working. The gap is not cold traffic. It is the warm list Nirvana already has.</p>
+
+    <div class="highlight">
+      <strong>The core opportunity:</strong> 700 members walk through the club every day. Seventy-four qualified leads went quiet. Eighteen buyers are already investors who can refer. None of these channels are currently activated.
+    </div>
+
+    <h3>The July Window</h3>
+    <p>A confirmed 5% price increase in July creates real urgency. At $179K, that is $8,950 left on the table by waiting. At $259K, it is $12,950. Every sales conversation before that date has a hard deadline. No manufactured scarcity needed: the math does the work.</p>
+
+    <h3>Two Levers</h3>
+    <p>The marketing team handles brand, content, and cold traffic. This proposal focuses on the second lever: converting the warm list (members, cold leads, and existing buyers) into closed units before August. These are the fastest and cheapest closes available.</p>
+
+    <h3>What This Proposal Covers</h3>
+    <p>Five specific sales moves. A sales system already built and ready to deploy. And a partnership model that keeps OLC Method embedded until the last unit closes.</p>
+
+  </div>
+
+  <div class="footer">
+    <span class="footer-l">OLC Method × Nirvana — Confidential</span>
+    <span class="footer-r">2</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 3 — FIVE MOVES
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar">
+    <span class="sidebar-label">Five Moves</span>
+  </div>
+  <div class="content">
+
+    <span class="label">High-Impact Sales Actions</span>
+    <h2>Five moves to close<br>the remaining 14.</h2>
+
+    <div class="move">
+      <div class="move-head">
+        <span class="move-n">01</span>
+        <span class="move-title">Avatar-Targeted Ad Creative</span>
+      </div>
+      <p>Three buyer types exist: the <strong>Pure Investor</strong> (return-focused, often abroad), the <strong>Lifestyle Investor</strong> (Bali base plus income), and the <strong>Nirvana True Believer</strong> (existing member, already inside). Each needs its own hook, story, and ad. Running one generic creative to all three burns budget on the wrong people.</p>
+      <div class="avatar-hooks">
+        <div class="hook-line">
+          <span class="hook-tag">Pure Investor</span>
+          <span class="hook-copy">"How European investors earn guaranteed 10% income from Bali wellness real estate — without offshore complexity"</span>
+        </div>
+        <div class="hook-line">
+          <span class="hook-tag">Lifestyle Investor</span>
+          <span class="hook-copy">"Own your base inside Bali's top wellness club — earn while you're away, come home to your community"</span>
+        </div>
+        <div class="hook-line">
+          <span class="hook-tag">True Believer</span>
+          <span class="hook-copy">"Stop renting. Own the suite you keep coming back to — and let it pay for itself"</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="move">
+      <div class="move-head">
+        <span class="move-n">02</span>
+        <span class="move-title">Member-to-Owner Pipeline</span>
+      </div>
+      <p>700 members a day walk into a building where they could own a suite. The sales team has a script ready: <em>"Where are you sleeping when you're in Bali?"</em> No pitch. No brochure. One question that opens a natural conversation. The referral program (1% commission) was built but never announced to existing buyers: launch it now. The 18 investors already inside are more credible than any ad.</p>
+      <p>Running in parallel: a 3-email value-first sequence to the full member database. Not a sales email. A community update: what ownership inside Nirvana actually looks like, what a member who purchased says about the experience, and a soft invitation to ask questions. The CTA is a conversation with the sales team, not a purchase link. It runs automatically while Susi and Natasha stay focused on active leads.</p>
+    </div>
+
+    <div class="move">
+      <div class="move-head">
+        <span class="move-n">03</span>
+        <span class="move-title">Cold Lead Reactivation</span>
+      </div>
+      <p>74 leads went quiet in HubSpot. The reactivation approach uses honesty as the opening: no pressure, one qualifying question, a real deadline, and an easy off-ramp. Out of 74, a 20% reactivation rate produces 14 conversations. The goal is to find the leads who were close and give them a real reason to move before July.</p>
+    </div>
+
+    <div class="move">
+      <div class="move-head">
+        <span class="move-n">04</span>
+        <span class="move-title">Buyer Testimonials: Story-First Format</span>
+      </div>
+      <p>The 18 existing buyers are Nirvana's best marketing asset and nobody has asked them for a testimonial yet. A 60-second video per buyer type (who they were before, what almost stopped them, the moment they decided, where they are now) outperforms any ad creative. Matched to the right audience, it answers the objection that actually kills deals: <em>Will this work for someone like me?</em></p>
+    </div>
+
+    <div class="move">
+      <div class="move-head">
+        <span class="move-n">05</span>
+        <span class="move-title">Selective Investor Positioning</span>
+      </div>
+      <p>Nirvana does not need buyers. It is evaluating who joins a community of investors who will be part of it for years. 18 already said yes. 14 allocations remain. The language at every touchpoint should reflect this: not pressure from desperation, but real scarcity. <em>"We are careful about who joins at this stage. These will be co-investors and part of the Nirvana community for years."</em></p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span class="footer-l">OLC Method × Nirvana — Confidential</span>
+    <span class="footer-r">3</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 4 — SALES SYSTEM
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar">
+    <span class="sidebar-label">The System</span>
+  </div>
+  <div class="content">
+
+    <span class="label">What's Already Built and Ready to Deploy</span>
+    <h2>The system exists.<br><em>It just needs to run.</em></h2>
+
+    <p>Seven weeks of work produced three things that are sitting unused: follow-up sequences, a discovery framework, and a reframed ROI narrative. Getting these deployed before July is worth more than any new ad campaign.</p>
+
+    <h3>Follow-Up Sequences</h3>
+    <p>A five to six email reactivation sequence is written, built for the 74 dormant leads who already had a conversation with the team. Not a narrative funnel. Each email delivers one concrete thing in the right order: a buyer story matched to their profile, the ROI guarantee in plain terms, a project update, the July price math, and a direct question asking if they are still interested. Short, peer level tone. The WhatsApp cadence mirrors it. Both are ready for handoff to the marketing team today.</p>
+
+    <h3>ROI Framing: the order matters</h3>
+    <p>The contractual guarantee (10% minimum, disbursed monthly) must always come before the performance projection (up to 15%, conditional). Reversing the order erodes trust before the close has started. The anchor is not the price per sqm. It is the annual income:</p>
+
+    <div class="highlight">
+      <strong>$17,900 to $25,900 minimum per year.</strong> Contractually guaranteed. Plus a lifetime Nirvana membership worth $134,000. Plus 28 personal use nights per year (no nightly fee, priority booking). Fully managed. Zero operational burden.
+    </div>
+
+    <h3>The full offer stack, in this order, before the price comes up</h3>
+
+    <div class="value-stack">
+      <div class="stack-row">
+        <span class="stack-n">1</span>
+        <div class="stack-body">
+          <span class="stack-label">Guaranteed 10% ROI, contractual, monthly disbursements</span>
+          <span class="stack-note">$17,900–$25,900/yr contractually guaranteed. Total over the 27-year lease.</span>
+        </div>
+        <span class="stack-val">$483,300–$699,300</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-n">2</span>
+        <div class="stack-body">
+          <span class="stack-label">Lifetime Nirvana Life Club membership</span>
+          <span class="stack-note">Gym, spa, sauna, ice baths, café, coworking, 100+ weekly classes. For life.</span>
+        </div>
+        <span class="stack-val">$134,000</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-n">3</span>
+        <div class="stack-body">
+          <span class="stack-label">28 personal use nights per year</span>
+          <span class="stack-note">No nightly fee, over the full 27-year lease.</span>
+        </div>
+        <span class="stack-val">$151,000</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-n">4</span>
+        <div class="stack-body">
+          <span class="stack-label">Priority peak-season booking</span>
+          <span class="stack-note">Guaranteed access during July, August, Christmas, and Nyepi when rates are highest and rooms are unavailable to the public.</span>
+        </div>
+        <span class="stack-val" style="font-size:10px;color:var(--text-muted);">Included</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-n">5</span>
+        <div class="stack-body">
+          <span class="stack-label">Full property management, in-house, Nirvana-operated</span>
+          <span class="stack-note">Bookings, guest services, maintenance, monthly reporting. Over the full 27-year lease.</span>
+        </div>
+        <span class="stack-val">~$162,000</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-n">6</span>
+        <div class="stack-body">
+          <span class="stack-label">Legal support package</span>
+          <span class="stack-note">PT PMA, MOU, management agreement, notarization. No external lawyers.</span>
+        </div>
+        <span class="stack-val">$24,000</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-n">7</span>
+        <div class="stack-body">
+          <span class="stack-label">Private co-work lounge, owner access only</span>
+          <span class="stack-note">Not available to gym members or hotel guests. Over the lease term.</span>
+        </div>
+        <span class="stack-val">~$65,000</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-n">8</span>
+        <div class="stack-body">
+          <span class="stack-label">Founding investor status</span>
+          <span class="stack-note">32 units total. 18 already closed. 14 remain. Permanently.</span>
+        </div>
+        <span class="stack-val" style="font-size:10px;color:var(--text-muted);">Included</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-n">9</span>
+        <div class="stack-body">
+          <span class="stack-label">Access to the founding investor network</span>
+          <span class="stack-note">32 suite owners across The Sanctuary, a curated community of wellness and lifestyle investors from Europe, Asia, and beyond.</span>
+        </div>
+        <span class="stack-val" style="font-size:10px;color:var(--text-muted);font-style:italic;">Priceless</span>
+      </div>
+
+      <div class="stack-total">
+        <span class="stack-total-label">Total stacked value</span>
+        <span class="stack-total-val">$1,019,300+</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;background:var(--accent-pale);padding:2.5mm 4mm;margin-top:1.5mm;">
+        <span style="font-size:11px;color:var(--text-dim);">At $179K: <strong style="color:var(--dark);">5.7× total value on investment</strong></span>
+        <span style="width:1px;height:12px;background:var(--border);flex-shrink:0;"></span>
+        <span style="font-size:11px;color:var(--text-dim);">At $259K: <strong style="color:var(--dark);">4.8× total value on investment</strong></span>
+      </div>
+    </div>
+
+    <h3>Three Beliefs That Kill Deals Before They Start</h3>
+    <div class="belief-list" style="margin-top: 3mm;">
+      <div class="belief">
+        <span class="belief-n">01</span>
+        <div class="belief-text">
+          <span class="belief-title">"This feels too good to be true."</span>
+          <span class="belief-answer">Show the contractual guarantee language and the 18 deals already closed at these terms.</span>
+        </div>
+      </div>
+      <div class="belief">
+        <span class="belief-n">02</span>
+        <div class="belief-text">
+          <span class="belief-title">"I've never invested in Bali. Too complex for me."</span>
+          <span class="belief-answer">The legal support package and PT PMA setup are included. There is no complexity to manage independently.</span>
+        </div>
+      </div>
+      <div class="belief">
+        <span class="belief-n">03</span>
+        <div class="belief-text">
+          <span class="belief-title">"The timing isn't right."</span>
+          <span class="belief-answer">The 5% price increase is confirmed for July. 14 units remain. Waiting costs between $8,950 and $12,950.</span>
+        </div>
+      </div>
+      <div class="belief">
+        <span class="belief-n">04</span>
+        <div class="belief-text">
+          <span class="belief-title">"I can't manage a rental property from abroad."</span>
+          <span class="belief-answer">You don't manage anything. Nirvana does. The same team running the club that 700 people trust every single day manages your suite to the same standard. You can walk in right now and audit your property manager. Just look around. This is not outsourced management. The brand itself is the manager.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span class="footer-l">OLC Method × Nirvana — Confidential</span>
+    <span class="footer-r">4</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 5 — WHAT STAYS
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar">
+    <span class="sidebar-label">What Stays</span>
+  </div>
+  <div class="content">
+
+    <span class="label">Beyond August</span>
+    <h2>The training ends.<br><em>These don't.</em></h2>
+
+    <p>Closing 14 units by August is the immediate goal. But every deliverable built during this engagement is a permanent asset. The Sanctuary is the proof of concept. What gets built here works for every project that comes after it.</p>
+
+    <div class="fw-item">
+      <span class="fw-tag">Permanent</span>
+      <div class="fw-body">
+        <span class="fw-title">Full Sales Playbook</span>
+        <span class="fw-desc">Every script, discovery question, objection response, and WhatsApp template in one place. Includes a product knowledge reference (construction specs, AC, water filtration, warranties, timeline) so the team answers any technical question on the spot without a callback. The next salesperson Nirvana hires can be onboarded from it in a day. Nothing lives in Susi's head anymore.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Permanent</span>
+      <div class="fw-body">
+        <span class="fw-title">CRM Architecture</span>
+        <span class="fw-desc">Deal stages defined, qualification criteria set, follow-up triggers mapped. HubSpot runs the pipeline instead of the team carrying it manually. Toby gets a weekly summary: what is moving, what is stuck, and why. No prompting needed.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Permanent</span>
+      <div class="fw-body">
+        <span class="fw-title">Objection Library and Pre-Close Discovery Script</span>
+        <span class="fw-desc">The 10 objections that kill Nirvana deals, handled before the buyer raises them. Built into the discovery sequence so the conversation inoculates the objection rather than reacting to it. Each response is tailored to the buyer profile. Not a generic rebuttal list. A structured sequence that makes "I need to think about it" disappear before it starts.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Team</span>
+      <div class="fw-body">
+        <span class="fw-title">Susi and Natasha After the Engagement</span>
+        <span class="fw-desc">Susi exits with a structured discovery habit she does not currently have. Qualifying before pitching closes the deals she is losing at the opening. Natasha exits handling intro calls end-to-end. The team doubles its closing capacity without adding a hire.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Channels</span>
+      <div class="fw-body">
+        <span class="fw-title">Referral Program and Member Sequence</span>
+        <span class="fw-desc">18 existing buyers with a live incentive to refer, and a member email sequence running automatically. Both generate leads with no ongoing manual effort after setup.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Alignment</span>
+      <div class="fw-body">
+        <span class="fw-title">Marketing and Sales Speaking the Same Language</span>
+        <span class="fw-desc">Right now the marketing team produces content that does not align with what the sales team needs to close. OLC bridges them. The ad, the email, and the sales conversation say the same thing in the same order. Without this bridge, both teams work harder for a smaller result.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span class="footer-l">OLC Method × Nirvana — Confidential</span>
+    <span class="footer-r">5</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 6 — THE PARTNERSHIP
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar">
+    <span class="sidebar-label">Partnership</span>
+  </div>
+  <div class="content">
+
+    <span class="label">How OLC Method Stays Embedded</span>
+    <h2>The training built<br>the foundation.<br><em>This closes it out.</em></h2>
+
+    <p>The frameworks are in place. The scripts exist. The discovery process is running. After the training ends, consistency is the variable. Momentum built over seven weeks drops fast without it, and with 14 units and an August deadline, there is no runway for a cold restart.</p>
+
+    <div class="model-box">
+      <div class="model-title">OLC as Performance Partner</div>
+      <div class="model-sub">Monthly retainer plus commission per closed unit. OLC wins when Nirvana wins.</div>
+      <div class="model-item">Monthly retainer for ongoing sales team coaching: weekly sessions, live deal support, script refinement, and objection handling as new scenarios come up</div>
+      <div class="model-item">Commission on each closed unit: no volume without performance, and the incentives are aligned from day one</div>
+      <div class="model-item">Direct involvement in sales strategy: messaging, avatar targeting, urgency framing, and follow-up sequences</div>
+      <div class="model-item">Working hand-in-hand with the marketing team, adding a closing layer that paid ads alone cannot provide</div>
+      <div class="model-item">Active through August sell-out, with full playbook and handover documentation at close</div>
+    </div>
+
+    <h3>Ready to deploy the day the partnership starts</h3>
+    <p>Seven weeks of training built the system. The partnership activates it. Nothing below needs building from scratch. It exists and goes live immediately.</p>
+
+    <div class="deploy-list">
+      <div class="deploy-row">
+        <div class="deploy-dot"></div>
+        <div><span class="deploy-label">Discovery and pre-close script.</span> <span class="deploy-note">Sequences objections out of the conversation before the buyer raises them.</span></div>
+      </div>
+      <div class="deploy-row">
+        <div class="deploy-dot"></div>
+        <div><span class="deploy-label">Follow-up sequences.</span> <span class="deploy-note">Email and WhatsApp cadences written and ready to hand to the marketing team.</span></div>
+      </div>
+      <div class="deploy-row">
+        <div class="deploy-dot"></div>
+        <div><span class="deploy-label">Buyer profiles and avatar hooks.</span> <span class="deploy-note">Pure Investor, Lifestyle Investor, and Nirvana True Believer with tailored messaging per profile.</span></div>
+      </div>
+      <div class="deploy-row">
+        <div class="deploy-dot"></div>
+        <div><span class="deploy-label">Offer stack with ROI framing.</span> <span class="deploy-note">$1,019,300+ total value built and sequenced, guarantee-first anchoring ready.</span></div>
+      </div>
+      <div class="deploy-row">
+        <div class="deploy-dot"></div>
+        <div><span class="deploy-label">Cold lead reactivation sequence.</span> <span class="deploy-note">74 stale HubSpot leads, message ready, urgency framing locked.</span></div>
+      </div>
+    </div>
+
+    <div class="highlight" style="margin-top: 4mm;">
+      <strong>The bigger picture:</strong> You are not hiring OLC to close 14 units. You are building a sales infrastructure that closes these 14 units and works for every project that comes after. The playbook, the CRM structure, the offer framing, the team capability. All of it stays. The cost of this engagement is the cost of building something permanent.
+    </div>
+
+    <p style="color: var(--text-muted); font-size: 12px; margin-top: 3mm;">Retainer and commission rates are discussed on the call. The structure above is the proposal.</p>
+
+  </div>
+
+  <div class="footer">
+    <span class="footer-l">OLC Method × Nirvana — Confidential</span>
+    <span class="footer-r">6</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 7 — THE METHOD
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar">
+    <span class="sidebar-label">The Method</span>
+  </div>
+  <div class="content">
+
+    <span class="label">Strategic Foundation</span>
+    <h2>Why these<br>moves work.</h2>
+
+    <p>The recommendations here are grounded in frameworks built for high-ticket closes, particularly in markets where trust matters more than reach.</p>
+
+    <div class="fw-item">
+      <span class="fw-tag">Story System</span>
+      <div class="fw-body">
+        <span class="fw-title">Epiphany Bridge Story</span>
+        <span class="fw-desc">Story before logic. A buyer must feel the decision before they will examine the numbers. Every testimonial, every ad, and every sales conversation opens with a story matched to the buyer's profile, not a features list.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Email System</span>
+      <div class="fw-body">
+        <span class="fw-title">Proof-Stacking Reactivation Sequence</span>
+        <span class="fw-desc">A high-ticket, warm-lead email sequence is not a narrative funnel. Dramatic cliffhangers work for $97 info products, not for someone making a $200K investment decision with a team who already knows them. The right approach: one concrete proof point per email, in the correct order. Buyer story first. ROI guarantee second. Project update third. Price deadline fourth. Direct question last. Peer level tone throughout. Leads arrive at the sales conversation with their main objections already addressed.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Message Structure</span>
+      <div class="fw-body">
+        <span class="fw-title">Hook, Story, Offer</span>
+        <span class="fw-desc">Every ad, email, and message follows the same structure. Curiosity opens. Story builds belief. The offer closes. The price never leads. This applies equally to video ads, WhatsApp messages, and follow-up emails.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Targeting</span>
+      <div class="fw-body">
+        <span class="fw-title">Dream Customer Avatar Targeting</span>
+        <span class="fw-desc">Each buyer profile has a primary driver: wealth, lifestyle, or community belonging. Ads, stories, and outreach match that driver specifically, instead of broadcasting a single message to all three. Identity-niching in ad copy reduces cost per lead and brings in better-qualified people.</span>
+      </div>
+    </div>
+
+    <div class="fw-item">
+      <span class="fw-tag">Scarcity Principle</span>
+      <div class="fw-body">
+        <span class="fw-title">Real Scarcity: One Reason Is Enough</span>
+        <span class="fw-desc">One confirmed real reason to act beats ten manufactured ones. 14 units remaining plus a July price increase is enough. The job is to communicate the existing pressure clearly across every channel, not to add more.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span class="footer-l">OLC Method × Nirvana — Confidential</span>
+    <span class="footer-r">7</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 8 — NEXT STEP
+═══════════════════════════════════════════════ -->
+<div class="page last-page">
+  <div class="sidebar">
+    <span class="sidebar-label">Next Step</span>
+  </div>
+  <div class="content" style="justify-content: center;">
+
+    <div class="cta-big">30</div>
+    <span class="label" style="margin-bottom: 3mm;">One Conversation</span>
+    <h2 style="font-size: 36px; margin-bottom: 6mm;">A 30-minute call<br>to agree on the<br>partnership<br><em>before July 5.</em></h2>
+
+    <p style="max-width: 115mm;">The price increase is confirmed. The inventory is fixed. The frameworks and scripts are built. What remains is one decision: whether OLC stays embedded to close this out, and how to structure it.</p>
+
+    <p style="color: var(--text-muted); font-size: 12px; margin-top: 1mm;">No preparation needed. One conversation. One decision.</p>
+
+    <div class="cta-btns">
+      <a class="cta-btn cta-btn-primary" href="mailto:hello@olcmethod.com?subject=Lets%20do%20it">Let's start now 🚀</a>
+      <a class="cta-btn cta-btn-secondary" href="https://calendar.app.google/sm8pq2KUEA8QoaNP6">Book 30 minutes</a>
+    </div>
+
+    <hr style="margin-top: 10mm;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 4mm;">
+      <div>
+        <div style="font-family: var(--font-d); font-size: 16px; color: var(--dark);">Matthieu Jammers</div>
+        <div style="font-size: 10px; color: var(--text-muted); margin-top: 1.5mm;">OLC Method</div>
+        <div style="font-size: 10px; color: var(--accent); margin-top: 1mm; letter-spacing: 0.02em;">hello@olcmethod.com</div>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-family: var(--font-d); font-size: 13px; color: var(--text-muted); font-style: italic;">Offer, Leads, Close</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

@@ -230,7 +230,7 @@ The name is the model. When a developer signs with OLC Method, they get all thre
 ## Internal Notes
 
 - The selection process is a feature, not a filter. "We only work with projects we've validated" signals quality to the developer.
-- Never discount the fee or commission. If a developer pushes back on price, add value to the stack instead.
+- Never discount the fee or commission. If a developer pushes back on price, add value to the stack instead. Same rule applies to a repeat developer's next project, no discount for returning, the value-add there is a faster, sharper Setup phase (see `strategy.md` Repeat Partner Engine and `offer-builder`'s Phase 0), not a lower price.
 - The guarantee is only as strong as the conditions attached to it. Developer obligations must be clear in the contract before the 90-day clock starts.
 - Offer fatigue is real. The wrapper (name, copy, marketing angle) can be refreshed every 3-6 months without changing the actual service.
 - Target minimum: $2M total inventory. Anything smaller compresses the margin too much for a 6-month commitment.

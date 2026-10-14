@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Follow-Up, The Full Call & Tower 1 Positioning: Session 4 | The Sanctuary by Nirvana Health Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand:       #13b07d;
+    --brand-mid:   rgba(19, 176, 125, 0.12);
+    --brand-light: rgba(19, 176, 125, 0.07);
+    --accent:      #c4884a;
+    --accent-light: rgba(196, 136, 74, 0.10);
+    --text:        #0d0d0d;
+    --text-muted:  #4a4a4a;
+    --text-light:  #9a9a9a;
+    --border:      #e2e2e2;
+    --border-mid:  #d0d0d0;
+    --surface:     #f9f9f7;
+    --white:       #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: #d8d8d4; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--white);
+    margin: 0 auto 8mm;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.10);
+    overflow: hidden;
+  }
+
+  .page-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 8mm 16mm 0;
+    overflow: hidden;
+  }
+
+  @page { size: 210mm 297mm; margin: 0; }
+  @media print {
+    html { background: white; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+      height: 297mm;
+      overflow: hidden;
+      max-height: 297mm;
+    }
+  }
+
+  .serif { font-family: 'DM Serif Display', Georgia, serif; }
+
+  .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 1.5mm;
+  }
+
+  .rule { height: 1px; background: var(--border); width: 100%; margin: 3mm 0; }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 3mm;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4.5mm;
+    flex-shrink: 0;
+  }
+  .page-header-title { font-size: 11px; font-weight: 500; color: var(--text-muted); }
+  .page-header-tag { font-size: 11px; font-weight: 600; color: var(--brand); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .page-footer {
+    padding: 3mm 16mm;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .page-footer-text { font-size: 10px; color: var(--text-light); }
+
+  .step-header { display: flex; align-items: flex-start; gap: 3mm; margin-bottom: 3mm; flex-shrink: 0; }
+  .step-number {
+    width: 6.5mm; height: 6.5mm; border-radius: 50%;
+    background: var(--brand); color: white;
+    font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1mm;
+  }
+  .step-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 17px; line-height: 1.15; }
+  .step-time { font-size: 11px; color: var(--text-light); margin-top: 1mm; }
+
+  .write-box {
+    border: 1px dashed var(--border-mid);
+    border-radius: 2px;
+    background: var(--surface);
+    padding: 2.5mm 3mm;
+    width: 100%;
+  }
+  textarea.write-box {
+    resize: none;
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 12px;
+    color: var(--text);
+    outline: none;
+    display: block;
+    overflow-y: auto;
+    line-height: 1.5;
+  }
+  textarea.write-box:focus {
+    border-color: var(--brand);
+    background: var(--white);
+  }
+
+  .callout {
+    background: var(--brand-light);
+    border-left: 3px solid var(--brand);
+    padding: 2.5mm 4mm;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout p { font-size: 12px; color: var(--text); line-height: 1.45; }
+  .callout-accent {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 2.5mm 4mm;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout-accent p { font-size: 12px; color: var(--text); line-height: 1.45; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: var(--brand-mid);
+    color: var(--text); font-weight: 600;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 2.5mm 3mm; text-align: left;
+    border-bottom: 1.5px solid var(--brand);
+  }
+  td {
+    padding: 2mm 3mm;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    font-size: 12px; line-height: 1.4; color: var(--text);
+  }
+  tr:last-child td { border-bottom: none; }
+
+  .rule-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 3.5mm;
+    padding: 3mm 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .rule-block:last-child { border-bottom: none; }
+  .rule-num {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 22px;
+    color: var(--brand);
+    line-height: 1;
+    min-width: 7mm;
+    flex-shrink: 0;
+    margin-top: 0.5mm;
+  }
+  .rule-text { font-size: 13px; line-height: 1.5; color: var(--text); font-weight: 400; }
+  .rule-note { font-size: 11px; color: var(--text-muted); margin-top: 1mm; font-style: italic; }
+
+  .formula {
+    background: var(--surface);
+    border: 1px solid var(--border-mid);
+    border-radius: 3px;
+    padding: 3mm 4mm;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 3mm;
+  }
+  .formula span { color: var(--brand); font-style: italic; }
+
+  .msg-card {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 2.5mm;
+  }
+  .msg-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5mm 3.5mm;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .msg-title { font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text); }
+  .msg-body { padding: 2mm 3.5mm; }
+  .msg-body p { font-family: 'DM Serif Display', Georgia, serif; font-style: italic; font-size: 12.5px; color: var(--text); line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page">
+
+  <div style="height:2mm; background: var(--brand); flex-shrink:0;"></div>
+
+  <div style="flex:1; display:flex; flex-direction:column; padding:14mm 16mm 0;">
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+      <div class="label" style="color:var(--brand); letter-spacing:0.15em;">The Sanctuary by Nirvana Health Club</div>
+      <div class="label">Sales Training · Session 4 of 5</div>
+    </div>
+
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5mm;">
+      <p style="font-family:'DM Serif Display',Georgia,serif; font-size:12.5px; font-style:italic; color:var(--text-muted); line-height:1.6; text-align:center; max-width:140mm; margin:0;">
+        "Never just checking in. Always bring something."
+      </p>
+    </div>
+
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-top:4mm;">
+      <div style="font-size:11px; font-weight:500; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3mm;">Session 4</div>
+      <div class="serif" style="font-size:32px; line-height:1.15; color:var(--text); margin-bottom:4mm;">Follow-Up, The Full Call<br>&amp; Tower 1 Positioning</div>
+      <div style="width:12mm; height:1.5px; background:var(--brand); margin-bottom:5mm;"></div>
+      <div style="font-size:14px; color:var(--text-muted); line-height:1.6; max-width:120mm;">
+        A quick plain-language recap of Sessions 1-3, then three short lessons &mdash; each one ending in a live practice of exactly what we just covered.
+      </div>
+    </div>
+
+  </div>
+
+  <div style="padding:3mm 16mm; border-top:1px solid var(--border); flex-shrink:0; display:grid; grid-template-columns:1fr 1fr 1fr; gap:4mm;">
+    <div>
+      <div class="label" style="margin-bottom:1mm;">Date</div>
+      <div style="font-size:13px; font-weight:500;">Tuesday, July 14, 2026</div>
+    </div>
+    <div>
+      <div class="label" style="margin-bottom:1mm;">Time</div>
+      <div style="font-size:13px; font-weight:500;">3:00 to 5:00 PM</div>
+    </div>
+    <div>
+      <div class="label" style="margin-bottom:1mm;">Facilitator</div>
+      <div style="font-size:13px; font-weight:500;">Matthieu Jammers</div>
+    </div>
+  </div>
+
+  <div style="height:1mm; background: linear-gradient(to right, var(--brand), var(--accent)); flex-shrink:0;"></div>
+
+</div>
+
+
+<!-- PAGE 2: RECAP OF SESSIONS 1-3 -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 4: Follow-Up, The Full Call &amp; Tower 1</div>
+      <div class="page-header-tag">Recap &middot; No Practice Yet</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="width:7mm;height:7mm;font-size:13px;">&middot;</div>
+      <div>
+        <div class="step-title">What Mattered From Sessions 1-3</div>
+        <div class="step-time">10 minutes &middot; read together, no exercise on this page</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-bottom:3mm;">
+      <p>This is a refresher, not a test. Practice starts in the next section, on things we're about to cover today &mdash; nothing here gets rehearsed cold.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">Session 1 &mdash; What We're Selling</div>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:1.5mm;">Three buyer types, one thing each really wants: <strong>Pure Investor</strong> &mdash; money working without me (like the Singapore buyer who signed once the income pool math clicked). <strong>Lifestyle Investor</strong> &mdash; a life split between home and Bali, the property pays for itself (like the buyer who realized she already spends $8K/year on Bali stays). <strong>Nirvana Member</strong> &mdash; I own a piece of this (like the member who said "I'm already home here, I just don't own any of it").</p>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:1.5mm;">The one-sentence offer: <em>"Guaranteed minimum 10% ROI without the nightmare of daily management, even if you've never invested in Bali before."</em></p>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:1.5mm;">They don't hesitate on price &mdash; they hesitate on "is this real?" Proof beats persuasion: 18 of 32 units sold, construction 5 weeks ahead of schedule.</p>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:3mm;">There's already a prepared answer for the big objections &mdash; "is the ROI real?" gets 10% guaranteed in writing plus 18/32 already sold; "what about delays?" gets monthly construction videos, top floor already 5 weeks ahead.</p>
+
+    <div class="section-label" style="margin-bottom:1mm;">Session 2 &mdash; Ask Before You Pitch</div>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:1.5mm;">First contact is for getting a reply, not a pitch. The 3 discovery questions, word for word: <em>"This year, or more of a 2027 thing for you?"</em> / <em>"Investment, or do you see yourself using it as a base?"</em> / <em>"Looking at other options, or is this your main focus?"</em></p>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:1.5mm;">Every buyer has a stated reason and a real one &mdash; the real one is usually status: who they become by owning this. The Pure Investor is buying proof they make bold, unconventional moves (like the Singapore buyer). The Nirvana Member is buying belonging to something rare (like the member who didn't want to just visit anymore).</p>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:3mm;">One question per WhatsApp message, never all three at once. Mention urgency &mdash; 14 units left, price increase in July &mdash; at every stage, not just at close.</p>
+
+    <div class="section-label" style="margin-bottom:1mm;">Session 3 &mdash; Closing the Conversation</div>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:1.5mm;">One line does the heavy lifting:</p>
+    <div class="formula" style="font-size:12px; margin-bottom:2mm;">
+      "The Sanctuary is the only wellness real estate exit in Bali that generates income while you own it, in a project that will never be replicated <span>&mdash; with 14 units left.</span>"
+    </div>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:1.5mm;">Say it in your own words. Tell a story before the numbers &mdash; the Singapore investor story is the one that already works. When they hesitate, find out what's really behind it, then match a story, don't argue with data.</p>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-bottom:1.5mm;"><strong>Whatever the objection turns out to be, bring it back to the value stack from Session 1</strong> &mdash; the guarantee, the proof points, the offer already built for exactly this. "It's too expensive" isn't really about affordability &mdash; reframe it: <em>"How much do you already spend per year on Bali stays and memberships? At The Sanctuary, that spend becomes ownership."</em></p>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.5;">State urgency once &mdash; repeating it turns a fact into pressure. And it never ends without a date, a time, and a reason.</p>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Training 2026</div>
+    <div class="page-footer-text">2 / 7</div>
+  </div>
+</div>
+
+
+<!-- PAGE 3: FOLLOW-UP MESSAGE -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 4: Follow-Up, The Full Call &amp; Tower 1</div>
+      <div class="page-header-tag">Lesson 1 &middot; Getting Back to Leads</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <div>
+        <div class="step-title">Follow-Up Message</div>
+        <div class="step-time">30 minutes &middot; teach, then practice below</div>
+      </div>
+    </div>
+
+    <div class="callout-accent" style="margin-bottom:2.5mm;">
+      <p><strong>74</strong> leads in HubSpot had a meeting, showed interest, and went quiet. Most weren't uninterested &mdash; they were un-followed-up.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">The Goal</div>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.45; margin-bottom:2.5mm;">The goal isn't just to get a reply &mdash; it's to earn one. That means giving before you ask, the same "give before ask" rule from Session 2. "Just checking in" fails because it skips straight to asking with nothing given first.</p>
+
+    <div class="section-label" style="margin-bottom:1mm;">The Structure: Give &rarr; Tease &rarr; Ask</div>
+    <div class="grid-2" style="grid-template-columns:1fr 1fr 1fr; margin-bottom:2.5mm;">
+      <div style="border:1px solid var(--border); border-radius:3px; padding:2mm;">
+        <div style="font-size:10px; font-weight:600; color:var(--brand); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Give</div>
+        <p style="font-size:10.5px; color:var(--text-muted); line-height:1.35;">A real update or fact &mdash; construction progress, units sold, a price change</p>
+      </div>
+      <div style="border:1px solid var(--border); border-radius:3px; padding:2mm;">
+        <div style="font-size:10px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Tease</div>
+        <p style="font-size:10.5px; color:var(--text-muted); line-height:1.35;">Let urgency show through what you gave &mdash; what they'd miss if they wait</p>
+      </div>
+      <div style="border:1px solid var(--border); border-radius:3px; padding:2mm;">
+        <div style="font-size:10px; font-weight:600; color:#b8433a; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Ask</div>
+        <p style="font-size:10.5px; color:var(--text-muted); line-height:1.35;">One clear, specific, low-friction question</p>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">Example Messages</div>
+
+    <div style="margin-bottom:2mm;">
+      <div style="font-size:9.5px; font-weight:600; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5mm;">General lead, post-meeting &mdash; annotated</div>
+      <p style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11px; color:var(--text); line-height:1.5;">"Hi [name], it's been a bit since we last spoke. <span style="font-family:'DM Sans',sans-serif; font-style:normal; font-size:8.5px; font-weight:700; color:var(--brand); letter-spacing:0.04em;">[GIVE]</span> We're down to 14 units left, with a price increase in July. <span style="font-family:'DM Sans',sans-serif; font-style:normal; font-size:8.5px; font-weight:700; color:var(--accent); letter-spacing:0.04em;">[TEASE]</span> Are you still weighing this up for this year? <span style="font-family:'DM Sans',sans-serif; font-style:normal; font-size:8.5px; font-weight:700; color:#b8433a; letter-spacing:0.04em;">[ASK]</span>"</p>
+    </div>
+
+    <div style="margin-bottom:2mm;">
+      <div style="font-size:9.5px; font-weight:600; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5mm;">Went quiet after a site visit</div>
+      <p style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11px; color:var(--text); line-height:1.4;">"Hi [name], hope all's well since your visit. A few units have sold since &mdash; we're down to 14. Anything I can send to help you decide?"</p>
+    </div>
+
+    <div style="margin-bottom:2.5mm;">
+      <div style="font-size:9.5px; font-weight:600; color:var(--text-light); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5mm;">Existing member, never approached</div>
+      <p style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11px; color:var(--text); line-height:1.4;">"Hi [name], did you know there are only 14 suites left inside the club? A few members have already made the move to own. Worth a quick chat?"</p>
+    </div>
+
+    <div class="callout-accent" style="margin-bottom:2.5mm;">
+      <div style="font-size:10px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Magic urgency line</div>
+      <p style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:12px; color:var(--text);">"Have you given up on making this happen for you?"</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">When to Use It &mdash; The Cadence</div>
+    <table style="margin-bottom:2.5mm;">
+      <tr><th>When</th><th>What</th></tr>
+      <tr><td>Same day</td><td>Reason-based message tied to the missed commitment, not a generic check-in</td></tr>
+      <tr><td>+2 days</td><td>Second attempt, still specific, still one clear ask</td></tr>
+      <tr><td>+5 days</td><td>Final personal attempt before it reverts to the marketing team's automated sequence</td></tr>
+    </table>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">Practice: draft a reactivation message for one real cold lead, and rewrite one follow-up you currently owe using the rule above</div>
+    <textarea class="write-box" style="height:18mm;"></textarea>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Training 2026</div>
+    <div class="page-footer-text">3 / 7</div>
+  </div>
+</div>
+
+
+<!-- PAGE 4: THE FULL CALL - FRAME + LEAD CRITERIA -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 4: Follow-Up, The Full Call &amp; Tower 1</div>
+      <div class="page-header-tag">Lesson 2 &middot; The Full Call</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <div>
+        <div class="step-title">Call Framework</div>
+        <div class="step-time">45 minutes &middot; teach, then practice on the next page</div>
+      </div>
+    </div>
+
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.4; margin-bottom:2mm;">Everything from Sessions 1-3 and today's follow-up rule, put into one call you can actually follow, top to bottom.</p>
+
+    <div class="callout-accent" style="margin-bottom:2.5mm;">
+      <p><strong>Magic sentence, before F:</strong> always open by asking permission &mdash; <em>"Is this a bad time for you?"</em> Getting them to answer gives them the feeling of control, and answering at all is already their first small yes.</p>
+    </div>
+
+    <table style="margin-bottom:3mm;">
+      <tr><th>Step</th><th>What it means</th><th>Sanctuary example</th></tr>
+      <tr>
+        <td><strong>F<br>Frame</strong></td>
+        <td>Set expectations up front</td>
+        <td style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11px;">"Today I'll walk you through The Sanctuary and answer what's on your mind about the 14 units left."</td>
+      </tr>
+      <tr>
+        <td><strong>R<br>Read</strong></td>
+        <td>Assume, don't ask &mdash; guess their situation instead of a question list</td>
+        <td style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11px;">"Sounds like this is mainly a long-term investment for you, not somewhere you'd actually stay &mdash; fair?"</td>
+      </tr>
+      <tr>
+        <td><strong>A<br>Admit</strong></td>
+        <td>Get them to say the real problem, before you pitch</td>
+        <td style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11px;">"So the real question is whether the 10% guarantee actually holds up &mdash; is that what's stopping you?"</td>
+      </tr>
+      <tr>
+        <td><strong>M<br>Match</strong></td>
+        <td>Your solution &mdash; the value and story that fits</td>
+        <td style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11px;">"That's why it's guaranteed in writing for 2 years, and 18 of 32 units are already sold."</td>
+      </tr>
+      <tr>
+        <td><strong>E<br>Engage</strong></td>
+        <td>Would they do it, if it adds up? This is the ask</td>
+        <td style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11px;">"If that feels solid, is this something you'd move on this year?"</td>
+      </tr>
+    </table>
+
+    <div class="callout" style="margin-bottom:3mm;">
+      <p><strong>Two things that always sit around Engage:</strong> if they hesitate here, that's the moment for Session 3's objection tools &mdash; figure out what's really behind it, respond with the story that fits. And however Engage goes, the call doesn't end without a next step: a date, a time, a reason. Non-negotiable.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">The Practice: Role-Play, or a Real Lead</div>
+    <p style="font-size:11.5px; color:var(--text-muted); line-height:1.4; margin-bottom:2mm;">By default, Matthieu plays the example lead on the next page &mdash; a live role-play, not a narration. If you'd rather use a real lead of your own instead, it needs to meet these three conditions:</p>
+    <div style="flex:1;">
+      <div class="rule-block">
+        <div class="rule-num" style="font-size:16px;">1</div>
+        <div class="rule-text" style="font-size:12px;">Someone you've already spoken with at least once &mdash; not a cold, unknown contact.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num" style="font-size:16px;">2</div>
+        <div class="rule-text" style="font-size:12px;">You can say, off the top of your head: their timeline, what they care about most, and anything that sounded like hesitation.</div>
+      </div>
+      <div class="rule-block" style="border-bottom:none;">
+        <div class="rule-num" style="font-size:16px;">3</div>
+        <div class="rule-text" style="font-size:12px;">No perfect match? Pick the closest lead and say out loud where the gaps are &mdash; that's useful information too.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Training 2026</div>
+    <div class="page-footer-text">4 / 7</div>
+  </div>
+</div>
+
+
+<!-- PAGE 5: THE FULL CALL - ROLE-PLAY -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 4: Follow-Up, The Full Call &amp; Tower 1</div>
+      <div class="page-header-tag">Lesson 2 &middot; Practice</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="width:7mm;height:7mm;font-size:13px;">&middot;</div>
+      <div>
+        <div class="step-title">One Full Call, Start to Finish</div>
+        <div class="step-time">Susi models it first, then Natasha</div>
+      </div>
+    </div>
+
+    <p style="font-size:12px; color:var(--text-muted); line-height:1.5; margin-bottom:2.5mm;">Matthieu plays the lead below on a live call. Run the Full Call using FRAME, responding to whatever he actually says &mdash; this is a role-play, not a narration.</p>
+
+    <div class="callout-accent" style="margin-bottom:3mm;">
+      <div style="font-size:10px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">The Lead You're Calling &mdash; "David"</div>
+      <p style="font-size:12px; color:var(--text); line-height:1.5;">Met at the Nirvana gym three weeks ago. Timeline: deciding this year. Pure Investor &mdash; cares about capital efficiency, wants zero hands-on management. What he's said before: <em>"The 10% guarantee sounds good, but I've heard promises like that before."</em></p>
+    </div>
+
+    <p style="font-size:12px; color:var(--text-muted); line-height:1.5; margin-bottom:2mm;">Name each step out loud as you hit it: Frame &rarr; Read &rarr; Admit &rarr; Match &rarr; Engage &rarr; (objection if it comes up) &rarr; next step. If Natasha freezes anywhere, stop, sit with it, try again &mdash; don't supply the answer.</p>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">Where did it get stuck, if anywhere? Note it for Session 5.</div>
+    <textarea class="write-box" style="height:24mm;"></textarea>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Training 2026</div>
+    <div class="page-footer-text">5 / 7</div>
+  </div>
+</div>
+
+
+<!-- PAGE 6: TOWER 1 - PROFILES, VALUE STACK, URGENCY, WHAT TO AVOID -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 4: Follow-Up, The Full Call &amp; Tower 1</div>
+      <div class="page-header-tag">Lesson 3 &middot; Tower 1 Positioning</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number">3</div>
+      <div>
+        <div class="step-title">Not "Tower 2 Minus the Sauna"</div>
+        <div class="step-time">30 minutes &middot; teach, then practice on the next page</div>
+      </div>
+    </div>
+
+    <p style="font-size:11px; color:var(--text-muted); line-height:1.4; margin-bottom:2mm;">Tower 1 ground floor keeps getting sold as the discount version of Tower 2. Fix: a different offer for a different buyer &mdash; not a worse version of Tower 2.</p>
+
+    <div class="grid-2" style="margin-bottom:2.5mm;">
+      <div style="border:1px solid var(--border); border-radius:3px; padding:2mm;">
+        <div style="font-size:10px; font-weight:600; color:var(--brand); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Pure Investor</div>
+        <p style="font-size:10.5px; color:var(--text-muted); line-height:1.35; margin-bottom:1.5mm;">Doesn't care about private amenities. Cares about capital efficiency.</p>
+        <p style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11px; color:var(--text); line-height:1.4;">"$179K for the exact same ROI percentage as a $259K unit &mdash; same pool, same guarantee, same management."</p>
+      </div>
+      <div style="border:1px solid var(--border); border-radius:3px; padding:2mm;">
+        <div style="font-size:10px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1mm;">Lifestyle Investor</div>
+        <p style="font-size:10.5px; color:var(--text-muted); line-height:1.35; margin-bottom:1.5mm;">Already part of the community. Wants to be physically embedded in it.</p>
+        <p style="font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:11px; color:var(--text); line-height:1.4;">"Ground level means you wake up inside the facility. Tower 2 has the view. Tower 1 has the life."</p>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">What Tower 1 Buyers Get</div>
+    <div style="margin-bottom:2mm;">
+      <div class="rule-block" style="padding:1.5mm 0;">
+        <div class="rule-num" style="font-size:13px;">1</div>
+        <div class="rule-text" style="font-size:11px;"><strong>3-year ROI guarantee</strong> instead of 2 (pending Toby's sign-off).</div>
+      </div>
+      <div class="rule-block" style="padding:1.5mm 0;">
+        <div class="rule-num" style="font-size:13px;">2</div>
+        <div class="rule-text" style="font-size:11px;"><strong>Priority booking</strong> &mdash; first pick on the 28 personal-use days.</div>
+      </div>
+      <div class="rule-block" style="padding:1.5mm 0;">
+        <div class="rule-num" style="font-size:13px;">3</div>
+        <div class="rule-text" style="font-size:11px;"><strong>Founding Investor recognition</strong> (pending Toby's sign-off).</div>
+      </div>
+      <div class="rule-block" style="padding:1.5mm 0; border-bottom:none;">
+        <div class="rule-num" style="font-size:13px;">4</div>
+        <div class="rule-text" style="font-size:11px;"><strong>Monthly construction update</strong> &mdash; costs nothing, builds trust.</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">Urgency, Reframed</div>
+    <div class="callout" style="margin-bottom:2.5mm;">
+      <p>Not "still available" &mdash; the last remaining inventory in this development, ever. Tower 2 is gone. Once these 14 are gone, there's no future phase at any price.</p>
+    </div>
+
+    <div class="section-label" style="margin-bottom:1mm;">What to Avoid</div>
+    <p style="font-size:11px; color:var(--text-muted); line-height:1.45;">Never compare Tower 1 and Tower 2 in the same sentence. Don't lead with square meters or floor level &mdash; lead with the buyer type. Don't discount. Don't apologize &mdash; the missing sauna is "you're not paying for amenities you don't need," not a gap.</p>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Training 2026</div>
+    <div class="page-footer-text">6 / 7</div>
+  </div>
+</div>
+
+
+<!-- PAGE 7: TOWER 1 - PRACTICE -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="page-header">
+      <div class="page-header-title">Session 4: Follow-Up, The Full Call &amp; Tower 1</div>
+      <div class="page-header-tag">Practice</div>
+    </div>
+
+    <div class="step-header">
+      <div class="step-number" style="width:7mm;height:7mm;font-size:13px;">&middot;</div>
+      <div>
+        <div class="step-title">Match the Buyer, Then Pitch It</div>
+        <div class="step-time">Role-play, end of this lesson</div>
+      </div>
+    </div>
+
+    <p style="font-size:12.5px; color:var(--text-muted); line-height:1.6; margin-bottom:3mm;">Given a lead's answer from Read/Match, identify which buyer type it signals &mdash; Pure Investor or Lifestyle Investor &mdash; then pitch the matching Tower 1 version, ending on the urgency line.</p>
+
+    <div class="section-label" style="margin-bottom:1mm;">Recommended closing line to end on (Pure Investor example)</div>
+    <div class="formula" style="font-size:13px; margin-bottom:3mm;">
+      "That's $80K you keep working for you elsewhere. And these are the last units in the development <span>&mdash; once they're gone, this is closed.</span> When are you looking to make a decision?"
+    </div>
+
+    <div class="section-label" style="margin-bottom:1.5mm;">Write your own version, in your own words, for a real lead you're currently working</div>
+    <textarea class="write-box" style="height:16mm; margin-bottom:2.5mm;" placeholder="Which buyer type does this lead match, and why?"></textarea>
+    <textarea class="write-box" style="height:20mm;" placeholder="Your Tower 1 pitch, start to finish, ending on the urgency close."></textarea>
+
+  </div>
+  <div class="page-footer">
+    <div class="page-footer-text">The Sanctuary by Nirvana Health Club &middot; Sales Training 2026</div>
+    <div class="page-footer-text">7 / 7</div>
+  </div>
+</div>
+
+</body>
+</html>

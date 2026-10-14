@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanctuary — Individual Unit Revenue Model</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,500&display=swap');
+
+    :root {
+      --blue:   #1A6FC4;
+      --red:    #D93025;
+      --green:  #1E7A40;
+      --border: #d4d4d4;
+      --text:   #111;
+      --muted:  #555;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fff;
+      color: var(--text);
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 15mm 18mm 14mm;
+      font-size: 11.5px;
+    }
+
+    /* ── Logo ── */
+    .header {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: 14px;
+      text-transform: uppercase;
+      color: #000;
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-size: 7.5px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #666;
+      margin-top: 6px;
+      font-weight: 400;
+    }
+
+    /* ── Doc title ── */
+    .doc-title {
+      font-size: 13px;
+      font-weight: 600;
+      font-style: italic;
+      margin-bottom: 14px;
+      color: #000;
+    }
+
+    /* ── Main card ── */
+    .card {
+      border: 1px solid var(--border);
+      padding: 22px 24px 18px;
+    }
+
+    /* ── Key-value rows ── */
+    .kv {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 5px 0;
+    }
+
+    .kv .label { color: var(--text); font-size: 11.5px; }
+
+    .kv .value {
+      font-weight: 600;
+      font-size: 11.5px;
+      color: var(--text);
+    }
+
+    .kv .value.blue  { color: var(--blue); }
+    .kv .value.big   { font-size: 16px; }
+
+    /* ── Divider ── */
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 11px 0;
+    }
+
+    /* ── Seasonal table ── */
+    .season-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 13px 0 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5px;
+      margin-bottom: 6px;
+    }
+
+    thead th {
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      background: #222;
+      padding: 6px 9px;
+      text-align: left;
+    }
+
+    thead th:not(:first-child) { text-align: right; }
+
+    tbody td {
+      padding: 6.5px 9px;
+      border-bottom: 1px solid #ececec;
+      color: #444;
+    }
+
+    tbody td:not(:first-child) { text-align: right; }
+
+    tbody tr.total td {
+      font-weight: 700;
+      color: #111;
+      background: #f4f4f4;
+      border-top: 1.5px solid #333;
+      border-bottom: none;
+    }
+
+    /* ── Expenses ── */
+    .exp-header {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--red);
+      margin-bottom: 7px;
+    }
+
+    .exp-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ── Net income ── */
+    .net-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 4px 0;
+    }
+
+    .net-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .net-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    /* ── ROI ── */
+    .roi-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 4px 0;
+    }
+
+    .roi-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .roi-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    /* ── Disclaimer ── */
+    .disclaimer {
+      margin-top: 16px;
+      font-size: 8.5px;
+      color: #aaa;
+      font-style: italic;
+    }
+
+    @media print {
+      body { padding: 12mm 16mm; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">Sanctuary</div>
+    <div class="logo-sub">Hotel Suites by Nirvana Life</div>
+  </div>
+
+  <div class="doc-title">Individual Unit Revenue Model</div>
+
+  <div class="card">
+
+    <!-- Unit details -->
+    <div class="kv">
+      <span class="label">Room</span>
+      <span class="value blue big">2103</span>
+    </div>
+    <div class="kv">
+      <span class="label">Investment</span>
+      <span class="value big">$190,999</span>
+    </div>
+    <div class="kv">
+      <span class="label">Pool Share</span>
+      <span class="value blue big">2.80%</span>
+    </div>
+
+    <hr>
+
+    <!-- Seasonal breakdown -->
+    <div class="season-label">Seasonal Rate Breakdown</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Season</th>
+          <th>Days</th>
+          <th>Nightly Rate</th>
+          <th>Occupancy</th>
+          <th>Nights Sold</th>
+          <th>Revenue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Peak Season</strong></td>
+          <td>30</td>
+          <td>$200</td>
+          <td>100%</td>
+          <td>30</td>
+          <td><strong>$6,000</strong></td>
+        </tr>
+        <tr>
+          <td>High Season</td>
+          <td>90</td>
+          <td>$172</td>
+          <td>85%</td>
+          <td>76.5</td>
+          <td><strong>$13,158</strong></td>
+        </tr>
+        <tr>
+          <td>Low Season</td>
+          <td>245</td>
+          <td>$155</td>
+          <td>70%</td>
+          <td>171.5</td>
+          <td><strong>$26,583</strong></td>
+        </tr>
+        <tr class="total">
+          <td>Full Year</td>
+          <td>365</td>
+          <td>$165 avg</td>
+          <td>76.2% avg</td>
+          <td>278</td>
+          <td>$45,741</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <!-- Gross revenue -->
+    <div class="kv">
+      <span class="label">Annual Gross Revenue</span>
+      <span class="value big">$45,741</span>
+    </div>
+
+    <hr>
+
+    <!-- Expenses -->
+    <div class="exp-header">Expenses Breakdown (40%)</div>
+
+    <div class="exp-row"><span>Management (20%)</span><span>$9,148</span></div>
+    <div class="exp-row"><span>Operating (10%)</span><span>$4,574</span></div>
+    <div class="exp-row"><span>Booking (5%)</span><span>$2,287</span></div>
+    <div class="exp-row"><span>Sinking Fund (3%)</span><span>$1,372</span></div>
+    <div class="exp-row"><span>Marketing (2%)</span><span>$915</span></div>
+
+    <hr>
+
+    <!-- Net income -->
+    <div class="net-row">
+      <span class="net-label">Owner Annual Income (60%)</span>
+      <span class="net-value">$27,445</span>
+    </div>
+
+    <hr>
+
+    <!-- ROI -->
+    <div class="roi-row">
+      <span class="roi-label">ROI</span>
+      <span class="roi-value">14.37%</span>
+    </div>
+
+  </div>
+
+  <div class="disclaimer">*This computation serves as a simulation only</div>
+
+</body>
+</html>

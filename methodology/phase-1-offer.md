@@ -15,7 +15,7 @@ Design the value-driven offer and build everything OLC needs to operate as the d
 ## Skills to run during this phase
 
 - **`brand-foundation`** — conversational session that produces the brand foundation document (run before offer design)
-- **`offer-builder`** — conversational session that produces the Grand Slam Offer document (run after brand foundation)
+- **`offer-builder`** — conversational session that produces the Grand Slam Offer document (run after brand foundation). Starts with a repeat-partner check (`offer-builder`'s Phase 0), if the developer has closed a project with OLC before, pull forward their prior Phase 4 output and Lead Intelligence Report instead of rebuilding brand foundation and ICP from zero.
 
 ---
 
@@ -149,6 +149,7 @@ The playbook governs every sales conversation from first touch to close. Include
 - **Closing language** — committed next step formula; acceptable next steps defined
 - **Objection handling** — mapped to the risk-removal section from the offer (1C); every fear has a prepared response
 - **Outreach sequences** — initial contact → qualification → viewing → post-viewing → follow-up → close, across all active channels
+- **Referral ask** — built into the playbook from day one, not bolted on after close. Ask fires at the moment of purchase (`phase-3-close.md` Step 7); ask WHO not IF.
 
 *First completed playbook: `Sales-Training/Nirvana/training-structure.md`*
 *Sequence examples: `Sales-Training/Nirvana/follow-up-sequences-rewrite.md`*
@@ -209,7 +210,7 @@ Stories are 60 seconds or less, third-grade language, told naturally — not rea
 - Existing brand assets (if any)
 - Access to key team members for interviews during brand foundation session
 
-**Duration:** 2–3 weeks
+**Duration:** 2–3 weeks for a new partner. For a repeat partner (see Phase 0 in `offer-builder`), expect shorter, brand foundation and ICP carry forward and only the genuinely new parts of the offer need rebuilding.
 
 ---
 

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OLC Method — [Document Title]</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────── */
+    :root {
+      --white:        #F9F8F4;
+      --off-white:    #EFEDE7;
+      --accent:       #4F6352;
+      --accent-lt:    #6B8470;
+      --accent-pale:  #EDF1EE;
+      --sand:         #C4A06A;
+      --sand-pale:    #F7F2EA;
+      --dark:         #0D100C;
+      --text:         #0F1510;
+      --text-dim:     #3D4D40;
+      --text-muted:   #9BA89E;
+      --border:       rgba(79,99,82,0.13);
+      --font-d:       'Cormorant', Georgia, serif;
+      --font-b:       'DM Sans', system-ui, sans-serif;
+      --sidebar-w:    54px;
+    }
+
+    /* ─── RESET ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #C8C6BF;
+      font-family: var(--font-b);
+      font-size: 14px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      color: var(--text-dim);
+    }
+
+    /* ─── A4 PAGE ────────────────────────────── */
+    @page { size: A4; margin: 0; }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 16px auto;
+      background: var(--white);
+      position: relative;
+      display: flex;
+      overflow: hidden;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.22);
+      page-break-after: always;
+    }
+    .last-page { page-break-after: auto; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; }
+    }
+
+    /* ─── SIDEBAR ────────────────────────────── */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: var(--accent);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .sidebar-label {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .sidebar-cover {
+      justify-content: space-between;
+      padding: 28mm 0;
+    }
+
+    .sidebar-cover .sidebar-top {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .sidebar-cover .sidebar-bottom {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    /* ─── CONTENT ────────────────────────────── */
+    .content {
+      flex: 1;
+      padding: 28mm 24mm 24mm 20mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── TYPE ───────────────────────────────── */
+    .label {
+      font-family: var(--font-b);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 5mm;
+    }
+
+    h1 {
+      font-family: var(--font-d);
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 1.08;
+      color: var(--dark);
+      margin-bottom: 6mm;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    h2 {
+      font-family: var(--font-d);
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.12;
+      color: var(--dark);
+      margin-bottom: 5mm;
+    }
+
+    h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    h3 {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 6mm;
+      margin-bottom: 2.5mm;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--text-dim);
+      margin-bottom: 3.5mm;
+    }
+
+    strong {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    em.green {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    /* ─── STATS ROW ──────────────────────────── */
+    .stats {
+      display: flex;
+      gap: 5mm;
+      margin: 8mm 0 6mm;
+    }
+
+    .stat {
+      flex: 1;
+      border-top: 1.5px solid var(--accent);
+      padding-top: 3mm;
+    }
+
+    .stat-num {
+      font-family: var(--font-d);
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1;
+      margin-bottom: 1.5mm;
+    }
+
+    .stat-sub {
+      font-family: var(--font-b);
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── MOVES ──────────────────────────────── */
+    .move {
+      border-top: 1px solid var(--border);
+      padding-top: 4mm;
+      margin-bottom: 4.5mm;
+    }
+
+    .move-head {
+      display: flex;
+      align-items: baseline;
+      gap: 3mm;
+      margin-bottom: 1.5mm;
+    }
+
+    .move-n {
+      font-family: var(--font-b);
+      font-size: 9px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    .move-title {
+      font-family: var(--font-d);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    .move p {
+      font-size: 12px;
+      line-height: 1.75;
+      color: var(--text-dim);
+      margin-bottom: 0;
+    }
+
+    /* ─── AVATAR HOOKS ───────────────────────── */
+    .avatar-hooks {
+      margin-top: 2.5mm;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5mm;
+    }
+
+    .hook-line {
+      display: flex;
+      gap: 2.5mm;
+      align-items: flex-start;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .hook-tag {
+      font-family: var(--font-b);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-pale);
+      padding: 1px 5px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .hook-copy {
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    /* ─── HIGHLIGHT ──────────────────────────── */
+    .highlight {
+      background: var(--accent-pale);
+      border-left: 2px solid var(--accent);
+      padding: 4mm 5mm;
+      margin: 4mm 0;
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: var(--text-dim);
+    }
+
+    .highlight strong {
+      color: var(--text);
+    }
+
+    /* ─── BELIEFS ────────────────────────────── */
+    .belief-list {
+      margin-top: 2mm;
+      display: flex;
+      flex-direction: column;
+      gap: 3mm;
+    }
+
+    .belief {
+      display: flex;
+      gap: 4mm;
+      align-items: flex-start;
+    }
+
+    .belief-n {
+      font-family: var(--font-d);
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--sand);
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: -1mm;
+    }
+
+    .belief-text {
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    .belief-title {
+      font-weight: 500;
+      color: var(--text);
+      display: block;
+      margin-bottom: 1mm;
+    }
+
+    .belief-answer {
+      color: var(--text-dim);
+    }
+
+    /* ─── MODEL BOX ──────────────────────────── */
+    .model-box {
+      border: 1.5px solid var(--accent);
+      padding: 7mm;
+      margin: 5mm 0;
+    }
+
+    .model-title {
+      font-family: var(--font-d);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 2mm;
+    }
+
+    .model-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 4mm;
+    }
+
+    .model-item {
+      display: flex;
+      gap: 3mm;
+      align-items: flex-start;
+      font-size: 12.5px;
+      line-height: 1.6;
+      margin-bottom: 2.5mm;
+    }
+
+    .model-item::before {
+      content: '·';
+      color: var(--sand);
+      font-size: 18px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: -1px;
+    }
+
+    /* ─── FRAMEWORKS ─────────────────────────── */
+    .fw-item {
+      display: flex;
+      gap: 4mm;
+      align-items: flex-start;
+      padding: 3.5mm 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fw-item:first-of-type {
+      border-top: 1px solid var(--border);
+    }
+
+    .fw-tag {
+      font-family: var(--font-b);
+      font-size: 7.5px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-pale);
+      padding: 2px 5px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .fw-body {
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    .fw-title {
+      font-family: var(--font-d);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      display: block;
+      margin-bottom: 1mm;
+    }
+
+    .fw-desc {
+      color: var(--text-dim);
+    }
+
+    /* ─── CTA BIG NUMBER ─────────────────────── */
+    .cta-big {
+      font-family: var(--font-d);
+      font-weight: 300;
+      font-size: 90px;
+      color: rgba(79,99,82,0.1);
+      line-height: 1;
+      margin-bottom: -14mm;
+      margin-left: -2mm;
+    }
+
+    /* ─── RULE ───────────────────────────────── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 5mm 0;
+    }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    .footer {
+      position: absolute;
+      bottom: 9mm;
+      left: calc(var(--sidebar-w) + 20mm);
+      right: 24mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-l {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .footer-r {
+      font-family: var(--font-d);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .spacer { flex: 1; }
+  </style>
+</head>
+<body>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 1 — COVER
+     Logos path from clients/[client]/Marketing/: ../../../website-v2/public/...
+     Logos path from company/ or assets/: ../website-v2/public/...
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar sidebar-cover">
+    <span class="sidebar-top">OLC Method</span>
+    <span class="sidebar-bottom">Confidential</span>
+  </div>
+  <div class="content" style="justify-content: space-between;">
+
+    <div>
+      <span class="label">[Client] — [Document Type]</span>
+      <h1>[Main<br><em>headline</em><br>here.]</h1>
+      <p style="max-width: 110mm; color: var(--text-dim);">[One or two sentence subtitle.]</p>
+    </div>
+
+    <div>
+      <!-- Logos: OLC vertical beige + client logo, centered -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: 9mm; margin-bottom: 7mm;">
+        <img src="../website-v2/public/OLC_beige_vertical.jpg" alt="OLC Method" style="height: 114px; object-fit: contain; opacity: 0.88;">
+        <div style="width: 1px; height: 80px; background: var(--border);"></div>
+        <img src="../website-v2/public/clients/[Client].png" alt="[Client]" style="height: 90px; object-fit: contain; opacity: 0.88;">
+      </div>
+
+      <!-- Stats row — use 3-4 stats -->
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">—</div>
+          <div class="stat-sub">Stat label</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">—</div>
+          <div class="stat-sub">Stat label</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">—</div>
+          <div class="stat-sub">Stat label</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">—</div>
+          <div class="stat-sub">Stat label</div>
+        </div>
+      </div>
+
+      <hr>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4mm;">
+        <div>
+          <div style="font-family: var(--font-d); font-size: 15px; color: var(--dark);">Matthieu Jammers</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 1mm;">OLC Method — hello@olcmethod.com</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 10px; color: var(--text-muted);">[Month Year]</div>
+          <div style="font-size: 10px; color: var(--text-muted);">Prepared for [Name] and the [Client] team</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 2 — INTERIOR PAGE (copy and rename for each page)
+═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sidebar">
+    <span class="sidebar-label">Section Name</span>
+  </div>
+  <div class="content">
+
+    <span class="label">Eyebrow Label</span>
+    <h2>Section heading<br><em>with italic accent.</em></h2>
+
+    <p>Body copy paragraph. Use <strong>strong</strong> for key terms.</p>
+
+    <!-- Highlight box -->
+    <div class="highlight">
+      <strong>Key point label:</strong> Supporting text goes here.
+    </div>
+
+    <!-- Sub-sections -->
+    <h3>Sub-section Title</h3>
+    <p>Body copy paragraph.</p>
+
+    <!-- Belief / objection list -->
+    <div class="belief-list">
+      <div class="belief">
+        <span class="belief-n">01</span>
+        <div class="belief-text">
+          <span class="belief-title">"Objection or false belief."</span>
+          <span class="belief-answer">The answer or reframe.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Numbered move list -->
+    <div class="move">
+      <div class="move-head">
+        <span class="move-n">01</span>
+        <span class="move-title">Move Title</span>
+      </div>
+      <p>Description text.</p>
+    </div>
+
+    <!-- Avatar hook lines -->
+    <div class="avatar-hooks">
+      <div class="hook-line">
+        <span class="hook-tag">Audience</span>
+        <span class="hook-copy">"Hook or message copy."</span>
+      </div>
+    </div>
+
+    <!-- Model / package box -->
+    <div class="model-box">
+      <div class="model-title">Package or Model Name</div>
+      <div class="model-sub">Tagline or pricing note</div>
+      <div class="model-item">Bullet point one</div>
+      <div class="model-item">Bullet point two</div>
+    </div>
+
+    <!-- Framework items -->
+    <div class="fw-item">
+      <span class="fw-tag">Category</span>
+      <div class="fw-body">
+        <span class="fw-title">Framework Name</span>
+        <span class="fw-desc">One or two sentences.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span class="footer-l">OLC Method × [Client] — Confidential</span>
+    <span class="footer-r">2</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     LAST PAGE — CTA / NEXT STEP
+═══════════════════════════════════════════════ -->
+<div class="page last-page">
+  <div class="sidebar">
+    <span class="sidebar-label">Next Step</span>
+  </div>
+  <div class="content" style="justify-content: center;">
+
+    <div class="cta-big">30</div>
+    <span class="label" style="margin-bottom: 3mm;">One Conversation</span>
+    <h2 style="font-size: 36px; margin-bottom: 6mm;">A 30-minute call<br>to align on<br><em>next steps.</em></h2>
+
+    <p style="max-width: 115mm;">[One or two sentence closing ask. Keep it simple: one decision, one date.]</p>
+
+    <p style="color: var(--text-muted); font-size: 12px; margin-top: 1mm;">No preparation needed. One conversation. One decision.</p>
+
+    <hr style="margin-top: 10mm;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 4mm;">
+      <div>
+        <div style="font-family: var(--font-d); font-size: 16px; color: var(--dark);">Matthieu Jammers</div>
+        <div style="font-size: 10px; color: var(--text-muted); margin-top: 1.5mm;">OLC Method</div>
+        <div style="font-size: 10px; color: var(--accent); margin-top: 1mm; letter-spacing: 0.02em;">hello@olcmethod.com</div>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-family: var(--font-d); font-size: 13px; color: var(--text-muted); font-style: italic;">Offer, Leads, Close</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>
